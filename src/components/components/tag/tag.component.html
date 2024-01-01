@@ -1,0 +1,7 @@
+<div
+  [matTooltip]="description ? (description | translate) : ''"
+  [matTooltipPosition]="'above'">
+  <div class="tag"
+       [ngClass]="{'tag_filled': filled}"
+  >{{title | translate}}</div>
+</div>

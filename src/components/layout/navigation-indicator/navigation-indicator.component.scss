@@ -1,0 +1,45 @@
+.navigator-indicator {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+
+  &__dot {
+    height: 32px;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &_active {
+      &::after {
+        //background-color: var(--color-text) !important;
+      }
+    }
+
+    &::after {
+      content: '';
+      display: inline-block;
+      padding: 4px;
+      border-radius: 50%;
+      background-color: var(--color-main);
+    }
+  }
+
+  &__selected-dot{
+    padding: 8px 4px 0 4px;
+    position: absolute;
+    left: 12px;
+    border-radius: 4px;
+    background-color:white;
+    transition: top ease-in-out 300ms, padding-top ease-in-out 300ms;
+    pointer-events: none;
+
+    &_additional {
+      opacity: 0;
+    }
+  }
+}

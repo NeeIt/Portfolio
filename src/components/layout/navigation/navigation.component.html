@@ -1,0 +1,62 @@
+<div class="navigation"
+     (click)="clickTableOverflow($event)"
+     [ngClass]="{'navigation_opened': isOpened, 'navigation_light': (lightMode$ | async) === 'light'}"
+>
+  <button
+    class="navigation__burger burger"
+    (click)="changeMenuState()"
+    [tabIndex]="(tabIndexes$ | async)?.BURGER_BUTTON"
+    [attr.aria-label]="(isOpened ? 'ACCESSIBILITY.BUTTONS.CLOSE_NAVIGATION' : 'ACCESSIBILITY.BUTTONS.OPEN_NAVIGATION') | translate"
+    [attr.aria-expanded]="isOpened"
+    aria-controls="navigation-list"
+    [ngClass]="{'burger_active': isOpened}">
+    <div>
+      <span></span>
+      <span></span>
+    </div>
+  </button>
+
+  <div class="navigation__background"></div>
+
+  <ul class="navigation__list list" *ngIf="(isDesktop$ | async) || isOpened" id="navigation-list">
+
+    <li *ngFor="let link of links; let isFirst = first, let isLast = last">
+      <a role="link"
+         class="link"
+         [attr.aria-label]="link.data.seoLocale+'.NAVIGATION' | translate"
+         (click)="closeNavigation()"
+         [tabIndex]="(tabIndexes$ | async)?.NAVIGATION"
+         *ngIf="(currentLang$ | async)?.iso2 as lang"
+         [routerLink]="(lang === defaultLang ? '' : (lang | lowercase)+'/')
+         + ((currentLinkData$ | async)?.isSubLink && (isFirst || isLast) ? '/'+link.path+'sub' : '/'+link.path)"
+         [routerLinkActive]="'link_active'"
+         [routerLinkActiveOptions]="link.path === '' ? {exact: true} : {exact: false}">
+        {{link.data.seoLocale+'.NAVIGATION' | translate}}
+      </a>
+    </li>
+
+    <li class="extra-point extra-point_lang">
+      <button (click)="openLanguageModal()"
+              [attr.aria-label]="'ACCESSIBILITY.BUTTONS.CHANGE_LANGUAGE' | translate"
+              *ngIf="{value: (currentLang$ | async)} as lang"
+              [tabIndex]="(tabIndexes$ | async)?.SETTINGS"
+              class="lang-item">
+        <img src="https://flagcdn.com/w20/{{lang.value?.iso2 | lowercase}}.png" alt="{{lang.value?.name}} flag"/>
+        <div class="lang-item__name">
+          {{'MODALS.LANGUAGE.TITLE' | translate}}
+          <span class="lang-item__native">
+            ({{lang.value?.native}})
+          </span>
+        </div>
+      </button>
+    </li>
+
+    <li class="extra-point extra-point_mode">
+      <app-light-mode-button [showText]="true"/>
+    </li>
+
+    <div class="navigation__copyright">© 2023-{{currentYear}} Vladislav Ushmankin</div>
+
+    <app-navigation-text-path class="list__text-path" aria-hidden="true"/>
+  </ul>
+</div>

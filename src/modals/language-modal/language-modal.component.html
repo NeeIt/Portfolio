@@ -1,0 +1,47 @@
+  <div class="language-modal modal modal_full">
+  <div class="language__header modal-header">
+
+    <button class="modal-header__back"
+            [attr.aria-label]="'ACCESSIBILITY.BUTTONS.BACK' | translate"
+            [tabindex]="(tabIndexValues$ | async)?.MODAL_NAVIGATION"
+            (click)="close()">
+      <mat-icon [svgIcon]="'back'"/>
+    </button>
+
+    <h2 class="modal-header__title"
+        appTranslateAnimation
+        [attr.aria-label]="'MODALS.LANGUAGE.TITLE' | translate"
+    >{{'MODALS.LANGUAGE.TITLE' | translate}}</h2>
+
+    <button class="modal-header__close"
+            [attr.aria-label]="'ACCESSIBILITY.BUTTONS.CLOSE_MODAL' | translate"
+            [tabindex]="(tabIndexValues$ | async)?.MODAL_NAVIGATION"
+            (click)="close()">
+      <mat-icon [svgIcon]="'close'"/>
+    </button>
+  </div>
+
+  <div class="language-modal__body body">
+    <form class="body__search search" [formGroup]="searchForm">
+      <input
+        [formControlName]="'search'"
+        [placeholder]="'MODALS.LANGUAGE.SEARCH' | translate"
+        [tabindex]="(tabIndexValues$ | async)?.MODAL_CONTENT"
+      >
+    </form>
+
+    <div class="body__list lang-list">
+        <button class="lang-list__item lang-item"
+             *ngFor="let lang of countriesList"
+              [attr.aria-label]="lang.native + '/' + lang.name"
+              [tabindex]="(tabIndexValues$ | async)?.MODAL_CONTENT"
+              [ngClass]="{'lang-item_selected': (lang.iso2 | lowercase) === (currentLang?.iso2 | lowercase)}"
+             (click)="changeLang(lang.iso2)"
+        >
+          <div class="lang-item__ico"><img src="https://flagcdn.com/w40/{{lang.iso2 | lowercase}}.png" alt="{{lang.name}} flag"/></div>
+          <div class="lang-item__name">{{lang.name}} <span class="lang-item__native">({{lang.native}})</span></div>
+          <div class="lang-item__status"></div>
+        </button>
+    </div>
+  </div>
+</div>

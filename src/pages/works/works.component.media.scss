@@ -1,0 +1,56 @@
+@import "src/assets/styles/constructor-mixins";
+
+@include Media('bigMobile') {
+  .works-page {
+    padding: calc(var(--panel-margin-top) + 32px) calc(var(--panel-margin-right) + 16px) calc(var(--panel-margin-top) + 64px)  calc(var(--panel-margin-left) + 16px);
+  }
+}
+
+@include Media('table') {
+  .works-page {
+    min-height: 100vh;
+    padding: calc(var(--panel-margin-top) + 32px) calc(var(--panel-margin-right) + 16px) calc(var(--panel-margin-top) + 32px)  16px;
+    gap: 24px;
+    background: linear-gradient( transparent , var(--color-background-90) 12%, var(--color-background-90) 88%, transparent);
+
+    &__group {
+      gap: 16px;
+    }
+
+    &__mobile-img {
+      display: none;
+    }
+
+    &__text-path {
+      display: block;
+    }
+
+    &__work-list-button {
+      padding: 8px 12px 8px 32px;
+      background-color: var(--color-main);
+      border-radius: 32px;
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      color: white;
+      width: max-content;
+      transition: box-shadow 150ms ease;
+
+      &:hover {
+        box-shadow: 0 0 10px 0 var(--color-main);
+      }
+    }
+  }
+
+  .company {
+    p {
+      font-size: .75rem;
+    }
+  }
+}
+
+@include Media('desktop') {
+  .works-page {
+    padding: calc(var(--panel-margin-top) + 32px) calc(var(--panel-margin-right) + 16px) calc(var(--panel-margin-top) + 32px)  32px;
+  }
+}

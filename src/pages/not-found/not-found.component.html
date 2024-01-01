@@ -1,0 +1,23 @@
+<div class="parallax-wrap">
+  <div class="paralax-container"
+       *ngFor="let el of paralaxElements"
+       aria-hidden="true"
+       [ngStyle]="{
+          zIndex: el.z,
+          left: el.xStart,
+          top: el.yStart,
+          transform: 'translateX('+el.x+'px) translateY('+el.y+'px)',
+          height: el.size+'%'}">
+    <img [src]="'/assets/img/'+el.img"
+         [ngClass]="{'animation-back': el.rotation < 0}"
+         aria-hidden="true"
+         alt="paralax-element"
+         [ngStyle]="{
+          animationDuration: (el.rotation > 0? el.rotation* 100 : el.rotation * -100)+'ms',
+          }"
+    />
+  </div>
+  <mat-icon svgIcon="404"></mat-icon>
+  <a *ngIf="(currentLang$ | async)?.iso2 as lang"
+     [routerLink]="'/'+(lang === defaultLang ? '' : (lang | lowercase))">{{'PAGES.NOT_FOUND.TO_MAIN' | translate}}</a>
+</div>

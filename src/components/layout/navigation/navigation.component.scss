@@ -1,0 +1,249 @@
+@import "src/assets/styles/mixins";
+
+:host {
+  display: flex;
+  align-items: center;
+}
+
+.navigation {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  z-index: var(--z-index-navigation);
+
+  &_light:not(.navigation_opened) .burger span{
+    background-color: var(--color-text-reversed);
+    @include ChangeLightMode;
+  }
+
+  &_opened {
+    height: 100%;
+    width: 100%;
+
+    .navigation__background {
+      width: 100vmax;
+      height: 100vmax;
+      transform: translate3d(50vh, -50vh, 0) scale(5);
+      transition-duration: 500ms;
+    }
+
+    .navigation__list {
+      opacity: 1;
+    }
+  }
+
+  &__copyright {
+    position: absolute;
+    bottom: 16px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: .625rem;
+    color: var(--color-text-30);
+  }
+
+  &__background {
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    height: 0;
+    width: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    background-color: var(--color-background);
+    transition: all 500ms ease-in-out;
+    transform: translate3d(0, 0, 0) scale(5);
+  }
+}
+
+.list {
+  align-self: center;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  transition: opacity 500ms 150ms ease-in-out;
+  opacity: 0;
+
+  .extra-point {
+    letter-spacing: 0.15rem;
+    font-weight: bold;
+    font-size: 1rem;
+
+    &_mode, .lang-item {
+      padding: 8px 16px
+    }
+
+
+    app-light-mode-button {
+      --size: 15px;
+    }
+
+    &_lang {
+      margin-top: 32px;
+    }
+  }
+
+  .link {
+    padding: 8px 16px;
+    text-transform: uppercase;
+    line-height: 200%;
+    letter-spacing: .15rem;
+    font-size: 1rem;
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+    color: var(--color-text-30);
+    transition: all 500ms ease-in-out;
+
+    &_active {
+      color: var(--color-text);
+    }
+
+    &:hover {
+      color: var(--color-text);
+      &:after {
+        opacity: 1;
+        visibility: visible;
+        width: 100%;
+      }
+    }
+
+    &:after {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: auto;
+      width: 1px;
+      height: 100%;
+      content: '.';
+      color: transparent;
+      background: var(--color-main);
+      @include ChangeLightMode;
+      visibility: none;
+      opacity: 0;
+      z-index: -1;
+      transition: all 300ms ease-in-out;
+    }
+  }
+
+  &__text-path {
+    display: none;
+  }
+}
+
+.burger {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+
+  div {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 22px;
+    height: 12px;
+  }
+
+  span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text);
+    border-radius: 1px;
+    transition: all 300ms 200ms cubic-bezier(0.1, 0.82, 0.76, 0.965);
+
+    &:first-of-type {
+      top: 0;
+    }
+    &:last-of-type {
+      bottom: 0;
+    }
+  }
+
+  &.burger_active span {
+    background: var(--color-text);
+    transition: all 200ms cubic-bezier(0.1, 0.82, 0.76, 0.965);
+  }
+
+  &.burger_active > div {
+    span {
+      &:first-of-type {
+        transform: rotate(45deg);
+        top: 5px;
+      }
+      &:last-of-type {
+        transform: rotate(-45deg);
+        bottom: 5px;
+      }
+    }
+  }
+
+  &.burger_active:hover span:first-of-type,
+  &.burger_active:hover span:last-of-type {
+    width: 22px;
+  }
+
+  &:hover {
+    // no need hover effect on mobile.
+    @media (min-width: 1024px) {
+      span:first-of-type {
+        width: 26px;
+      }
+
+      span:last-of-type {
+        width: 12px;
+      }
+    }
+  }
+}
+
+.lang-item {
+  background: transparent;
+  border-width: 0;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 0;
+  text-transform: uppercase;
+  line-height: 200%;
+  letter-spacing: 0.15rem;
+  font-weight: bold;
+  font-size: 1rem;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+
+  img {
+    width: 20px;
+  }
+
+  &__name {
+    color: var(--color-text);
+  }
+
+  &__native {
+    color: var(--color-text-50);
+  }
+}
+

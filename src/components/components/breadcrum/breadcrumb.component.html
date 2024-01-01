@@ -1,0 +1,13 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" *ngFor="let crumb of breadcrumbs; let isLast = last" [ngClass]="{'active': isLast}">
+      <ng-container *ngIf="!isLast; else lastBreadcrumb">
+        <a *ngIf="(currentLang$ | async)?.iso2 as lang"
+           [routerLink]="'/'+(lang === defaultLang ? '' : (lang | lowercase) + '/') + crumb.url">
+          {{ crumb.title | translate}}
+        </a>
+      </ng-container>
+      <ng-template #lastBreadcrumb>{{ crumb.title | translate}}</ng-template>
+    </li>
+  </ol>
+</nav>

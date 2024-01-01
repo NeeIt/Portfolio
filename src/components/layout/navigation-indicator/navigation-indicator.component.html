@@ -1,0 +1,21 @@
+<div class="navigator-indicator">
+  <ng-container *ngFor="let link of links; let isFirst = first; let isLast = last">
+    <a class="navigator-indicator__dot"
+       tabindex="-1"
+       aria-hidden="true"
+       *ngIf="(currentLang$ | async)?.iso2 as lang"
+       [routerLink]="(lang === defaultLang ? '' : (lang | lowercase)+'/')
+              + ((currentLinkData$ | async)?.isSubLink && (isFirst || isLast) ? '/'+link.path+'sub' : '/'+link.path)"
+    [routerLinkActive]="'navigator-indicator__dot_active'"
+    [routerLinkActiveOptions]="{exact: true}">
+    </a>
+  </ng-container>
+
+  <div class="navigator-indicator__selected-dot"
+       [@dotChangeAnimation]="{value: animationDotState, params: animationDotStyles}"
+       (@dotChangeAnimation.done)="animationEnd($event)"
+  ></div>
+  <div class="navigator-indicator__selected-dot navigator-indicator__selected-dot_additional"
+       [@dotAdditionalChangeAnimation]="{value: animationDotState, params: animationDotStyles}">
+  </div>
+</div>

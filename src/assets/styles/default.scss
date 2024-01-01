@@ -1,0 +1,352 @@
+@import './constructor-mixins.scss';
+
+:root {
+  --panel-margin-left: 40px;
+  --panel-margin-right: 40px;
+  --panel-margin-top: 37.5px;
+  --panel-margin-bottom: 18px;
+  @include Media('desktop') {
+    :host {
+      --panel-margin-left: 60px;
+      --panel-margin-right: 60px;
+      --panel-margin-top: 37.5px;
+      --panel-margin-bottom: 30px;
+    }
+  }
+
+  --lang-font: 'Kay Pho Du';
+  --base-font: var(--lang-font), 'Open Sans', sans-serif;
+
+  // Needs for renders
+  --color-background: #161616;
+  --color-background-pale: #1D1D1D;
+  --color-background-90: rgba(22,22,22, .95);
+  --color-background-70: rgba(22,22,22, .9);
+  --color-background-50: rgba(22,22,22, .55);
+  --color-background-hover: #2F2F2F;
+  --color-text: #FEFEFE;
+  --color-text-reversed: #161616;
+  --color-text-70: #fefefeA0;
+  --color-text-50: #fefefe80;
+  --color-text-30: #fefefe4d;
+  --color-loader: #999;
+  --color-gray: #666666;
+  --color-gray-50: #66666680;
+  --color-main: #CC229C;
+  --color-main-dark: #661150;
+  --color-main-light: #FF89DF;
+  --modal-overflow: rgba(0,0,0, .85);
+
+  --z-index-over: 10;
+  --z-index-panels: 50;
+  --z-index-popups: 100;
+  --z-index-navigation: 500;
+  --z-index-modals: 999;
+}
+
+html {
+  background-color: var(--color-background);
+}
+
+body {
+  font-size: 1rem;
+  color: var(--color-text);
+  font-family: 'Righteous', 'Play', 'Yusei Magic', serif !important;
+}
+
+a, a:visited, a:active {
+  color: var(--color-main);
+  text-decoration: none;
+}
+
+.main-color {
+  color: var(--color-main);
+}
+
+.change-language-animation-start {
+  animation: languageChangeAnimation 150ms ease-in-out forwards;
+}
+
+.change-language-animation-end {
+  animation: languageChangeAnimationEnd 150ms ease-in-out forwards;
+}
+
+@keyframes languageChangeAnimation {
+  0% {overflow: hidden; display: inline-block; position: relative; height: var(--target-height); transform: translateY(0)}
+  100% {overflow: hidden; display: inline-block; position: relative; height: 0;  transform: translateY(var(--target-height))}
+}
+
+@keyframes languageChangeEndAnimation {
+  0% {overflow: hidden; display: inline-block; position: relative; height: var(--target-height); transform: translateY(var(--target-height))}
+  100% {overflow: hidden; display: inline-block; position: relative; height: 0; transform: translateY(0)}
+}
+
+
+.glitch{
+  position: relative;
+  font-weight: 700;
+  line-height: 1.2;
+  color: currentColor;
+  letter-spacing: 5px;
+  z-index: 1;
+  overflow: hidden;
+
+  &:before, &:after {
+    content: attr(data-glitch);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    color: currentColor;
+    background-color: var(--color-background-glitch, var(--color-background));
+    overflow: hidden;
+    clip: rect(0, 900px, 0, 0);
+  }
+
+  &:before {
+    left: -4px;
+    animation: noise-before 3s infinite linear alternate-reverse;
+  }
+
+  &:after {
+    left: 4px;
+    animation: noise-after 2s infinite linear alternate-reverse;
+  }
+
+  &.delay-1 {
+    &:before, &:after {
+      animation-delay: 1s;
+    }
+  }
+
+  &.delay-2 {
+    &:before, &:after {
+      animation-delay: 2s;
+    }
+  }
+}
+
+@keyframes noise-before {
+  0% {
+    clip: rect(61px, 9999px, 52px, 0);
+  }
+
+  5% {
+    clip: rect(33px, 9999px, 144px, 0);
+  }
+
+  10% {
+    clip: rect(121px, 9999px, 115px, 0);
+  }
+
+  15% {
+    clip: rect(144px, 9999px, 162px, 0);
+  }
+
+  20% {
+    clip: rect(62px, 9999px, 180px, 0);
+  }
+
+  25% {
+    clip: rect(34px, 9999px, 42px, 0);
+  }
+
+  30% {
+    clip: rect(147px, 9999px, 179px, 0);
+  }
+
+  35% {
+    clip: rect(99px, 9999px, 63px, 0);
+  }
+
+  40% {
+    clip: rect(188px, 9999px, 122px, 0);
+  }
+
+  45% {
+    clip: rect(154px, 9999px, 14px, 0);
+  }
+
+  50% {
+    clip: rect(63px, 9999px, 37px, 0);
+  }
+
+  55% {
+    clip: rect(161px, 9999px, 147px, 0);
+  }
+
+  60% {
+    clip: rect(109px, 9999px, 175px, 0);
+  }
+
+  65% {
+    clip: rect(157px, 9999px, 88px, 0);
+  }
+
+  70% {
+    clip: rect(173px, 9999px, 131px, 0);
+  }
+
+  75% {
+    clip: rect(62px, 9999px, 70px, 0);
+  }
+
+  80% {
+    clip: rect(24px, 9999px, 153px, 0);
+  }
+
+  85% {
+    clip: rect(138px, 9999px, 40px, 0);
+  }
+
+  90% {
+    clip: rect(79px, 9999px, 136px, 0);
+  }
+
+  95% {
+    clip: rect(25px, 9999px, 34px, 0);
+  }
+
+  100% {
+    clip: rect(173px, 9999px, 166px, 0);
+  }
+}
+
+@keyframes noise-after {
+  0% {
+    clip: rect(26px, 9999px, 33px, 0);
+  }
+
+  5% {
+    clip: rect(140px, 9999px, 198px, 0);
+  }
+
+  10% {
+    clip: rect(184px, 9999px, 89px, 0);
+  }
+
+  15% {
+    clip: rect(121px, 9999px, 6px, 0);
+  }
+
+  20% {
+    clip: rect(181px, 9999px, 99px, 0);
+  }
+
+  25% {
+    clip: rect(154px, 9999px, 133px, 0);
+  }
+
+  30% {
+    clip: rect(134px, 9999px, 169px, 0);
+  }
+
+  35% {
+    clip: rect(26px, 9999px, 187px, 0);
+  }
+
+  40% {
+    clip: rect(147px, 9999px, 137px, 0);
+  }
+
+  45% {
+    clip: rect(31px, 9999px, 52px, 0);
+  }
+
+  50% {
+    clip: rect(191px, 9999px, 109px, 0);
+  }
+
+  55% {
+    clip: rect(74px, 9999px, 54px, 0);
+  }
+
+  60% {
+    clip: rect(145px, 9999px, 75px, 0);
+  }
+
+  65% {
+    clip: rect(153px, 9999px, 198px, 0);
+  }
+
+  70% {
+    clip: rect(99px, 9999px, 136px, 0);
+  }
+
+  75% {
+    clip: rect(118px, 9999px, 192px, 0);
+  }
+
+  80% {
+    clip: rect(1px, 9999px, 83px, 0);
+  }
+
+  85% {
+    clip: rect(145px, 9999px, 98px, 0);
+  }
+
+  90% {
+    clip: rect(121px, 9999px, 154px, 0);
+  }
+
+  95% {
+    clip: rect(156px, 9999px, 44px, 0);
+  }
+
+  100% {
+    clip: rect(67px, 9999px, 122px, 0);
+  }
+}
+
+.full-page {
+  min-width: 78vw;
+}
+
+.slide-in {
+  transform: translateY(100%);
+  transition: transform 1.7s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 1.7s cubic-bezier(0.19, 1, 0.22, 1);
+  &_delay1 {
+    transition-delay: 250ms;
+  }
+
+  &_delay2 {
+    transition-delay: 500ms;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  white-space: nowrap; /* Добавлено для предотвращения переносов строк */
+}
+
+.code-block {
+  background-color: black;
+  border-radius: 8px;
+  overflow: hidden;
+  color: white;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    font-size: .75rem;
+    line-height: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(52,53,65, 1);
+  }
+
+  &__body {
+    padding: 1rem;
+    box-sizing: border-box;
+    font-size: .875em;
+    font-weight: 400;
+    line-height: 1.7142857;
+    word-wrap: break-word;
+    overflow-y: auto;
+  }
+}

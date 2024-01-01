@@ -1,0 +1,10 @@
+@import "src/assets/styles/constructor-mixins";
+
+@include Media('bigMobile') {
+  .mobile-navigation-panel {
+    & > button, a {
+      font-size: 1rem;
+      padding: 8px 32px 8px 32px;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+<div class="work-card" [ngClass]="{'work-card_reverse': reverse}">
+    <ng-container *ngIf="imageList.length > 1 else simpleImage">
+      <app-photo-slider class="work-card__img-slider" [width]="350" [imageList]="imageList"/>
+    </ng-container>
+
+    <ng-template #simpleImage>
+      <div class="work-card__image">
+        <app-photo [photoItem]="imageList[0]"/>
+      </div>
+    </ng-template>
+
+  <div class="work-card__info">
+    <h2 class="work-card__title">{{work.NAME | translate}}</h2>
+    <p class="work-card__description">{{work.DESCRIPTION_SHORT | translate}}</p>
+    <div class="work-card__stack stack-list">
+      <div *ngFor="let skill of work.STACK" class="stack-list__item">
+        <mat-icon [svgIcon]="skill | lowercase"></mat-icon>
+        <span>{{skill}}</span>
+      </div>
+    </div>
+    <div class="work-card__buttons">
+      <a class="work-card__github" *ngIf="work.GITHUB" [href]="work.GITHUB">
+        <mat-icon [svgIcon]="'social-github'"></mat-icon>
+        {{'Github' | translate}}
+      </a>
+      <a class="work-card__more" *ngIf="(currentLang$ | async)?.iso2 as lang"
+         [routerLink]="'/'+(lang === defaultLang ? '' : (lang | lowercase)+'/') + 'works/'+ (work.KEY | lowercase)">
+        <span>{{'Read more' | translate}}</span>
+        <mat-icon [svgIcon]="'next'"></mat-icon>
+      </a>
+    </div>
+  </div>
+</div>
+

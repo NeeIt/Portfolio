@@ -1,0 +1,270 @@
+<div class="project">
+  <div class="project__main-img">
+    <img src="/assets/img/projects/image.jpg" alt=""/>
+  </div>
+
+  <div class="project__container">
+    <div class="project__group">
+      <app-breadcrumb [breadcrumbs]="breadcrumbs"/>
+      <h1>{{'PROJECTS.PORTFOLIO.NAME' | translate}}</h1>
+      <p>{{'PROJECTS.PORTFOLIO.DESCRIPTION_SHORT' | translate}}</p>
+      <p>{{'PROJECTS.PORTFOLIO.DESCRIPTION' | translate}}</p>
+      <h2>{{'PAGES.PROJECTS.BASE.STACK' | translate}}</h2>
+      <div class="work-card__stack stack-list">
+        <div *ngFor="let skill of project.STACK" class="stack-list__item">
+          <mat-icon [svgIcon]="skill | lowercase"></mat-icon>
+          <span>{{skill}}</span>
+        </div>
+      </div>
+      <a class="project__visit-button" [href]="project.URL" [target]="'_blank'">
+        {{'PAGES.PROJECTS.BASE.GITHUB' | translate}}
+      </a>
+    </div>
+  </div>
+
+  <div class="project__slider-container">
+    <app-presentation-slider
+      class="project__slider"
+      [items]="sliderItems[0]"/>
+  </div>
+
+  <div class="project__container">
+    <div class="project__group">
+      <div class="project__point point">
+        <span class="point__mark">1. </span>
+        <h2>{{'PAGES.PROJECTS.PORTFOLIO.DESIGN.TITLE' | translate}}</h2>
+      </div>
+      <p>{{'PAGES.PROJECTS.PORTFOLIO.DESIGN.DESCRIPTION' | translate}}</p>
+      <div class="project__sub-group">
+        <div class="project__point point">
+          <span class="point__mark">1.1. </span>
+          <h3>{{'PAGES.PROJECTS.PORTFOLIO.FIGMA.TITLE' | translate}}</h3>
+        </div>
+        <p>{{'PAGES.PROJECTS.PORTFOLIO.FIGMA.DESCRIPTION' | translate}}</p>
+        <app-photo [photoItem]="photoItems['figma']"/>
+      </div>
+      <div class="project__sub-group">
+        <div class="project__point point">
+          <span class="point__mark">1.2. </span>
+          <h3>{{'PAGES.PROJECTS.PORTFOLIO.AI.TITLE' | translate}}</h3>
+        </div>
+        <p>{{'PAGES.PROJECTS.PORTFOLIO.AI.DESCRIPTION' | translate}}</p>
+        <app-photo [photoItem]="photoItems['ai']" class="small"/>
+      </div>
+      <div class="project__sub-group">
+        <div class="project__point point">
+        <span class="point__mark">1.3. </span>
+        <h3>{{'PAGES.PROJECTS.PORTFOLIO.THEME.TITLE' | translate}}</h3>
+        </div>
+        <p>{{'PAGES.PROJECTS.PORTFOLIO.THEME.DESCRIPTION' | translate}}</p>
+        <app-photo [photoItem]="photoItems['theme']"/>
+      </div>
+    </div>
+
+    <div class="project__group">
+      <div class="project__point point">
+        <span class="point__mark">2. </span>
+        <h2>{{'PAGES.PROJECTS.PORTFOLIO.SSR.TITLE' | translate}}</h2>
+      </div>
+      <p>{{'PAGES.PROJECTS.PORTFOLIO.SSR.DESCRIPTION' | translate}}</p>
+      <app-photo [photoItem]="photoItems['postman']"/>
+    </div>
+
+    <div class="project__group">
+      <div class="project__point point">
+        <span class="point__mark">3. </span>
+        <h2>{{'PAGES.PROJECTS.PORTFOLIO.LANGUAGES.TITLE' | translate}}</h2>
+      </div>
+      <p>{{'PAGES.PROJECTS.PORTFOLIO.LANGUAGES.DESCRIPTION' | translate : ({amount: langs.length})}}</p>
+      <app-photo [photoItem]="photoItems['langs']"/>
+    </div>
+
+    <div class="project__group">
+      <div class="project__point point">
+        <span class="point__mark">4. </span>
+        <h2>{{'PAGES.PROJECTS.PORTFOLIO.ADAPTIVE.TITLE' | translate}}</h2>
+      </div>
+      <p>{{'PAGES.PROJECTS.PORTFOLIO.ADAPTIVE.DESCRIPTION' | translate}}</p>
+      <app-photo [photoItem]="photoItems['mobile']"/>
+    </div>
+
+    <div class="project__group">
+      <div class="project__point point">
+        <span class="point__mark">5. </span>
+        <h2>{{'PAGES.PROJECTS.PORTFOLIO.ANIMATIONS.TITLE' | translate}}</h2>
+      </div>
+      <p>{{'PAGES.PROJECTS.PORTFOLIO.ANIMATIONS.DESCRIPTION' | translate}}</p>
+
+      <div class="project__sub-group">
+        <div class="project__point point">
+          <span class="point__mark">5.1. </span>
+          <h3>{{'PAGES.PROJECTS.PORTFOLIO.INFINITY_MAIN.TITLE' | translate}}</h3>
+        </div>
+        <p>{{'PAGES.PROJECTS.PORTFOLIO.INFINITY_MAIN.DESCRIPTION' | translate}}</p>
+        <a  *ngIf="(currentLang$ | async)?.iso2 as lang"
+            [routerLink]="'/'+(lang === defaultLang ? '' : (lang | lowercase))">
+          {{'PAGES.PROJECTS.PORTFOLIO.INFINITY_MAIN.TO_MAIN' | translate}}
+        </a>
+        <img src="/assets/img/scrolling.gif" alt="">
+      </div>
+      <div class="project__sub-group">
+        <div class="project__point point">
+        <span class="point__mark">5.2. </span>
+        <h3>{{'PAGES.PROJECTS.PORTFOLIO.ANIMATION_ABOUT.TITLE' | translate}}</h3>
+        </div>
+        <a *ngIf="(currentLang$ | async)?.iso2 as lang"
+           [routerLink]="'/'+(lang === defaultLang ? '' : (lang | lowercase) + '/') + 'about/details'"
+           >{{'PAGES.PROJECTS.PORTFOLIO.ANIMATION_ABOUT.TO_ABOUT' | translate}}</a>
+        <img src="/assets/img/sticky.gif" alt="">
+      </div>
+      <p>{{'PAGES.PROJECTS.PORTFOLIO.ANIMATIONS.MORE' | translate}}</p>
+    </div>
+
+    <div class="project__group">
+      <div class="project__point point">
+        <span class="point__mark">6. </span>
+        <h2>{{'PAGES.PROJECTS.PORTFOLIO.ACCESSIBILITY.TITLE' | translate}}</h2>
+      </div>
+      <p>{{'PAGES.PROJECTS.PORTFOLIO.ACCESSIBILITY.DESCRIPTION' | translate}}</p>
+      <app-photo [photoItem]="photoItems['accessibility']"/>
+    </div>
+
+    <div class="project__group">
+      <div class="project__point point">
+        <span class="point__mark">7. </span>
+        <h2>{{'PAGES.PROJECTS.PORTFOLIO.SENTRY.TITLE' | translate}}</h2>
+      </div>
+      <p>{{'PAGES.PROJECTS.PORTFOLIO.SENTRY.DESCRIPTION' | translate}}</p>
+      <app-photo [photoItem]="photoItems['sentry']"/>
+    </div>
+
+    <div class="project__group">
+      <div class="project__point point">
+        <span class="point__mark">8. </span>
+        <h2>{{'PAGES.PROJECTS.PORTFOLIO.SENTRY.TITLE' | translate}}</h2>
+      </div>
+      <p>{{'PAGES.PROJECTS.PORTFOLIO.SENTRY.DESCRIPTION' | translate}}</p>
+      <app-photo [photoItem]="photoItems['gtm']"/>
+    </div>
+
+    <div class="project__group">
+      <div class="project__point point">
+        <span class="point__mark">9. </span>
+        <h2>{{'PAGES.PROJECTS.PORTFOLIO.SEO.TITLE' | translate}}</h2>
+      </div>
+      <p>{{'PAGES.PROJECTS.PORTFOLIO.SEO.DESCRIPTION' | translate}}</p>
+      <div class="project__sub-group">
+        <div class="project__point point">
+          <span class="point__mark">9.1. </span>
+          <h3>{{'PAGES.PROJECTS.PORTFOLIO.SEO_TITLE.TITLE' | translate}}</h3>
+        </div>
+        <p>{{'PAGES.PROJECTS.PORTFOLIO.SEO_TITLE.DESCRIPTION' | translate}}</p>
+      </div>
+      <div class="project__sub-group">
+        <div class="project__point point">
+          <span class="point__mark">9.2. </span>
+          <h3>{{'PAGES.PROJECTS.PORTFOLIO.SEO_SEMANTIC.TITLE' | translate}}</h3>
+        </div>
+        <p>{{'PAGES.PROJECTS.PORTFOLIO.SEO_SEMANTIC.DESCRIPTION' | translate}}</p>
+      </div>
+      <div class="project__sub-group">
+        <div class="project__point point">
+          <span class="point__mark">9.3. </span>
+          <h3>{{'PAGES.PROJECTS.PORTFOLIO.SEO_SITEMAP.TITLE' | translate}}</h3>
+        </div>
+        <p>{{'PAGES.PROJECTS.PORTFOLIO.SEO_SITEMAP.DESCRIPTION' | translate}}</p>
+        <a [href]="'https://'+environment.hostName+'/sitemap.xml'" target="_blank">{{'PAGES.PROJECTS.PORTFOLIO.SEO_SITEMAP.TO_SITEMAP' | translate}}</a>
+      </div>
+      <div class="project__sub-group">
+        <div class="project__point point">
+          <span class="point__mark">9.4. </span>
+          <h3>{{'PAGES.PROJECTS.PORTFOLIO.SEO_ROBOTS_TXT.TITLE' | translate}}</h3>
+        </div>
+        <p>{{'PAGES.PROJECTS.PORTFOLIO.SEO_ROBOTS_TXT.DESCRIPTION' | translate}}</p>
+        <a [href]="'https://'+environment.hostName+'/robots.txt'" target="_blank">{{'PAGES.PROJECTS.PORTFOLIO.SEO_ROBOTS_TXT.TO_ROBOTS_TXT' | translate}}</a>
+      </div>
+      <div class="project__sub-group">
+        <div class="project__point point">
+          <span class="point__mark">9.5. </span>
+          <h3>{{'PAGES.PROJECTS.PORTFOLIO.SEO_SCHEMA.TITLE' | translate}}</h3>
+        </div>
+        <p>{{'PAGES.PROJECTS.PORTFOLIO.SEO_SCHEMA.DESCRIPTION' | translate}}</p>
+        <div class="project__code code-block">
+          <div class="code-block__header">{{'PAGES.PROJECTS.PORTFOLIO.SEO_SCHEMA.EXAMPLE' | translate}}</div>
+          <div class="code-block__body">
+            <code>{{indexSchema$ | async | json}}</code>
+          </div>
+        </div>
+      </div>
+      <div class="project__sub-group">
+        <div class="project__point point">
+          <span class="point__mark">9.6. </span>
+          <h3>{{'PAGES.PROJECTS.PORTFOLIO.SEO_CANONICAL.TITLE' | translate}}</h3>
+        </div>
+        <p>{{'PAGES.PROJECTS.PORTFOLIO.SEO_CANONICAL.DESCRIPTION' | translate}}</p>
+        <div class="project__code code-block">
+          <div class="code-block__header">{{'PAGES.PROJECTS.PORTFOLIO.SEO_CANONICAL.EXAMPLE' | translate}}</div>
+          <div class="code-block__body">
+            <code>
+              <div>&lt;link href="https://vladislavushmankin.com/ru/portfolio" rel="canonical"></div>
+              <div>&lt;link rel="alternate" hreflang="x-default" href="https://vladislavushmankin.com/portfolio"></div>
+              <div>&lt;link rel="alternate" hreflang="ru" href="https://vladislavushmankin.com/ru/portfolio"></div>
+              <div>&lt;link rel="alternate" hreflang="en" href="https://vladislavushmankin.com/portfolio"></div>
+              <div>&lt;link rel="alternate" hreflang="jp" href="https://vladislavushmankin.com/jp/portfolio"></div>
+              <div>&lt;link rel="alternate" hreflang="ua" href="https://vladislavushmankin.com/ua/portfolio"></div>
+            </code>
+          </div>
+        </div>
+      </div>
+      <div class="project__sub-group">
+        <div class="project__point point">
+          <span class="point__mark">9.7. </span>
+          <h3>{{'PAGES.PROJECTS.PORTFOLIO.SEO_404.TITLE' | translate}}</h3>
+        </div>
+        <p>{{'PAGES.PROJECTS.PORTFOLIO.SEO_404.DESCRIPTION' | translate}}</p>
+        <a *ngIf="(currentLang$ | async)?.iso2 as lang"
+           [routerLink]="'/'+(lang === defaultLang ? '' : (lang | lowercase)+'/') + 'not-found'"
+        >{{'PAGES.PROJECTS.PORTFOLIO.SEO_404.TO_404' | translate}}</a>
+        <app-photo [photoItem]="photoItems['404']"/>
+        <p>{{'PAGES.PROJECTS.PORTFOLIO.SEO_404.EASTER_EGG' | translate}}</p>
+      </div>
+      <div class="project__sub-group">
+        <div class="project__point point">
+          <span class="point__mark">9.8. </span>
+          <h3>{{'PAGES.PROJECTS.PORTFOLIO.SEO_FAVICONS.TITLE' | translate}}</h3>
+        </div>
+        <p>{{'PAGES.PROJECTS.PORTFOLIO.SEO_FAVICONS.DESCRIPTION' | translate}}</p>
+        <div class="project__code code-block">
+          <div class="code-block__header">{{'PAGES.PROJECTS.PORTFOLIO.SEO_FAVICONS.EXAMPLE' | translate}}</div>
+          <div class="code-block__body">
+            <code>
+              <div>&lt;link type="image/x-icon" sizes="57x57" rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon-57x57.ico"></div>
+              <div>&lt;link type="image/x-icon" sizes="512x512" rel="icon" href="/assets/favicons/android-icon-512x512.ico"></div>
+            </code>
+          </div>
+        </div>
+      </div>
+      <div class="project__sub-group">
+        <div class="project__point point">
+          <span class="point__mark">9.9. </span>
+          <h3>{{'PAGES.PROJECTS.PORTFOLIO.SEO_MANIFEST.TITLE' | translate}}</h3>
+        </div>
+        <p>{{'PAGES.PROJECTS.PORTFOLIO.SEO_MANIFEST.DESCRIPTION' | translate}}</p>
+        <a [href]="'https://'+environment.hostName+'/manifest.json'" target="_blank">{{'PAGES.PROJECTS.PORTFOLIO.SEO_MANIFEST.TO_MANIFEST' | translate}}</a>
+      </div>
+      <div class="project__sub-group">
+        <div class="project__point point">
+          <span class="point__mark">9.10. </span>
+          <h3>{{'PAGES.PROJECTS.PORTFOLIO.SEO_OTHER.TITLE' | translate}}</h3>
+        </div>
+        <p>{{'PAGES.PROJECTS.PORTFOLIO.SEO_OTHER.DESCRIPTION' | translate}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="project__slider-container">
+    <app-presentation-slider
+      class="project__slider"
+      [reversed]="true"
+      [items]="sliderItems[1]"/>
+  </div>
+</div>

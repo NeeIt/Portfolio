@@ -1,0 +1,61 @@
+<div class="photo-modal modal">
+  <div class="language__header modal-header">
+
+    <h2 class="modal-header__title"
+        [attr.aria-label]="_photoSet[currentIndex].name | translate"
+    >{{ _photoSet[currentIndex].name | translate}}</h2>
+
+    <button class="modal-header__close modal-header__close_any"
+            [attr.aria-label]="'ACCESSIBILITY.BUTTONS.CLOSE_MODAL' | translate"
+            [tabindex]="(tabIndexValues$ | async)?.MODAL_NAVIGATION"
+            (click)="close()">
+      <mat-icon [svgIcon]="'close'"/>
+    </button>
+  </div>
+
+  <div class="photo-modal__body body">
+    <div class="photo-modal__image"
+    [ngClass]="{'photo-modal__image_loading': !imageLoaded}"
+    >
+      <button
+        class="photo-modal__slide-button photo-modal__slide-button_prev"
+        (click)="prevPhoto()"
+        *ngIf="currentIndex > 0"
+        [attr.aria-label]="'ACCESSIBILITY.BUTTONS.PREV_PHOTO' | translate"
+        [tabindex]="(tabIndexValues$ | async)?.MODAL_CONTENT"
+      >
+        <mat-icon [svgIcon]="'back'"/>
+      </button>
+
+      <div *ngIf="!imageLoaded" class="photo-modal__image-loader">
+        <mat-icon svgIcon="loading" class="form__loading"></mat-icon>
+      </div>
+
+      <img [src]="_photoSet[currentIndex].src" (load)="onImageLoad()" [alt]="_photoSet[currentIndex].name"/>
+      <button
+        class="photo-modal__slide-button photo-modal__slide-button_next"
+        (click)="nextPhoto()"
+        *ngIf="currentIndex < (_photoSet.length - 1)"
+        [tabindex]="(tabIndexValues$ | async)?.MODAL_CONTENT"
+        [attr.aria-label]="'ACCESSIBILITY.BUTTONS.NEXT_PHOTO' | translate"
+      >
+        <mat-icon [svgIcon]="'next'" />
+      </button>
+    </div>
+
+    <div
+      class="photo-modal__data"
+      *ngIf="_photoSet[currentIndex].description || _photoSet[currentIndex].date">
+      <div class="photo-modal__description">
+        <ng-container *ngIf="_photoSet[currentIndex].description">
+          {{_photoSet[currentIndex].description}}
+        </ng-container>
+      </div>
+      <div class="photo-modal__date">
+        <ng-container *ngIf="_photoSet[currentIndex].date">
+          {{_photoSet[currentIndex].date  | date : 'MMM yyyy'}}
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

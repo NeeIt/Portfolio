@@ -1,0 +1,60 @@
+@import "src/assets/styles/constructor-mixins";
+
+@include Media('bigMobile') {
+  .work-card {
+    &__image {
+      width: 350px;
+    }
+
+    &__buttons {
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+    &__more {
+      width: max-content;
+    }
+
+    &__more, &__github {
+      flex-grow: 1;
+    }
+  }
+}
+
+@include Media('table') {
+  .work-card {
+    grid-template-columns: auto 1fr;
+    grid-template-areas: 'image info';
+    grid-gap: 32px;
+    &_reverse {
+      grid-template-areas: 'info image';
+      grid-template-columns: 1fr auto;
+
+      .work-card__buttons {
+        justify-content: flex-start;
+      }
+    }
+
+    &__info {
+      gap: 24px;
+      max-width: none;
+    }
+
+    &__title {
+      text-align: left;
+    }
+
+    &__description {
+      font-size: .875rem;
+    }
+
+    &__more, &__github {
+      font-size: .75rem;
+      flex-grow: unset;
+    }
+
+    .stack-list {
+      font-size: .75rem;
+    }
+  }
+}

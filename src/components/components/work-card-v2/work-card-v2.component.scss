@@ -1,0 +1,59 @@
+@import "src/assets/styles/mixins";
+
+.work-card {
+  display: grid;
+  grid-gap: 16px 32px;
+  grid-template-columns: auto auto 1fr;
+  grid-template-rows: auto auto auto auto;
+  align-content: center;
+  grid-template-areas:
+    'title title title'
+    'description description description'
+    'date date date'
+    'skills skills skills';
+
+  &__img {
+    display: none;
+    height: 83px;
+    width: 100%;
+    grid-area: img;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__body {
+    grid-area: description;
+    flex-grow: 1;
+    color: var(--color-gray);
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex-grow: 1;
+  }
+
+  &__header {
+    font-size: 2rem;
+    line-height: 100%;
+    grid-area: title;
+  }
+
+  &__date {
+    grid-area: date;
+  }
+
+  &__tags {
+    grid-area: skills;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+}

@@ -1,0 +1,52 @@
+:host {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.about-page {
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  padding: calc(var(--panel-margin-top) + 32px) 16px calc(var(--panel-margin-top) + 48px) 16px;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  gap: 48px;
+  justify-content: center;
+
+  &__mobile-img {
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  &__text-path {
+    display: none;
+  }
+
+  h1, h2 {
+    font-weight: bold;
+  }
+
+  p {
+    color: var(--color-text-70);
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__details-button {
+    display: none;
+  }
+}

@@ -1,0 +1,16 @@
+<button class="light-mode-button"
+        [tabIndex]="(tabIndexes$ | async)?.SETTINGS"
+        (click)="changeLightMode()"
+        [attr.aria-label]="'ACCESSIBILITY.BUTTONS.CHANGE_LIGHT_MODE' | translate">
+  <input id="toggle" class="toggle" type="checkbox"
+         tabindex="-1"
+         aria-hidden="true"
+         [ngClass]="{checked: (currentMode$ | async) === 'light'}">
+  <span class="light-mode-button__text" *ngIf="showText">
+    <span class="light-mode-button__title">{{'BASE.LIGHT_MODE.TITLE' | translate | uppercase}}</span>
+    <span class="light-mode-button__current-mode">
+      ({{((currentMode$ | async) === 'light' ? 'BASE.LIGHT_MODE.LIGHT' : 'BASE.LIGHT_MODE.DARK') | translate | uppercase}})
+    </span>
+  </span>
+</button>
+

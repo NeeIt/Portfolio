@@ -1,0 +1,31 @@
+<div class="works-page">
+
+  <div class="works-page__mobile-img">
+    <img [src]="'/assets/img/projects.png'" alt=""/>
+  </div>
+
+  <div class="works-page__group">
+    <h2>{{'PAGES.WORKS.MY_EXPERIENCE.TITLE' | translate}}</h2>
+    <p>{{'PAGES.WORKS.MY_EXPERIENCE.DESCRIPTION' | translate}}</p>
+  </div>
+
+  <div class="works-page__group">
+    <div *ngFor="let company of companies"
+      class="works-page__company company company_{{company.NAME | translate | lowercase}}">
+      <h3>{{company.NAME | translate}}</h3>
+      <p>{{company.DESCRIPTION | translate}}</p>
+      <mat-icon [svgIcon]="company.NAME | translate | lowercase"/>
+    </div>
+  </div>
+
+  <a
+    class="works-page__work-list-button"
+    [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
+    *ngIf="(currentLang$ | async)?.iso2 as lang"
+    [routerLink]="'/'+(lang === defaultLang ? '' : (lang | lowercase)+'/')+'works/list'">
+    <span>{{'PAGES.WORKS.MY_PROJECTS' | translate}}</span>
+    <mat-icon [svgIcon]="'next'"/>
+  </a>
+</div>
+
+<app-works-path-text class="works-page__text-path" aria-hidden="true"/>

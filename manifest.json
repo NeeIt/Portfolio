@@ -1,0 +1,100 @@
+{
+  "name": "Vladislav Ushmankin's portfolio",
+  "short_name": "Portfolio",
+  "icons": [
+    {
+      "src": "/assets/favicons/android-icon-72x72.ico",
+      "type": "image/x-icon",
+      "sizes": "72x72"
+    },
+    {
+      "src": "/assets/favicons/android-icon-96x96.ico",
+      "type": "image/x-icon",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/assets/favicons/android-icon-144x144.ico",
+      "type": "image/x-icon",
+      "sizes": "144x144"
+    },
+    {
+      "src": "/assets/favicons/android-icon-192x192.ico",
+      "type": "image/x-icon",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/favicons/android-icon-512x512.ico",
+      "type": "image/x-icon",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/assets/favicons/apple-touch-icon-60x60.ico",
+      "type": "image/x-icon",
+      "sizes": "60x60"
+    },
+    {
+      "src": "/assets/favicons/apple-touch-icon-57x57.ico",
+      "type": "image/x-icon",
+      "sizes": "57x57"
+    },
+    {
+      "src": "/assets/favicons/apple-touch-icon-76x76.ico",
+      "type": "image/x-icon",
+      "sizes": "76x76"
+    },
+    {
+      "src": "/assets/favicons/apple-touch-icon-114x114.ico",
+      "type": "image/x-icon",
+      "sizes": "114x114"
+    },
+    {
+      "src": "/assets/favicons/apple-touch-icon-120x120.ico",
+      "type": "image/x-icon",
+      "sizes": "120x120"
+    },
+    {
+      "src": "/assets/favicons/apple-touch-icon-152x152.ico",
+      "type": "image/x-icon",
+      "sizes": "152x152"
+    },
+    {
+      "src": "/assets/favicons/apple-touch-icon-167x167.ico",
+      "type": "image/x-icon",
+      "sizes": "167x167"
+    },
+    {
+      "src": "/assets/favicons/apple-touch-icon-180x180.ico",
+      "type": "image/x-icon",
+      "sizes": "180x180"
+    },
+    {
+      "src": "/assets/favicons/favicon-16x16.ico",
+      "type": "image/x-icon",
+      "sizes": "16x16"
+    },
+    {
+      "src": "/assets/favicons/favicon-32x32.ico",
+      "type": "image/x-icon",
+      "sizes": "32x32"
+    },
+    {
+      "src": "/assets/favicons/mstile-70x70.ico",
+      "type": "image/x-icon",
+      "sizes": "70x70"
+    },
+    {
+      "src": "/assets/favicons/mstile-150x150.ico",
+      "type": "image/x-icon",
+      "sizes": "150x150"
+    },
+    {
+      "src": "/assets/favicons/mstile-310x310.ico",
+      "type": "image/x-icon",
+      "sizes": "310x310"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#161616",
+  "background_color": "#161616"
+}

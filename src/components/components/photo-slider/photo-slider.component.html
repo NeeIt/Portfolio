@@ -1,0 +1,23 @@
+<div  class="img-slider">
+  <button class="img-slider__btn img-slider__btn_back" (click)="prevSlide()" *ngIf="imageList.length > 1">
+    <mat-icon [svgIcon]="'back'"/>
+  </button>
+  <div class="img-slider__wrapper" [ngStyle]="{transform: 'translateX(-' + 100 * currentImage + '%)', maxWidth: width ? width + 'px': '100%'}">
+    <div class="img-slider__slide"
+         *ngFor="let img of imageList; let index = index"
+         [ngClass]="{'img-slider__slide_active': currentImage === index}"
+         [ngStyle]="{width: 100 / imageList.length + '%'}">
+      <app-photo [photoItem]="img" [photoSet]="imageList"/>
+    </div>
+  </div>
+  <button class="img-slider__btn img-slider__btn_next" (click)="nextSlide()" *ngIf="imageList.length > 1">
+    <mat-icon [svgIcon]="'next'"/>
+  </button>
+  <div class="img-slider__indicator" [ngStyle]="{maxWidth: width ? width + 'px': '100%'}" *ngIf="imageList.length > 1">
+    <button class="img-slider__indicator-point"
+            [ngClass]="{'img-slider__indicator-point_active': index === currentImage}"
+            (click)="setCurrentSlide(index)"
+            *ngFor="let img of imageList; let index = index">
+    </button>
+  </div>
+</div>

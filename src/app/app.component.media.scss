@@ -1,0 +1,169 @@
+@import "src/assets/styles/constructor-mixins";
+
+@include Media('bigMobile') {
+  .app {
+    &__to-top-button {
+      right: calc(var(--panel-margin-right) + 16px);
+    }
+  }
+  .panels {
+    &_bordered {
+      .panel {
+        border: 1px solid var(--color-gray);
+      }
+    }
+
+    .panel {
+      &_left, &_right {
+        pointer-events: auto;
+      }
+    }
+  }
+}
+
+@include Media('table') {
+  .app {
+    grid-template-columns: 0 36% 64%;
+    grid-template-rows: 1fr;
+    transition: grid-template-columns 300ms ease-in-out;
+
+    &.app_full-page {
+      grid-template-columns: 0 0 100%;
+      grid-template-rows: 1fr;
+    }
+
+    &__title-wrapper {
+      height: 100%;
+      display: flex;
+      border-left: 1px solid var(--color-background-hover);
+    }
+
+    &__title {
+      max-height: 100vh;
+      min-width: 36%;
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 100%;
+    }
+
+    &__pages-wrapper {
+      background: var(--color-background);
+      overflow: hidden;
+      position: relative;
+    }
+
+    &__scroll-icon {
+      display: block;
+      position: absolute !important;
+      bottom: 50px;
+      left: 47.5%;
+      transform: translateX(-50%);
+      color: var(--color-gray);
+      animation: scroll 3000ms ease-in-out infinite;
+      transition: opacity 150ms ease-in-out;
+      opacity: 1;
+      max-width: 24px;
+      max-height: 24px;
+      width: 24px;
+      height: 24px;
+      overflow: hidden;
+      z-index: 3;
+
+      mat-icon {
+        max-width: 24px;
+        max-height: 24px;
+        width: 24px;
+        height: 24px;
+      }
+
+      &_scrolled {
+        opacity: 0;
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateY(0px)
+        }
+        50% {
+          transform: translateY(0px)
+        }
+        85% {
+          transform: translateY(20px)
+        }
+        100% {
+          transform: translateY(0px)
+        }
+      }
+    }
+
+    &__mobile-btns {
+      display: none;
+    }
+
+    &__to-top-button {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .header {
+    &__logo {
+      pointer-events: auto;
+      position: absolute;
+      height: 75px;
+      width: 75px;
+    }
+  }
+
+  .panels {
+    app-navigation-indicator {
+      display: flex;
+    }
+  }
+}
+
+@include Media('desktop') {
+  :host {
+    --panel-margin-left: 60px;
+    --panel-margin-right: 60px;
+    --panel-margin-top: 37.5px;
+    --panel-margin-bottom: 30px;
+  }
+
+  .app {
+    grid-template-columns: 22% 28% 50%;
+
+    &.app_full-page {
+      grid-template-columns: 22% 0 78%;
+    }
+
+    &__nav-wrapper {
+      height: 100%;
+    }
+
+    &__nav {
+      width: 22%;
+      max-height: 100vh;
+      left: 0;
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 100%;
+    }
+
+    &__title {
+      min-width: 28vw;
+    }
+  }
+
+  .header {
+    app-light-mode-button {
+      display: block;
+    }
+  }
+
+  .lang-button {
+    display: flex;
+  }
+}

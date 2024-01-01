@@ -1,0 +1,149 @@
+@import "src/assets/styles/mixins";
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-page {
+  padding: calc(var(--panel-margin-top) + 32px) 16px calc(var(--panel-margin-top) + 32px) 16px;
+  background: linear-gradient(transparent, var(--color-background-90) 20%, var(--color-background-90) 70%, transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+
+  &__email {
+    border-radius: 8px;
+    padding: 8px 16px;
+    border: 1px solid var(--color-main);
+    background: var(--color-background);
+    transition: all 150ms ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--color-background-hover);
+    }
+  }
+
+  &__animated-text {
+    transform: scale(1.25);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 8px;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    padding-bottom: 16px;
+    font-size: .75rem;
+  }
+
+  input, textarea {
+    background: transparent;
+    color: var(--color-text);
+    padding: 8px;
+    font-size: .875rem;
+    outline: none;
+    background: none;
+    font-family: inherit;
+
+    &:-webkit-autofill {
+      background: transparent !important;
+    }
+  }
+
+  input {
+    border: none;
+    border-bottom: 1px solid var(--color-text);
+  }
+
+  textarea {
+    resize: none;
+    border: 1px solid var(--color-text);
+  }
+
+  button {
+    background: transparent;
+    padding: 0 32px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-text);
+    border-radius: 8px;
+    color: var(--color-text);
+    cursor: pointer;
+    align-self: flex-start;
+    justify-self: flex-start;
+    transition: all 150ms ease-in-out;
+    position: relative;
+
+    &:not([disabled]):hover {
+      background-color: var(--color-background-hover);
+    }
+
+    &[disabled] {
+      cursor: auto;
+      opacity: .5;
+    }
+
+    span {
+      opacity: 1;
+      transition: opacity 150ms ease-in-out;
+    }
+
+    &.loading span {
+      opacity: 0;
+    }
+  }
+
+  &__loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.socials {
+  display: flex;
+  gap: 8px;
+
+  &__link {
+    height: 48px;
+    width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 8px;
+    @include ChangeLightMode;
+
+    &:hover {
+      background-color: var(--color-background-hover);
+    }
+  }
+}

@@ -1,0 +1,90 @@
+<div class="project">
+
+  <div class="project__main-img">
+    <img src="/assets/img/scloudimg.png" alt=""/>
+  </div>
+
+  <div class="project__container">
+    <div class="project__group">
+      <app-breadcrumb [breadcrumbs]="breadcrumbs"/>
+      <h1>{{'PROJECTS.SCLOUD.NAME' | translate}}</h1>
+      <p>{{'PROJECTS.SCLOUD.DESCRIPTION_SHORT' | translate}}</p>
+      <p>{{'PROJECTS.SCLOUD.DESCRIPTION' | translate}}</p>
+      <h2>{{'PAGES.PROJECTS.BASE.STACK' | translate}}</h2>
+      <div class="work-card__stack stack-list">
+        <div *ngFor="let skill of project.STACK" class="stack-list__item">
+          <mat-icon [svgIcon]="skill | lowercase"></mat-icon>
+          <span>{{skill}}</span>
+        </div>
+      </div>
+      <a class="project__visit-button" [href]="project.URL" [target]="'_blank'">
+        {{'PAGES.PROJECTS.BASE.VISIT' | translate}}
+      </a>
+    </div>
+    <div class="project__group">
+      <h2>{{'PAGES.PROJECTS.BASE.SCREENSHOTS' | translate}}</h2>
+      <app-photo-slider *ngIf="previewList" [imageList]="previewList" class="project__preview-slider"/>
+    </div>
+  </div>
+
+  <div class="project__slider-container">
+    <app-presentation-slider
+      class="project__slider"
+      [items]="sliderItems[0]"/>
+  </div>
+
+  <div class="project__container">
+    <div class="project__group">
+      <div class="project__point point">
+        <span class="point__mark">1. </span>
+        <h2>{{'PAGES.PROJECTS.BASE.ROLE' | translate}}</h2>
+      </div>
+      <p>{{'PROJECTS.SCLOUD.ROLE_DESCRIPTION' | translate}}</p>
+    </div>
+    <div class="project__group">
+      <div class="project__point point">
+        <span class="point__mark">2. </span>
+        <h3>{{'PAGES.PROJECTS.SCLOUD.SCREEN' | translate}}</h3>
+      </div>
+      <div class="project__point point">
+        <span class="point__mark">2.1. </span>
+        <h3>{{'PAGES.PROJECTS.SCLOUD.DESKTOP' | translate}}</h3>
+      </div>
+      <img src="/assets/img/scloudfull.png" [alt]="'PAGES.PROJECTS.SCLOUD.FULL' | translate"/>
+      <div class="project__point point">
+        <span class="point__mark">2.2. </span>
+        <h2>{{'PAGES.PROJECTS.SCLOUD.MOBILE' | translate}}</h2>
+      </div>
+      <img src="/assets/img/scloudmobile.png" [alt]="'PAGES.PROJECTS.SCLOUD.FULL' | translate"/>
+    </div>
+    <div class="project__group">
+      <div class="project__point point">
+        <span class="point__mark">3. </span>
+        <h2>{{'PAGES.PROJECTS.BASE.OTHER_RESPONSIBILITIES' | translate}}</h2>
+      </div>
+      <div class="project__point point">
+        <span class="point__mark">3.1. </span>
+        <h3>{{'PAGES.PROJECTS.BASE.UNIT_TESTS' | translate}}</h3>
+      </div>
+      <p>{{'PAGES.PROJECTS.SCLOUD.UNIT_TESTS' | translate}}</p>
+      <div class="project__point point">
+        <span class="point__mark">3.2. </span>
+        <h3>{{'PAGES.PROJECTS.BASE.CODE_REVIEW.NAME' | translate}}</h3>
+      </div>
+      <p>{{'PAGES.PROJECTS.BASE.CODE_REVIEW.DESCRIPTION' | translate}}</p>
+      <div class="project__point point">
+        <span class="point__mark">3.3. </span>
+        <h3>{{'PAGES.PROJECTS.BASE.SENTRY.NAME' | translate}}</h3>
+      </div>
+      <p>{{'PAGES.PROJECTS.BASE.SENTRY.DESCRIPTION' | translate}}</p>
+      <img src="/assets/img/test6.png" alt="">
+    </div>
+  </div>
+
+  <div class="project__slider-container">
+    <app-presentation-slider
+      class="project__slider"
+      [reversed]="true"
+      [items]="sliderItems[1]"/>
+  </div>
+</div>

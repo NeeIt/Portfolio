@@ -1,0 +1,17 @@
+@import "src/assets/styles/mixins";
+
+.tag {
+  padding: 6px 12px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  border: 2px solid var(--color-main);
+  border-radius: 16px;
+  font-size: .65rem;
+  @include ChangeLightMode;
+
+  &_filled {
+    background: var(--color-main);
+    @include ChangeLightMode;
+  }
+}

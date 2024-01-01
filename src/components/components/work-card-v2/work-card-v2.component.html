@@ -1,0 +1,19 @@
+<div class="work-card">
+  <div class="work-card__img">
+    <img class="work-card__logo" [src]="work.LOGO" [alt]="work.NAME+'-img'"/>
+  </div>
+  <div class="work-card__header">{{work.NAME | translate}}</div>
+  <div class="work-card__body">{{work.DESCRIPTION_SHORT | translate}}</div>
+  <div class="work-card__date">
+    <span>{{work.WORK_DATE_FROM | date: 'MMM yyyy'}} - {{work.WORK_DATE_TO ? (work.WORK_DATE_TO | date : 'MMM yyyy') : ('DATE.TO_CURRENT' | translate)}}</span>
+  </div>
+  <div class="work-card__tags tags">
+    <app-tag class="work-card__skill"
+             *ngFor="let skill of work.SKILLS"
+             [title]="skill.title"
+             [filled]="skill.isMain"
+             [description]="skill.description"
+    ></app-tag>
+  </div>
+</div>
+

@@ -1,0 +1,79 @@
+@import "src/assets/styles/constructor-mixins";
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-background);
+  padding: 20px;
+  gap: 20px;
+  overflow: hidden;
+  height: max-content;
+  max-width: 90vw;
+  border-radius: 8px;
+
+  &_full {
+    max-width: none;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+
+  &__back {
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: transparent;
+    border-width: 0;
+    color: var(--color-text);
+  }
+
+  &__close {
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    background: transparent;
+    border-width: 0;
+    color: var(--color-text);
+    right: 0;
+    top: 0;
+
+    &_any {
+      display: block;
+    }
+  }
+}
+
+@include Media('table') {
+  .modal {
+    max-width: var(--modal-width, 80vw);
+    max-height: 100vh;
+    min-width: 392px;
+    height: auto;
+    border-radius: 8px;
+    &_full {
+      max-width: none;
+      width: max-content;
+      height: auto;
+    }
+  }
+
+  .modal-header {
+    &__back {
+      cursor: pointer;
+      display: none;
+    }
+
+    &__close {
+      color: var(--color-text);
+      cursor: pointer;
+      display: block;
+    }
+  }
+}

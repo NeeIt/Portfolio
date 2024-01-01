@@ -1,0 +1,63 @@
+<!--<span class="main-color">&lt;title></span>-->
+<div class="title" [@titleAnimation]="animationState" *ngIf="page" aria-live="polite">
+  <h1
+    class="title__item"
+    *ngIf="page === '/'+links[0].path || page === '/'+links[0].path+'sub'"
+    [attr.aria-label]="('TITLE.HELLO' | translate) + ' ' + ('TITLE.IM' | translate) + ' ' + ('TITLE.NAME' | translate)">
+    <div class="title__main" appTranslateAnimation>
+      <div class="slide-in" [ngStyle]="{transform: 'translateY('+ textTransformPosition +')'}" aria-hidden="true">
+        {{'TITLE.HELLO' | translate}}
+      </div>
+    </div>
+    <div class="title__main" appTranslateAnimation>
+      <div class="slide-in slide-in_delay1" [ngStyle]="{transform: 'translateY('+ textTransformPosition +')'}" aria-hidden="true">
+        {{'TITLE.IM' | translate}}
+      </div>
+    </div>
+    <div class="title__main main-color" appTranslateAnimation>
+      <div class="slide-in slide-in_delay2" [ngStyle]="{transform: 'translateY('+ textTransformPosition +')'}" aria-hidden="true">
+        {{'TITLE.NAME' | translate}}
+      </div>
+    </div>
+  </h1>
+
+
+  <div class="title__item about-title" *ngIf="page === '/'+links[1].path">
+    <img [src]="'/assets/img/'+((currentMode$ | async) === 'light'?'me_light' : 'me_dark') + '.png'"
+         alt="my photo"/>
+    <div class="about-title__photo-info about-title__photo-info_age">4 January 2001</div>
+    <div class="about-title__photo-info about-title__photo-info_nationality">Russian</div>
+  </div>
+
+
+  <h1 class="title__item"
+       *ngIf="page === '/'+links[2].path"
+       [attr.aria-label]="'TITLE.CHECK_WORKS' | translate">
+    <div appTranslateAnimation class="title__main">
+      <div class="slide-in" [ngStyle]="{transform: 'translateY('+ textTransformPosition +')'}" aria-hidden="true">
+        {{'TITLE.CHECK_WORKS' | translate}}
+      </div>
+    </div>
+  </h1>
+
+  <h1
+    class="title__item"
+    *ngIf="page === '/'+links[3].path || page === '/'+links[3].path+'sub'"
+    [attr.aria-label]="'TITLE.CONTACTS' | translate">
+    <div appTranslateAnimation class="title__main">
+      <div class="slide-in" [ngStyle]="{transform: 'translateY('+ textTransformPosition +')'}" aria-hidden="true">
+        {{'TITLE.CONTACTS' | translate}}
+      </div>
+    </div>
+  </h1>
+
+  <h1
+    class="title__item" *ngIf="page === '/404'"
+    [attr.aria-label]="'TITLE.NOT_FOUND' | translate">
+    <div appTranslateAnimation class="title__main">
+      <div class="slide-in" [ngStyle]="{transform: 'translateY('+ textTransformPosition +')'}" aria-hidden="true">
+        {{'TITLE.NOT_FOUND' | translate}}
+      </div>
+    </div>
+  </h1>
+</div>

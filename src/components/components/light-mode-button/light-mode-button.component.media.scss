@@ -1,0 +1,9 @@
+@import "src/assets/styles/constructor-mixins";
+
+@include Media('table') {
+  .light-mode-button {
+    &__text {
+      font-size: .5rem;
+    }
+  }
+}

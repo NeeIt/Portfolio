@@ -1,0 +1,22 @@
+.breadcrumb {
+  background: transparent;
+  padding: 0;
+}
+
+.breadcrumb-item {
+  display: inline-block;
+  color: var(--color-gray);
+  font-size: .75rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+  padding: 0 5px;
+  color: var(--color-gray);
+}
+
+.breadcrumb-item.active a {
+  color: var(--color-main);
+  pointer-events: none;
+  cursor: default;
+}

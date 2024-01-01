@@ -1,0 +1,142 @@
+:host {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.works-page {
+  overflow: hidden;
+  position: relative;
+  min-height: 70vh;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: calc(var(--panel-margin-top) + 32px) 16px calc(var(--panel-margin-top) + 48px) 16px;
+  justify-content: center;
+
+  h2, h3 {
+    font-weight: bold;
+    color: var(--color-text);
+    line-height: 100%;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  p {
+    color: var(--color-text-70);
+  }
+
+  &__work-list-button {
+   display: none;
+  }
+
+  &__text-path {
+    display: none;
+  }
+
+  &__mobile-img {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    opacity: .8;
+  }
+}
+
+.company {
+  border-radius: 8px;
+  padding: 12px 24px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 8px;
+  position: relative;
+  background: var(--color-background);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .25);
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+
+  &_scloud {
+    &:after {
+      background: linear-gradient(-90deg, var(--color-background-pale), var(--color-background-pale), #FFC90711);
+    }
+    h3 {
+      color: #FFC907;
+    }
+  }
+
+  &_itforce {
+    &:after {
+      background: linear-gradient(-90deg, var(--color-background-pale), var(--color-background-pale), #5B32FF11);
+    }
+
+    h3 {
+      color: #5B32FF;
+    }
+  }
+
+  &_gmcs {
+    &:after {
+      background: linear-gradient(-90deg, var(--color-background-pale), var(--color-background-pale), #FF285711);
+    }
+
+    h3 {
+      color: #FF2857;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  h3, p {
+    position: relative;
+    z-index: 1;
+  }
+
+  mat-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(12%, 18%);
+    width: 100px;
+    height: 100px;
+    opacity: .1;
+    z-index: 1;
+  }
+
+  img {
+    overflow: hidden;
+    position: relative;
+    width: 200px;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      mix-blend-mode: multiply;
+      opacity: .8;
+      background: radial-gradient(transparent, transparent, var(--color-main-light), var(--color-main));
+      pointer-events: none;
+    }
+  }
+}

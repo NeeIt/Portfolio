@@ -1,0 +1,45 @@
+<div class="about-page">
+  <div class="about-page__mobile-img">
+    <img [src]="'/assets/img/'+((currentMode$ | async) === 'light'?'me_light' : 'me_dark') + '.png'"
+         alt="my photo"/>
+  </div>
+  <div class="about-page__group">
+    <h1 class="glitch"
+        [attr.data-glitch]="'PAGES.ABOUT.H1' | translate">
+      {{'PAGES.ABOUT.H1' | translate}}
+    </h1>
+    <p>
+      {{'PAGES.ABOUT.MAIN_TEXT' | translate}}
+    </p>
+  </div>
+
+  <div class="about-page__group">
+    <h2>
+      {{'PAGES.ABOUT.SKILLS_TITLE'| translate}}
+    </h2>
+    <div class="about-page__tags">
+      <app-tag *ngFor="let skill of skills"
+               [title]="skill.title"
+               [description]="skill.description"
+      ></app-tag>
+    </div>
+  </div>
+  <div class="about-page__group">
+    <h2 class="glitch delay-2"
+        [attr.data-glitch]="'PAGES.DETAILS.ACHIEVEMENTS.TITLE'| translate">
+      {{'PAGES.DETAILS.ACHIEVEMENTS.TITLE'| translate}}
+    </h2>
+    <p [innerHTML]="'PAGES.DETAILS.ACHIEVEMENTS.DESCRIPTION'| translate"></p>
+  </div>
+  <a
+    class="about-page__details-button"
+    [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
+    *ngIf="(currentLang$ | async)?.iso2 as lang"
+    [routerLink]="'/'+(lang === defaultLang ? '' : (lang | lowercase)+'/') + 'about/details'">
+    {{'SEO.DETAILS.NAVIGATION' | translate}}
+    <mat-icon [svgIcon]="'next'"></mat-icon>
+  </a>
+</div>
+
+<app-about-path-text class="about-page__text-path" aria-hidden="true"/>
+

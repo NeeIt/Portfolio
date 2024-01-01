@@ -1,0 +1,21 @@
+@import "src/assets/styles/constructor-mixins";
+
+@include Media('table') {
+  :host {
+    padding: var(--panel-margin-top) calc(30px + 2%) var(--panel-margin-bottom) calc(48px + 4%);
+  }
+
+  .title {
+    padding-left: 0;
+  }
+}
+
+@include Media('desktop') {
+  :host {
+    padding: var(--panel-margin-top) 48px 0 48px;
+  }
+
+  .title {
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,22 @@
+@media (hover: hover) {
+  .my-cursor {
+    display: block;
+    position: fixed;
+    left: 0;
+    top:  0;
+    border-radius: 100%;
+    pointer-events: none;
+    opacity: 1;
+    mix-blend-mode: exclusion;
+    transition: background 0.0666667s ease 0s, border 0.0666667s ease 0s;
+    will-change: transform;
+    z-index: 999999;
+  }
+}
+@media (hover: none) {
+  .my-cursor {
+    display: none;
+  }
+}
+
+

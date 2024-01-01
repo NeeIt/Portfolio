@@ -1,0 +1,28 @@
+<div class="index-page">
+  <div class="index-page__title"
+     [attr.aria-label]="('PAGES.INDEX.AND_IM' | translate) + ' ' + ('PAGES.INDEX.FRONTEND' | translate) + ' ' + ('PAGES.INDEX.DEVELOPER' | translate)">
+    <p class="index-page__title-part"
+       [attr.data-glitch]="'PAGES.INDEX.AND_IM' | translate"
+       appTranslateAnimation
+       aria-hidden="true">
+      {{'PAGES.INDEX.AND_IM' | translate}}
+    </p>
+    <p class="index-page__title-part"
+       [attr.data-glitch]="'PAGES.INDEX.FRONTEND' | translate"
+       appTranslateAnimation
+       aria-hidden="true">
+      {{'PAGES.INDEX.FRONTEND' | translate}}
+    </p>
+    <p class="index-page__title-part"
+       [attr.data-glitch]="'PAGES.INDEX.DEVELOPER' | translate"
+       appTranslateAnimation
+       aria-hidden="true">
+      {{'PAGES.INDEX.DEVELOPER' | translate}}
+    </p>
+  </div>
+
+<!--  <app-index-photo class="index-page__photo"/>-->
+  <div class="index-page__bg"></div>
+
+  <app-index-path-text/>
+</div>

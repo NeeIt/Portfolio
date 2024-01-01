@@ -1,0 +1,77 @@
+<div class="contact-page">
+  <p class="sr-only">{{'ACCESSIBILITY.CONTACTS.DESCRIPTION' | translate}}</p>
+  <form [formGroup]="contactForm"
+        (ngSubmit)="onSubmit()"
+        class="contact-page__form form">
+    <label for="name" class="form__label">
+      <input
+        [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
+        type="text"
+        id="name"
+        formControlName="name"
+        [placeholder]="'PAGES.CONTACTS.FORM.NAME' | translate"/>
+    </label>
+
+    <label for="phone" class="form__label">
+      <input
+        type="text"
+        id="phone"
+        formControlName="phone"
+        [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
+        [placeholder]="'PAGES.CONTACTS.FORM.PHONE' | translate">
+    </label>
+
+    <label for="email" class="form__label form__label_full">
+      <input
+        type="text"
+        id="email"
+        formControlName="email"
+        [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
+        [placeholder]="'PAGES.CONTACTS.FORM.EMAIL' | translate">
+    </label>
+
+    <label for="message" class="form__label form__label_full">
+      <textarea id="message"
+                formControlName="message"
+                [placeholder]="'PAGES.CONTACTS.FORM.MESSAGE' | translate"
+                [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
+      ></textarea>
+    </label>
+
+    <button
+      *ngIf="{loading: (sendEmailRequestState$ | async) === requestStates.PENDING} as data"
+      type="submit"
+      [ngClass]="{loading: data.loading}"
+      [disabled]="contactForm.invalid || data.loading"
+      [attr.aria-disabled]="contactForm.invalid || data.loading"
+      [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
+    >
+      <span>{{'PAGES.CONTACTS.FORM.SUBMIT' | translate}}</span>
+      <ng-container *ngIf="data.loading">
+        <mat-icon svgIcon="loading" class="form__loading"></mat-icon>
+      </ng-container>
+    </button>
+  </form>
+
+  <address class="contact-page__email">
+    <a href="mailto:NEWNEEPROGRAM@GMAIL.COM"
+       [attr.aria-label]="'ACCESSIBILITY.CONTACTS.EMAIL' | translate"
+       [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
+    >
+      NEWNEEPROGRAM@GMAIL.COM
+    </a>
+  </address>
+
+  <div class="contact-page__socials socials">
+    <a *ngFor="let social of socials"
+       [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
+       [attr.aria-label]="('ACCESSIBILITY.CONTACTS.'+(social[0] | uppercase)) | translate"
+       [href]="social[1]"
+       target="_blank"
+       class="socials__link">
+      <mat-icon [svgIcon]="'social-'+social[0] | lowercase"></mat-icon>
+    </a>
+  </div>
+</div>
+
+<app-contact-path-text/>

@@ -1,0 +1,24 @@
+<div class="presentation-slider">
+  <div class="presentation-slider__wrapper">
+    <div
+      class="presentation-slider__row"
+      *ngFor="let row of _rows; let rowIndex = index"
+      [ngStyle]="{
+        width: itemWidth * row.length + '%',
+        height: 'calc(100% / '+ _rows.length +' - 8px)'
+      }"
+      [@slide]="{value: animationState, params: {
+      translateFrom: ((reversed ? rowIndex % 2 === 0 : rowIndex % 2 === 1) ? 0 : (-100 / row.length)) + '%',
+      translateTo: ((reversed ? rowIndex % 2 === 0 : rowIndex % 2 === 1) ? (-100 / row.length) : 0) + '%',
+      }}"
+      (@slide.done)="animationDone($event, rowIndex)"
+    >
+      <div class="presentation-slider__item"
+           [ngStyle]="{width: itemWidth + '%'}"
+           *ngFor="let item of row; let index = index; trackBy trackSlide">
+        <img [src]="item" alt="" [ngStyle]="{'object-position': position}">
+      </div>
+    </div>
+  </div>
+</div>
+

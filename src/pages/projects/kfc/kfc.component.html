@@ -1,0 +1,33 @@
+<div class="project">
+
+  <div class="project__main-img">
+    <img src="/assets/img/projects/kfc.png" alt=""/>
+  </div>
+
+  <div class="project__container">
+    <div class="project__group">
+      <app-breadcrumb [breadcrumbs]="breadcrumbs"/>
+      <h1>{{'PROJECTS.KFC.NAME' | translate}}</h1>
+      <p>{{'PROJECTS.KFC.DESCRIPTION_SHORT' | translate}}</p>
+      <h2>{{'PAGES.PROJECTS.BASE.STACK' | translate}}</h2>
+      <div class="work-card__stack stack-list">
+        <div *ngFor="let skill of project.STACK" class="stack-list__item">
+          <mat-icon [svgIcon]="skill | lowercase"></mat-icon>
+          <span>{{skill}}</span>
+        </div>
+      </div>
+      <a class="project__visit-button" [href]="project.URL" [target]="'_blank'">
+        {{'PAGES.PROJECTS.BASE.VISIT' | translate}}
+      </a>
+    </div>
+    <div class="project__group">
+      <h2>{{'PAGES.PROJECTS.BASE.ROLE' | translate}}</h2>
+      <p>{{'PROJECTS.KFC.ROLE_DESCRIPTION' | translate}}</p>
+    </div>
+    <div class="project__group">
+      <h2>{{'PAGES.PROJECTS.BASE.SCREENSHOTS' | translate}}</h2>
+      <p>{{'PAGES.PROJECTS.KFC.RESTRICTION' | translate}}</p>
+      <app-photo-slider *ngIf="previewList" [imageList]="previewList" class="project__preview-slider"/>
+    </div>
+  </div>
+</div>

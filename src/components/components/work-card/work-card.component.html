@@ -1,0 +1,14 @@
+<div class="works__item work" *ngIf="work; else loading">
+  <div class="work__img">
+    <img [src]="work.IMAGE" [alt]="work.NAME"/>
+  </div>
+  <div class="work__title">
+    {{work.NAME | uppercase}}
+  </div>
+  <div class="work__skills">
+    <div class="work__skill tag" [ngClass]="{'tag_filled': skill.isMain}" *ngFor="let skill of work.SKILLS">{{skill.title}}</div>
+  </div>
+</div>
+
+<ng-template #loading>
+</ng-template>

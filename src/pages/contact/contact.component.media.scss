@@ -1,0 +1,35 @@
+@import "src/assets/styles/constructor-mixins";
+
+@include Media('bigMobile') {
+  .contact-page {
+    padding: calc(var(--panel-margin-top) + 32px) calc(var(--panel-margin-right) + 16px) calc(var(--panel-margin-top) + 32px)  calc(var(--panel-margin-left) + 16px);
+  }
+}
+
+@include Media('table') {
+  .contact-page {
+    padding: calc(var(--panel-margin-top) + 32px) calc(var(--panel-margin-right) + 16px) calc(var(--panel-margin-top) + 32px)  16px;
+  }
+
+  .form {
+    grid-template-columns: 1fr 1fr;
+
+    &__label_full {
+      grid-column: 1/3;
+    }
+  }
+}
+
+@include Media('desktop') {
+  .contact-page {
+    padding: calc(var(--panel-margin-top) + 32px) calc(var(--panel-margin-right) + 16px) calc(var(--panel-margin-top) + 32px) 32px;
+  }
+
+  .form {
+    grid-template-columns: 1fr 1fr;
+
+    &__label_full {
+      grid-column: 1/3;
+    }
+  }
+}

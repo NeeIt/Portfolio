@@ -1,0 +1,517 @@
+{
+  "DATA": {
+    "NAME": "Vladislav Ushmankin",
+    "JOB_TITLE": " Experienced frontend developer specializing in Angular and modern web technologies, including SSR and SEO optimization.",
+    "JOB_TITLE_SHORT": "Frontend Developer Angular",
+    "CURRENT_LOCATION": "South Korea",
+    "CURRENT_TIME_ZONE": "GMT+9",
+    "AWARDS": "Initiative in transitioning the website to Server Side Rendering (SSR), significantly improving SEO and positively impacting company revenue; Sole leadership of a project that received high acclaim from clients and employers for innovative solutions and impressive results; Mentoring and leading two junior colleagues, contributing to their professional growth and skill development; Contributing to the improvement of development processes, enhancing efficiency and quality of projects",
+    "EDUCATION": "Russia, Tula Region, Donskoy College of Information Technologies 2016-2020",
+    "SKILLS": "Angular, SSR (Server Side Rendering), SEO, GIT, Unit Tests, TypeScript, Animations, HTML5, CSS4, Responsive Web Design",
+    "ADDITIONAL_SKILLS": "Figma, Leadership, Soft Skills",
+    "INTERESTS": "Programming, Travel, Creativity, Psychology, Language Learning"
+  },
+  "DATE": {
+    "YEARS": "years",
+    "MONTHS": "months",
+    "DAYS": "days",
+    "TO_CURRENT": "today"
+  },
+  "HOBBIES": {
+    "TRAVEL": "Traveling",
+    "ART": "Drawing",
+    "GAMES": "Games",
+    "SPORT": "Sport",
+    "PHOTO": "Photography"
+  },
+  "TITLE": {
+    "HELLO": "Hello",
+    "IM": "I'm",
+    "NAME": "Vladislav Ushmankin",
+    "ABOUT_ME": "About my Experience",
+    "CHECK_WORKS":"Check my works",
+    "CONTACTS": "Let's cooperate",
+    "NOT_FOUND": "Page not found"
+  },
+  "MODALS": {
+    "LANGUAGE": {
+      "TITLE": "Language",
+      "SEARCH": "Search"
+    }
+  },
+  "BASE": {
+    "NAVIGATION": "Navigation",
+    "SETTINGS": "Settings",
+    "LIGHT_MODE": {
+      "TITLE": "Change Theme",
+      "DARK": "Dark",
+      "LIGHT": "Light"
+    }
+  },
+  "PAGES": {
+    "INDEX": {
+      "AND_IM": "AND I'M",
+      "FRONTEND": "FRONTEND",
+      "DEVELOPER": "DEVELOPER"
+    },
+    "ABOUT": {
+      "MAIN_TEXT": "As a leader, I have learned not only to manage a team and pass on my knowledge, but also to write technical documentation, applying innovative approaches to improve development processes. I aspire to participate in projects that bring positive changes to the world and society, and am ready to contribute to a team that shares my values.",
+      "H1": "A little about me",
+      "SKILLS_TITLE": "My key skills"
+    },
+    "DETAILS": {
+      "MY_NAME": "My name is",
+      "HOBBIES": "My hobbies",
+      "EXPERIENCE": {
+        "TITLE": "Professional Experience",
+        "DESCRIPTION": "During my time working at three different companies, I not only learned to create high-quality frontend but also gained basic backend development skills. This allowed me to better understand the architecture of web projects and more effectively collaborate with colleagues of various specializations - from designers and SEO specialists to backend developers.",
+        "DATE": "Work experience"
+      },
+      "ACHIEVEMENTS": {
+        "TITLE": "Personal Achievements and Qualities",
+        "DESCRIPTION": "<ul>\n  <li>Leading a small team of developers</li>\n  <li>Training and mentoring newcomers</li>\n  <li>Writing technical documentation</li>\n  <li>Using AI technologies to optimize processes</li>\n</ul>"
+      },
+      "SKILLS": {
+        "TITLE": "My Skills"
+      },
+      "LANGUAGES": {
+        "TITLE": "Language Skills"
+      },
+      "AIMS": {
+        "TITLE": "Professional Goals",
+        "DESCRIPTION": "I aim to develop in full-stack development and look for projects that make the world a better place. I am ready to join a team that values innovation and quality in development."
+      },
+      "ARTS": {
+        "TITLE": "My Works in Graphic Editors",
+        "DESCRIPTION": "One of my hobbies is drawing on a graphics tablet. I am happy to share my works with you."
+      },
+      "TRAVEL": {
+        "TITLE": "Current Location",
+        "DESCRIPTION": "I am passionately fond of traveling. I absolutely love exploring the cultures of different countries."
+      },
+      "SEND_EMAIL": "Send email",
+      "END": "If you're looking for a developer who can make a significant contribution to your team and project, I'd be glad to discuss opportunities for collaboration."
+    },
+    "WORKS": {
+      "MY_EXPERIENCE": {
+        "TITLE": "My Experience",
+        "DESCRIPTION": "My professional journey has led me through three leading companies, where I gained extensive frontend development experience and expanded my backend development knowledge. I made a significant contribution to improving performance and SEO, implemented SSR, and developed complex gaming elements."
+      },
+      "MY_PROJECTS": "List of My Projects"
+    },
+    "CONTACTS": {
+      "FORM": {
+        "PHONE": "Your phone number",
+        "NAME": "How should we address you?*",
+        "EMAIL": "Email*",
+        "MESSAGE": "Your message*",
+        "SUBMIT": "Send"
+      }
+    },
+    "NOT_FOUND": {
+      "MAIN_TEXT": "404",
+      "TO_MAIN": "На головну"
+    },
+    "PROJECTS": {
+      "BASE": {
+        "VISIT": "Visit Website",
+        "GITHUB": "Github",
+        "SCREENSHOTS": "Project Screenshots",
+        "ROLE": "Role in Project",
+        "OTHER_RESPONSIBILITIES": "Other Responsibilities in Project",
+        "STACK": "Stack",
+        "CODE_REVIEW": {
+          "NAME": "CODE REVIEW",
+          "DESCRIPTION": "One of my responsibilities was regularly reviewing code created by my colleagues, which not only improved the overall code quality but also provided an excellent opportunity for knowledge and experience sharing among developers."
+        },
+        "SENTRY": {
+          "NAME": "SENTRY",
+          "DESCRIPTION": "Monitoring errors in Sentry was one of my responsibilities on the project. This service helped our project to catch real data about errors occurring to users, allowing us to quickly detect and resolve them."
+        },
+        "TASK": "TASK",
+        "TEACHING": "Teaching Junior Colleagues",
+        "UNIT_TESTS": "Writing Unit Tests"
+      },
+      "HELLTV": {
+        "GAMES": "GAME MODES DEVELOPED BY ME",
+        "GAME_DESCRIPTION": "MODE DESCRIPTION",
+        "GAME_PAGES": "MODE PAGES",
+        "TEACHING": "While working on this project, I had the opportunity to lead a small team of two developers, teaching them the intricacies of working with Angular and various development processes. As a result, this helped to raise the knowledge level within the team and work more efficiently on various company products.",
+        "UPGRADE": {
+          "NAME": "UPGRADE",
+          "DESCRIPTION": "One of the two major modes developed on the site was UPGRADE. In this mode, users can enhance their CSGO/CS2 skins. The smaller the price difference between the bet and the prize, the higher the chance.",
+          "TASK": "My task was to develop the mode and ensure its correct functioning for users, taking into account various states: whether the user is logged in, if the request has failed, whether the user has enough balance, if they have skins, and accompany all these with smooth animations."
+        },
+        "SAMURAI": {
+          "NAME": "SAMURAI",
+          "DESCRIPTION": "This mode offers the user to pay only for the entry, opening cases for free. Each subsequent case increases the risk of losing. At any moment, the user can either take the already won prize or continue to play.",
+          "TASK": "I was tasked with developing the game mode, ensuring user-friendly navigation, and smooth animations.",
+          "MAIN_PAGE": {
+            "NAME": "Main Page of the Mode",
+            "DESCRIPTION": "This page shows all our available paths to the user. The price and potential winnings varied for each path."
+          },
+          "GAME_PAGE": {
+            "NAME": "Game Field",
+            "DESCRIPTION": "This page contains the main game interface: the game field, interaction buttons, the animation of opening cases, and a list of potential prizes."
+          }
+        }
+      },
+      "SCLOUD": {
+        "UNIT_TESTS": "Unit tests play a significant role in the project, written for every developed section and component, which has repeatedly saved the project from critical errors",
+        "SCREEN": "Page Examples",
+        "DESKTOP": "Desktop Page Spread",
+        "MOBILE": "Mobile Page Examples"
+      },
+      "KFC": {
+        "RESTRICTION": "This project was the very first one I worked on. Since it was a long time ago, I no longer have more detailed screenshots. Access to the project is granted to current KFC employees, so there's no way to take new screenshots"
+      },
+      "CSGOFAST": {
+        "GAME": "Mode developed by me",
+        "TEACHING": "While on this project, I had the opportunity to lead a small team of 2 developers, teaching them the intricacies of working with Angular and various development processes. This helped to raise the level of knowledge in the team and work more effectively on various company products",
+        "RESTRICTION": "Although most of my work on the project involved core project work, improving performance and SEO, I had the opportunity to participate in the development of a special game mode for Black Friday"
+      },
+      "PORTFOLIO": {
+        "DESIGN": {
+          "TITLE": "Design",
+          "DESCRIPTION": "A significant part of the time I dedicated to this project was spent on creating the design."
+        },
+        "FIGMA": {
+          "TITLE": "Figma",
+          "DESCRIPTION": "While developing this site, I decided to create my own design. Since design is not my main direction, I opted for a simpler approach. I collected references from more than 50 different website designs and tried to understand what I liked and why. Based on the collected references, I created the design for my own website."
+        },
+        "AI": {
+          "TITLE": "AI Images",
+          "DESCRIPTION": "~90% of all images on this site, such as backgrounds, logos, photos, were created using Midjourney. Each image was chosen considering the site's style and color schemes."
+        },
+        "THEME": {
+          "TITLE": "Light Theme of the Site",
+          "DESCRIPTION": "I decided to implement a switchable color scheme on the site. Why not?"
+        },
+        "SSR": {
+          "TITLE": "SSR",
+          "DESCRIPTION": "Server Side Rendering was developed for the site, ensuring the correct display of the site not only for users but also for bots, which struggle with scripts."
+        },
+        "LANGUAGES": {
+          "TITLE": "Multilingual",
+          "DESCRIPTION": "The site was adapted for {{amount}} languages, including English. Each page is also correctly displayed in prerenders using Server Side Rendering."
+        },
+        "ADAPTIVE": {
+          "TITLE": "Adaptiveness",
+          "DESCRIPTION": "The site, both in the design phase and in the development phase, was focused on ensuring that all content was adapted for all popular devices."
+        },
+        "ANIMATIONS": {
+          "TITLE": "Animations",
+          "DESCRIPTION": "The main thing I wanted to achieve on the site were smooth animations that could impress.",
+          "MORE": "These are just a couple of examples of animations on the site. I hope you will notice the other animations too."
+        },
+        "INFINITY_MAIN": {
+          "TITLE": "Infinite Scroll",
+          "DESCRIPTION": "I really liked how infinite scroll is implemented in modern popular apps like TikTok, where users can continuously scroll vertically. I decided to implement something similar on the main pages of the site. On desktop, you can scroll endlessly up or down.",
+          "TO_MAIN": "To the Main Page"
+        },
+        "ANIMATION_ABOUT": {
+          "TITLE": "Sticky Block on the 'More About Me' Page",
+          "TO_ABOUT": "Visit This Page"
+        },
+        "ACCESSIBILITY": {
+          "TITLE": "Accessibility",
+          "DESCRIPTION": "The site was adapted for users with limited capabilities, including the blind, using special aria syntax. You can test this by enabling programs that read out the site content. For example, NVDA (for Windows)."
+        },
+        "SENTRY": {
+          "TITLE": "Sentry",
+          "DESCRIPTION": "For this site, I used Sentry for monitoring and fixing errors that occur with users."
+        },
+        "GTM": {
+          "TITLE": "Google Tag Manager",
+          "DESCRIPTION": "I paid special attention to implementing metrics on the site. I decided to use GTM."
+        },
+        "SEO": {
+          "TITLE": "SEO",
+          "DESCRIPTION": "A large part of the work on the site was dedicated to SEO. Extensive work was done, using the best modern practices."
+        },
+        "SEO_TITLE": {
+          "TITLE": "head Title, Description",
+          "DESCRIPTION": "The title and meta title/description in the head dynamically change depending on the page the user is on and the language of the page."
+        },
+        "SEO_SEMANTIC": {
+          "TITLE": "Semantics",
+          "DESCRIPTION": "Each page is created using semantic markup, which positively affects SEO."
+        },
+        "SEO_SITEMAP": {
+          "TITLE": "Sitemap",
+          "DESCRIPTION": "A sitemap was developed for the site, which includes links to each SEO-relevant page and each of its language versions.",
+          "TO_SITEMAP": "View sitemap"
+        },
+        "SEO_ROBOTS_TXT": {
+          "TITLE": "Robots.txt",
+          "DESCRIPTION": "A robots.txt file was developed, which is read by bots.",
+          "TO_ROBOTS_TXT": "View robots.txt"
+        },
+        "SEO_SCHEMA": {
+          "TITLE": "Schema",
+          "DESCRIPTION": "A schema was created for each page of the site, which adds context for search engines and increases the likelihood of appearing in rich snippets.",
+          "EXAMPLE": "Example of the schema from the main page"
+        },
+        "SEO_CANONICAL": {
+          "TITLE": "Canonical & alternates",
+          "DESCRIPTION": "search engines about the relationships between pages.",
+          "EXAMPLE": "Example for this page"
+        },
+        "SEO_404": {
+          "TITLE": "404 Page",
+          "DESCRIPTION": "The site features a 404 page that is displayed if a user lands on a non-existent address.",
+          "TO_404": "View the 404 Page",
+          "EASTER_EGG": "There's an easter egg on this page that can be triggered with a 5% chance upon visiting."
+        },
+        "SEO_FAVICONS": {
+          "TITLE": "Favicons & Touch Icons",
+          "DESCRIPTION": "The site's icons are adapted for all popular devices. The site's logo has been adjusted to more than 20 different sizes, ensuring correct display on all popular devices.",
+          "EXAMPLE": "Examples of favicons and touch icons on this site"
+        },
+        "SEO_MANIFEST": {
+          "TITLE": "Manifest.json",
+          "DESCRIPTION": "A JSON file containing metadata about the web application, such as name, description, icons, and other settings, allowing the web app to function like a native app on the user's platform.",
+          "TO_MANIFEST": "View manifest.json"
+        },
+        "SEO_OTHER": {
+          "TITLE": "Other",
+          "DESCRIPTION": "In addition to the above, the site contains many other configurations that help search engines better index this site."
+        }
+      }
+    }
+  },
+  "SOCIALS": {
+    "TELEGRAM": "My Telegram",
+    "VK": "My VK",
+    "WHATSAPP": "My WhatsApp",
+    "GITHUB": "Me on GITHUB",
+    "LINKEDIN": "Me on LinkedIn"
+  },
+  "SEO": {
+    "404": {
+      "TITLE": "Not found | Vladislav Ushmankin",
+      "DESCRIPTION": "I'm frontend developer"
+    },
+    "HOME": {
+      "TITLE": "Frontend developer | Vladislav Ushmankin",
+      "DESCRIPTION": "I'm frontend developer",
+      "NAVIGATION": "HOME"
+    },
+    "ABOUT": {
+      "TITLE": "About me | Vladislav Ushmankin",
+      "DESCRIPTION": "I'm frontend developer",
+      "NAVIGATION": "MORE ABOUT ME"
+    },
+    "DETAILS": {
+      "TITLE": "About Me | Vladislav Ushmankin",
+      "DESCRIPTION": "I am a frontend developer",
+      "NAVIGATION": "ABOUT ME"
+    },
+    "WORKS": {
+      "TITLE": "My works | Vladislav Ushmankin",
+      "DESCRIPTION": "I'm frontend developer",
+      "NAVIGATION": "WORKS"
+    },
+    "WORK_LIST": {
+      "TITLE": "Project List | Vladislav Ushmankin",
+      "DESCRIPTION": "I'm frontend developer",
+      "NAVIGATION": "MY PROJECTS"
+    },
+    "CONTACT": {
+      "TITLE": "Contact me | Vladislav Ushmankin",
+      "DESCRIPTION": "I'm frontend developer",
+      "NAVIGATION": "CONTACT ME"
+    },
+    "PROJECT": {
+      "KFC": {
+        "TITLE": "Project TeamKFC | Vladislav Ushmankin",
+        "DESCRIPTION": "I am a frontend developer",
+        "NAVIGATION": "KFC"
+      },
+      "SCLOUD": {
+        "TITLE": "Project Scloud | Vladislav Ushmankin",
+        "DESCRIPTION": "I am a frontend developer",
+        "NAVIGATION": "SCLOUD"
+      },
+      "HELLTV": {
+        "TITLE": "Project Helltv | Vladislav Ushmankin",
+        "DESCRIPTION": "I am a frontend developer",
+        "NAVIGATION": "HELLTV.STORE"
+      },
+      "CSGOFAST": {
+        "TITLE": "Project CSGOFast | Vladislav Ushmankin",
+        "DESCRIPTION": "I am a frontend developer",
+        "NAVIGATION": "CSGOFAST"
+      },
+      "PORTFOLIO": {
+        "TITLE": "Project \"My Portfolio\" | Vladislav Ushmankin",
+        "DESCRIPTION": "I am a frontend developer",
+        "NAVIGATION": "PORTFOLIO"
+      }
+    }
+  },
+  "SKILLS": {
+    "ANGULAR": {
+      "TITLE": "Angular",
+      "DESCRIPTION": "Over 3 years of experience with Angular."
+    },
+    "LEAD": {
+      "TITLE": "Lead",
+      "DESCRIPTION": "Led a small project with two colleagues."
+    },
+    "SSR": {
+      "TITLE": "SSR",
+      "DESCRIPTION": "Handled SSR on two projects."
+    },
+    "DOCUMENTATION": {
+      "TITLE": "Documentation",
+      "DESCRIPTION": "Experience in creating documentation in Russian."
+    },
+    "SEO": {
+      "TITLE": "SEO",
+      "DESCRIPTION": "Responsible for SEO in two projects, interacted with SEO specialists."
+    },
+    "ANIMATIONS": {
+      "TITLE": "Animations",
+      "DESCRIPTION": "Developed complex animations."
+    },
+    "TYPESCRIPT": {
+      "TITLE": "Typescript",
+      "DESCRIPTION": "Professional use of TypeScript."
+    },
+    "FIGMA": {
+      "TITLE": "Figma",
+      "DESCRIPTION": "Used Figma in personal and collaborative projects."
+    },
+    "GIT": {
+      "TITLE": "GIT",
+      "DESCRIPTION": "Proficient in GIT."
+    },
+    "HTML5": {
+      "TITLE": "HTML5",
+      "DESCRIPTION": "Professional level HTML5."
+    },
+    "SCSS": {
+      "TITLE": "SCSS",
+      "DESCRIPTION": "Professional use of SCSS."
+    },
+    "UNIT_TESTS": {
+      "TITLE": "Unit Tests",
+      "DESCRIPTION": "Experience in writing unit tests for critical code segments."
+    },
+    "ADAPTIVE": {
+      "TITLE": "Adaptive",
+      "DESCRIPTION": "All projects were adaptive across popular devices and browsers."
+    },
+    "RUSSIAN": {
+      "TITLE": "Russian",
+      "DESCRIPTION": "Fluent"
+    },
+    "UKRAINIAN": {
+      "TITLE": "Ukrainian",
+      "DESCRIPTION": "Lived in Ukraine for 7 years. Can freely speak and understand everyday topics"
+    },
+    "ENGLISH": {
+      "TITLE": "English",
+      "DESCRIPTION": "Currently improving. Can communicate, but have difficulties with complex terminology"
+    },
+    "JAPANESE": {
+      "TITLE": "Japanese",
+      "DESCRIPTION": "Currently improving. Basic beginner level"
+    }
+  },
+  "COMPANIES": {
+    "GMCS": {
+      "NAME": "GMCS",
+      "ROLE": "Junior Frontend Developer",
+      "RESPONSIBILITIES": "Development of forms, sections, and simple components",
+      "DESCRIPTION": "Specializes in web development and software in the field of information technology, providing IT solutions for businesses."
+    },
+    "SCLOUD": {
+      "NAME": "SCloud",
+      "ROLE": "Junior Frontend Developer",
+      "RESPONSIBILITIES": "Development of sections, functionality, and redesign",
+      "DESCRIPTION": "Service for remote work with 1C services, designed to simplify accounting and business management."
+    },
+    "ITFORCE": {
+      "NAME": "ITForce",
+      "ROLE": "Middle Frontend Developer. Lead Developer of the HELLTV.STORE project",
+      "RESPONSIBILITIES": "Project leadership, development of functionality, improvement of SEO and performance of projects",
+      "DESCRIPTION": "Specializes in creating interactive games and web platforms, developing websites that explore various game modes."
+    }
+  },
+  "PROJECTS": {
+    "KFC": {
+      "NAME": "KFC - Corporate Portal",
+      "ROLE": "Junior Frontend Developer",
+      "FEATURED": "Participated in bug fixing and section development",
+      "ROLE_DESCRIPTION": "In my first project as a programmer at KFC, I joined the team developing the corporate portal. Although my contribution was modest due to limited experience, I made significant strides in professional development. I improved my teamwork skills, mastered the use of the GIT version control system, and learned effective task planning and management according to Agile methodology. My specific contribution included interface development: creating forms, individual sections, fixing bugs, and performing other tasks to improve the user experience in the portal.",
+      "RESPONSIBILITIES": "Project support, form and input creation, layout",
+      "DESCRIPTION": "",
+      "DESCRIPTION_SHORT": "An internal portal for KFC employees, facilitating the management of corporate resources and business processes within the organization. It includes tools for document management, easing the workflow."
+    },
+    "SCLOUD": {
+      "NAME": "SCLOUD",
+      "ROLE": "Junior Frontend Developer",
+      "AWARDS": "1. Participated in the global redesign of the entire website; 2. Developed individual pages for user document interaction within SCLOUD.",
+      "FEATURED": "1. Involved in the comprehensive redesign of the website; 2. Developed distinct pages for user-document interaction.",
+      "RESPONSIBILITIES": "Project maintenance, overall project design change, development of sections and pages.",
+      "DESCRIPTION": "The project consists of a large number of forms for user interaction with the 1C system.",
+      "ROLE_DESCRIPTION": "In the SCLOUD project, specializing in IT services for working with 1C databases, I served as a frontend developer. My tasks included expanding the service with new sections and participating in a large-scale website redesign. While working on complex components, including the referral program, I deepened my interaction with backend and designers, significantly improving my professional skills. The one-time experience of database migration, although challenging, greatly enriched my understanding of backend processes. Becoming more experienced and competent, I actively participated in strategic planning and development of the project, establishing myself as a confident frontend developer on Angular.",
+      "DESCRIPTION_SHORT": "Scloud.ru is a service for remote work with 1C services, designed to simplify accounting and business management. It also provides additional services, including consultations, training, and IT support."
+    },
+    "HELLTV": {
+      "NAME": "HELLTV STORE",
+      "ROLE": "Middle Frontend Developer. Responsible for optimization, structure, SEO of the project, and for training junior colleagues",
+      "AWARDS": "1. Optimized the project to be more user-friendly; 2. Improved SEO, which attracted new users; 3. Set up server-side rendering, positively impacting SEO; 4. Became a mentor for newcomers. 5. Developed several game modes",
+      "FEATURED": "Responsible for the overhaul of the site's core, optimization, and SEO",
+      "ROLE_DESCRIPTION": "In the HELLTV STORE project, I took on the role of a lead developer. I was responsible for SEO and transitioning to server-side rendering (SSR), which enhanced the site's performance and accessibility. My work included the development of game modes, animations, and collaboration with designers and backend developers",
+      "RESPONSIBILITIES": "SEO setup and maintenance, transitioning the project to SSR (Server-Side Rendering), refactoring the project, streamlining development processes, training newcomers, conducting code reviews, creating pages, sections, thematic events on the site, and individual game modes, project management, communication with designers, marketers, and SEO specialists",
+      "DESCRIPTION": "The project consists of many components, including game modes and inventory, as well as bonus pages and a referral program",
+      "DESCRIPTION_SHORT": "A service offering players the opportunity to open cases and win CS:GO/CS2 skins. Users can withdraw winnings to their Steam account. An upgrade mode is also available for trading skins for more valuable ones. The site includes a referral program and the opportunity to get free cases."
+    },
+    "CSGOFAST": {
+      "NAME": "CSGOFAST",
+      "ROLE": "Middle Frontend Developer. Responsible for optimization, structure, SEO of the project, and for training junior colleagues",
+      "AWARDS": "1. Optimized the project to be more user-friendly; 2. Improved SEO, which attracted new users; 3. Implemented server-side rendering, positively impacting SEO; 4. Became a mentor for newcomers",
+      "FEATURED": "Responsible for the overhaul of the site's core, optimization, and SEO",
+      "ROLE_DESCRIPTION": "At CSGOFAST, my experience in frontend development reached a new level. I was transferred to this project to enhance it. My primary duties included improving the site's performance, its search optimization, and technical modernization by transitioning to the modern Angular framework. Thanks to my technical expertise and teamwork skills, I quickly became an indispensable part of the team, serving as a technical leader and consultant for beginners. My role in the team evolved from an executor to a strategic developer who influences the project's development direction and makes decisions affecting critical aspects of the platform's functionality. This experience gave me confidence in my ability to lead development at a high level, allowing me to grow into a specialist capable of managing and scaling complex frontend projects.",
+      "RESPONSIBILITIES": "SEO setup and maintenance, transitioning the project to SSR (Server-Side Rendering), project refactoring, streamlining development processes, training newcomers, conducting code reviews, creating pages, sections, thematic events on the site, and individual game modes, communication with designers, marketers, and SEO specialists",
+      "DESCRIPTION": "The project has been in existence since 2012 and has become one of the most popular in the Russian segment. It has all the necessary permissions and certificates confirming the service's fairness",
+      "DESCRIPTION_SHORT": "A popular gambling site for the CS:GO game, offering PvP/PvE games. Notable for its safety and legitimacy. Includes a live chat for player interaction and provides active user support."
+    },
+    "PORTFOLIO": {
+      "NAME": "This Site",
+      "ROLE": "Lead and Sole Developer/Designer/SEO",
+      "AWARDS": "1. Optimized SEO; 2. Multilingualism; 3. Server-side Rendering; 4. Smooth Animations; 5. Beautiful Design",
+      "FEATURED": "1. SEO setup: sitemap, schema, SSR, alternates, etc.; 2. Server-side rendering setup; 3. Design creation; 4. Animation creation; 5. Website optimization; 6. Design implementation",
+      "RESPONSIBILITIES": "Creation, maintenance, and expansion of the project",
+      "DESCRIPTION": "",
+      "DESCRIPTION_SHORT": "On this site, I applied most of the knowledge I have acquired over my career. From adaptive design and layout in FIGMA to SEO and SSR setup"
+    }
+  },
+  "ACCESSIBILITY": {
+    "INPUT": "Input field",
+    "BUTTONS": {
+      "OPEN_NAVIGATION": "Open main menu / Open main menu",
+      "CLOSE_NAVIGATION": "Close main menu / Close main menu",
+      "CHANGE_LIGHT_MODE": "Change site's color scheme / Change light mode",
+      "CLOSE_MODAL": "Close window / Close modal",
+      "BACK": "Go back / Back",
+      "CHANGE_LANGUAGE": "Change language / Change Language",
+      "SCROLL_TO_TOP": "Scroll to the top of the page",
+      "NEXT_PHOTO": "Next image from the set",
+      "PREV_PHOTO": "Previous image from the set"
+    },
+    "CONTACTS": {
+      "EMAIL": "My email",
+      "SOCIALS": "My social networks",
+      "VK": "My page in VK",
+      "TELEGRAM": "My Telegram account",
+      "WHATSAPP": "My phone number in WhatsApp",
+      "GITHUB": "My profile on GitHub",
+      "LINKEDIN": "My page on LinkedIn",
+      "DESCRIPTION": "Here you can leave me a message via email. The page contains four input fields: your name, your phone number, your email, and your message. The name, email, and message fields are mandatory. After sending, your message will be sent to my email. The page also contains links to my profiles on popular social networks"
+    }
+  }
+}

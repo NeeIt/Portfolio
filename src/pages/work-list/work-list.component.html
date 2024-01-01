@@ -1,0 +1,14 @@
+<div class="work-list-page">
+
+  <app-breadcrumb class="work-list-page__breadcrumb" [breadcrumbs]="breadcrumbs"/>
+
+  <h1 class="work-list-page__h1">{{'SEO.WORK_LIST.NAVIGATION' | translate}}</h1>
+
+  <div class="work-list-page__project-list project-list">
+    <div class="project-list__item project"
+         *ngFor="let project of projects; let index = index"
+        [ngClass]="{'project_simple': !project.PREVIEWS?.length}">
+      <app-work-card-v3 [work]="project" [reverse]="index % 2 === 1"/>
+    </div>
+  </div>
+</div>

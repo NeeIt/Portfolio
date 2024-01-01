@@ -1,0 +1,20 @@
+:host {
+  height: 100%;
+  width: 100%;
+}
+
+.photo {
+  background: transparent;
+  border-width: 0;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  cursor: pointer;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}

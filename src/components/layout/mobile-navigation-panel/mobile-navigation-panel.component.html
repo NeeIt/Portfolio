@@ -1,0 +1,12 @@
+<div class="mobile-navigation-panel" [@fadeInOut]="animationState" *ngIf="currentLinkData$ | async as linkData">
+  <button (click)="nextPage()" role="link" *ngIf="linkData.nextPage">
+    {{linkData.nextPage.data.seoLocale + '.NAVIGATION' | translate}}
+  </button>
+
+  <ng-container *ngIf="linkData.connected">
+    <a *ngIf="(currentLang$ | async)?.iso2 as lang"
+       [routerLink]="'/'+(lang === defaultLang ? '' : (lang | lowercase) + '/') + linkData.connected.path">
+      {{linkData.connected.data.seoLocale+'.NAVIGATION' | translate}}
+    </a>
+  </ng-container>
+</div>
