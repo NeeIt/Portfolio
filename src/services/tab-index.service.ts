@@ -31,7 +31,6 @@ export class TabIndexService {
 
     if(!this.isServer) {
       document.addEventListener('focus', function(e) {
-        console.log('Элемент в фокусе:', e.target);
       }, true); // Использование true для захвата события в фазе захвата
     }
   }

@@ -100,7 +100,6 @@ export class MyTranslateService {
     } else {
       const isDefaultNewLang = lang === DEFAULT_LANGUAGE;
       this.router.navigate([(!isDefaultNewLang ? lang.toLowerCase() : '')+ MyTranslateService.getBaseUrl(this.router.url)])
-      console.log((!isDefaultNewLang ? lang.toLowerCase() : '')+ MyTranslateService.getBaseUrl(this.router.url), MyTranslateService.getBaseUrl(this.router.url), this.router.url);
       this._currentLang.next(COUNTRIES_LIST.find(country => country.iso2.toLowerCase() === lang.toLowerCase()));
       if(doSave) {
         localStorage.setItem('me-lang', lang);

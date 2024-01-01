@@ -41,7 +41,6 @@ export class PresentationSliderComponent {
   }
 
   animationDone(event: any, rowIndex: number): void {
-    console.log(event, rowIndex);
     if (event.toState === 'start') {
       let item, newRow;
 
