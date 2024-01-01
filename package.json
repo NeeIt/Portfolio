@@ -16,10 +16,12 @@
     "build:ssr:prod": "ng build --configuration=production && ng run me:serve-ssr:production",
     "prerender:dev": "ng run me:prerender:development",
     "prerender:prod": "ng run me:prerender:production",
-    "sitemap:generate:prod": "node src/scripts/run.sitemap-generator.js prod",
-    "sitemap:generate:dev": "node src/scripts/run.sitemap-generator.js dev",
-    "robots-txt:generate:prod": "node src/scripts/run.robots-txt-generator.js prod",
-    "robots-txt:generate:dev": "node src/scripts/run.robots-txt-generator.js dev"
+    "sitemap:generate:prod": "node scripts/run.sitemap-generator.js prod",
+    "sitemap:generate:dev": "node scripts/run.sitemap-generator.js dev",
+    "robots-txt:generate:prod": "node scripts/run.robots-txt-generator.js prod",
+    "robots-txt:generate:dev": "node scripts/run.robots-txt-generator.js dev",
+    "routes:generate:prod": "node scripts/run.routes-generator.js prod",
+    "routes:generate:dev": "node scripts/run.routes-generator.js dev"
   },
   "private": true,
   "dependencies": {
