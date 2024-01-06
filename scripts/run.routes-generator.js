@@ -65,6 +65,7 @@ async function getLanguages() {
   console.log('Parsing language.const.ts...');
   try {
     const data = fs.readFileSync(SCRIPT_CONF.LANG_LIST_PATH, { encoding: 'utf8' });
+    console.log(data.match(/AVAILABLE_LANGUAGES\s?=\s?([\[].*[\]]);/)[1].replace(/'/g, '"'))
     const langs = JSON.parse(data.match(/AVAILABLE_LANGUAGES\s?=\s?([\[].*[\]]);/)[1].replace(/'/g, '"'));
     return langs.map(lang => lang === 'US' ? 'en' : lang.toLowerCase());
   } catch (err) {
