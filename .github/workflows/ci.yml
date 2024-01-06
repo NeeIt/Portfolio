@@ -53,7 +53,7 @@ jobs:
           username: ${{ secrets.DREAMHOST_USERNAME }}
           password: ${{ secrets.DREAMHOST_PASSWORD }}
           local-dir: ./dist/me/browser/
-          server-dir: /home/${{ secrets.DREAMHOST_USERNAME }}/vladislavushmankin.com/public
+          server-dir: /home/${{ secrets.DREAMHOST_USERNAME }}/vladislavushmankin.com/public/
 
       - name: Stop SSR Server
         run: kill $!
