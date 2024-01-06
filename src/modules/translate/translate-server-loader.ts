@@ -26,7 +26,7 @@ export class TranslateServerLoader implements TranslateLoader {
         this.prefix
       );
       const jsonData = JSON.parse(
-        fs.readFileSync(`${assets_folder}\\${lang.toLowerCase()}${this.suffix}`, 'utf8')
+        fs.readFileSync(`${assets_folder}\\${lang.toUpperCase()}${this.suffix}`, 'utf8')
       );
 
       // Here we save the translations in the transfer-state

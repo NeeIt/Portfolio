@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TransferState} from "@angular/platform-browser";
 import {translateServerLoaderFactory} from "@modules/translate/translate-server-loader";
-import {MyTranslateService} from "@services/translate.service";
 
 @NgModule({
   imports: [
