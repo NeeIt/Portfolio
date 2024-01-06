@@ -33,8 +33,8 @@ export class SeoService {
       if(this.isServer) {
         if(this.exceprionUrl.includes((routerEvent as NavigationEnd).url)) {
           console.log(`SERVER SEO. ${(routerEvent as NavigationEnd).url} was skipped`);
+          return
         }
-        return
       }
       // Достаем самый крайний route. Нужно для того, чтобы получить язык, который хранится в крайнем коренном route
       while (route.firstChild) {
