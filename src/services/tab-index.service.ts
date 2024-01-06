@@ -3,6 +3,7 @@ import {BehaviorSubject} from "rxjs";
 import {TAB_INDEX_MODE, TAB_INDEX_VALUES} from "@constants/base/tab-indexes.const";
 import {ITabIndexValues} from "@interfaces/tab-index.interface";
 import {AdaptiveService} from "@services/adaptive.service";
+import {environment} from "@environments/environment";
 
 
 @Injectable({
@@ -18,8 +19,11 @@ export class TabIndexService {
 
   constructor(
     @Inject('isServer') private isServer: boolean,
-    private readonly adaptiveService: AdaptiveService
+    private readonly adaptiveService: AdaptiveService,
   ) {
+    if(!this.isServer && !environment.production) {
+      window.addEventListener('focus', (event) => console.log('Focus on:', event.target), true);
+    }
 
     adaptiveService.isDesktop$.subscribe((isDesktop) => {
       if (this.tabIndexStack[0] === TAB_INDEX_MODE.DESKTOP && !isDesktop) {
