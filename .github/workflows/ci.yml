@@ -32,11 +32,16 @@ jobs:
       - name: Generate Routes for Prerender
         run: npm run routes:generate:prod
 
-      - name: Serve SSR
-        run: npm run serve:ssr
+      - name: Serve SSR for Prerender
+        run: |
+          npm run serve:ssr &
+          SSR_PID=$!
+          sleep 5
 
       - name: Prerender Production
-        run: npm run prerender:prod
+        run: |
+          npm run prerender:prod
+          kill $SSR_PID
 
       - name: Generate .htaccess
         run: npm run htaccess:generate
