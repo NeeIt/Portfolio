@@ -1,0 +1,57 @@
+name: Deploy to DreamHost with Angular Universal
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '20.2.0'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Generate Sitemap
+        run: npm run sitemap:generate:prod
+
+      - name: Generate Robots.txt
+        run: npm run robots-txt:generate:prod
+
+      - name: Build SSR Production
+        run: npm run build:ssr:prod
+
+      - name: Generate Routes for Prerender
+        run: npm run routes:generate:prod
+
+      - name: Serve SSR
+        run: npm run serve:ssr
+
+      - name: Prerender Production
+        run: npm run prerender:prod
+
+      - name: Generate .htaccess
+        run: npm run htaccess:generate
+
+      - name: Prepare 404 Prerenders
+        run: npm run 404-prerender:prepare
+
+      - name: Deploy to DreamHost
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: ${{ secrets.DREAMHOST_SERVER }}
+          username: ${{ secrets.DREAMHOST_USERNAME }}
+          password: ${{ secrets.DREAMHOST_PASSWORD }}
+          local-dir: ./dist/me/browser
+          server-dir: /home/${{ secrets.DREAMHOST_USERNAME }}/vladislavushmankin.com/public
+
+      - name: Stop SSR Server
+        run: kill $!
