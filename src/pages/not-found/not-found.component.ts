@@ -70,7 +70,7 @@ export class NotFoundComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.isServer) {
-      this.serverResponse.status(404);
+      this.serverResponse?.status(404);
     } else if(Math.random()>.95) {
       this.setEasterEgg();
     }
