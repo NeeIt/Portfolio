@@ -28,6 +28,7 @@ function getParsedRoutes() {
         return p2 ? '"isSeoPage":' + p2 : '\"isSeoPage" : false';
       })
       .replace(/'/g, '"');
+    console.log(data);
     return JSON.parse(data).filter(route => !!route.isSeoPage).map(route => '/'+route.path);
   } catch (err) {
     console.error('\x1b[31m%s\x1b[0m', "❌ 🚧Can't parse project's routes🚧", err);
