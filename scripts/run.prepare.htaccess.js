@@ -1,43 +1,23 @@
-console.log('\x1b[44m%s\x1b[0m', '//////////////////[START run.routes-generator.ts]//////////////////');
-
 const fs = require('fs');
-
-const [build] = process.argv.slice(2); // ['prod']
+const path = require('path');
 
 const SCRIPT_CONF = {
-  FILE_OUTPUT_PATH: 'tmp',
-  ENVIRONMENT_PATH: `src/environments/environment.${build || 'prod'}.ts`,
+  HTACCESS_OUTPUT_FOLDER: `dist/me/browser`,
   MAIN_LANG_PATH: 'src/constants/base/language.const.ts',
   LANG_LIST_PATH: 'src/constants/base/language.const.ts',
-  SEO_ROUTES_PATH: `src/constants/base/routes.const.ts`,
+  HTACCESS_TEMPLATE_PATH: `.htaccess`
 };
 
-generateRoutes();
+prepareHtaccesses();
 
-// ---------------------------------------------------------
-/**
- * Парсим файл с путями и преобразуем в удобный формат для генерации путей
- */
-function getParsedRoutes() {
-  try {
-    const data = fs.readFileSync(SCRIPT_CONF.SEO_ROUTES_PATH, { encoding: 'utf8' })
-      .match(/LINKS\s?=\s?(\[.*?\]);/ms)[1]
-      .replace(/loadChildren\s?:\s?.*?\),\r\n/g, '');
-
-    const regex = /"path":\s*'([^']*)'/g;
-    let match;
-    let result = '';
-
-    while ((match = regex.exec(data)) !== null) {
-      // Добавляем '/' к пути, если это главная страница (''), иначе добавляем '/путь'
-      result += match[1] === '' ? '/\n' : `/${match[1]}\n`;
-    }
-
-    return result.split('\n');
-  } catch (err) {
-    console.error('\x1b[31m%s\x1b[0m', "❌ 🚧Can't parse project's routes🚧", err);
-  }
-  return [];
+function createHtaccess(lang, defaultLang) {
+  const langPrefix = lang === defaultLang ? '' : lang;
+  const originalHtaccess = fs.readFileSync(SCRIPT_CONF.HTACCESS_TEMPLATE_PATH, 'utf8');
+  const newContent = originalHtaccess.replace('[[lang]]', langPrefix);
+  const destPath = lang === 'us' ?
+    `${SCRIPT_CONF.HTACCESS_OUTPUT_FOLDER}/.htaccess`
+    : `${SCRIPT_CONF.HTACCESS_OUTPUT_FOLDER}/${lang}/.htaccess`;
+  fs.writeFileSync(destPath, newContent);
 }
 
 /**
@@ -66,10 +46,10 @@ async function getLanguages() {
   try {
     const data = fs.readFileSync(SCRIPT_CONF.LANG_LIST_PATH, { encoding: 'utf8' });
     const langs = JSON.parse(data.match(/AVAILABLE_LANGUAGES\s?=\s?([\[].*[\]]);/)[1].replace(/'/g, '"'));
-    return langs.map(lang => lang === 'US' ? 'en' : lang.toLowerCase());
+    return langs.map(lang => lang.toLowerCase());
   } catch (err) {
     console.error('\x1b[31m%s\x1b[0m', "❌ 🚧Can't read " + SCRIPT_CONF.LANG_LIST_PATH + ". Lang list will be ['en', 'ru', 'ua', 'jp']🚧", err);
-    return ['en', 'ru', 'ua', 'jp'];
+    return ['us', 'ru', 'ua', 'jp'];
   } finally {
     console.log('-------------------------------');
   }
@@ -86,16 +66,13 @@ async function writeRoutes(routes) {
 
 }
 
-async function generateRoutes() {
-  const routes = (await getParsedRoutes() || []).filter(val => !!val);
-  routes.push('/not-found');
-  const defaultLang = await getDefaultLang() || 'US';
-  const languages = await getLanguages() || [];
-  const langRoutes = [
-    routes,
-    ...languages
-        .filter(lang => lang !== defaultLang)
-        .map(lang => routes.map(route => route === '/' ? '/'+lang : '/'+lang+route))
-  ].flat();
-  writeRoutes(langRoutes)
+async function prepareHtaccesses() {
+  // Чтение исходного файла .htaccess
+  const langs = await getLanguages();
+  const defaultLang = await getDefaultLang();
+
+  console.log(langs);
+
+  langs.forEach(lang => createHtaccess(lang, defaultLang))
 }
+

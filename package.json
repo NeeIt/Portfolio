@@ -21,7 +21,9 @@
     "robots-txt:generate:prod": "node scripts/run.robots-txt-generator.js prod",
     "robots-txt:generate:dev": "node scripts/run.robots-txt-generator.js dev",
     "routes:generate:prod": "node scripts/run.routes-generator.js prod",
-    "routes:generate:dev": "node scripts/run.routes-generator.js dev"
+    "routes:generate:dev": "node scripts/run.routes-generator.js dev",
+    "htaccess:generate": "node scripts/run.prepare.htaccess.js",
+    "404-prerender:prepare": "node scripts/run.404-prerender.prepare.js"
   },
   "private": true,
   "dependencies": {
