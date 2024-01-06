@@ -46,6 +46,7 @@ export class AppComponent {
   currentLinkIndex = -1;
   scrolled = false;
   isToTopButtonVisible = false;
+  pageAnimationInitialized = false;
 
   mobileButtonAnimationState = 'showed'; // Состояние мобильных кнопок
 
@@ -140,10 +141,15 @@ export class AppComponent {
     this.modalService.openModal(MODAL_NAMES.LANGUAGE);
   }
 
-  onRouterAnimationStart() {
+  onRouterAnimationStart(animationState: string) {
+    if(!this.pageAnimationInitialized && animationState) {
+      this.pageAnimationInitialized = true;
+      return;
+    }
     const outletElement = this._document.querySelector('router-outlet');
     const oldComponentElem = outletElement?.nextElementSibling;
     this.mobileButtonAnimationState = 'hidden';
+    console.log(oldComponentElem);
     if (oldComponentElem) {
       this.renderer.setAttribute(oldComponentElem, 'aria-hidden', 'true');
       const focusableElements = oldComponentElem.querySelectorAll('[tabindex]');
@@ -248,7 +254,7 @@ export class AppComponent {
     );
   }
 
-  OnDestroy(): void {
+  ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }
 }

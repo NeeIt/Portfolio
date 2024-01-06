@@ -1,5 +1,5 @@
 <div class="wrapper"
-     [ngStyle]="{'--background-url': 'url(assets/img/'+((currentMode$ | async) === 'light'? 'light.png' : 'dark.png') +')'}"
+     [ngStyle]="{'--background-url': 'url(assets/img/backgrounds/'+((currentMode$ | async) === 'light'? 'light.png' : 'dark.png') +')'}"
      [attr.aria-hidden]="!!((modals$ | async)?.length)"
 >
   <div class="app" [ngClass]="{'app_full-page': isFullPage}">
@@ -14,11 +14,10 @@
     <div class="app__pages-wrapper"
          aria-live="polite"
          [@routeAnimations]="o?.activatedRouteData?.['animation']"
-         (@routeAnimations.start)="onRouterAnimationStart()"
+         (@routeAnimations.start)="onRouterAnimationStart(o?.activatedRouteData?.['animation'])"
          (@routeAnimations.done)="onRouterAnimationDone()">
 
         <mat-icon [svgIcon]="'scroll-down'" class="app__scroll-icon" [ngClass]="{'app__scroll-icon_scrolled': scrolled || isFullPage}"/>
-
         <router-outlet #o="outlet"></router-outlet>
     </div>
   </div>
@@ -37,6 +36,8 @@
       <div></div>
       <a class="header__logo main-color-bg" aria-hidden="true"
          *ngIf="(currentLang$ | async)?.iso2 as lang"
+         [attr.aria-label]="'SEO.HOME.NAVIGATION' | translate"
+         [tabIndex]="(tabIndexes$ | async)?.SETTINGS"
          [routerLink]="'/'+(lang === defaultLang ? '' : (lang | lowercase))"
       ><mat-icon [svgIcon]="'logo'"/></a>
       <div><app-light-mode-button/></div>
