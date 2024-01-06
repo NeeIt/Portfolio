@@ -11,6 +11,8 @@ import {MODAL_NAMES} from "@interfaces/modals.interface";
 export class PhotoComponent {
   @Input() photoItem: IPhoto = {id: 0, name: 'Undefined', src: 'defaultSrc'}
   @Input() photoSet!: IPhoto[];
+  @Input() tabIndex!: number | undefined;
+  @Input() ariaHidden: boolean = false;
 
   constructor(private readonly modalService: ModalService) {
   }
