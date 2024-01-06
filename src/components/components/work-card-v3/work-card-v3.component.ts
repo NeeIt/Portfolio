@@ -3,6 +3,7 @@ import {IProject} from "@interfaces/works.interface";
 import {IPhoto} from "@interfaces/photo.interface";
 import {DEFAULT_LANGUAGE} from "@constants/base/language.const";
 import {MyTranslateService} from "@services/translate.service";
+import { TabIndexService } from '@services/tab-index.service';
 
 @Component({
   selector: 'app-work-card-v3',
@@ -16,6 +17,7 @@ export class WorkCardV3Component implements OnChanges {
 
   readonly defaultLang = DEFAULT_LANGUAGE;
   readonly currentLang$ = this.translateService.currentLang$;
+  readonly tabIndexes$ = this.tabIndexService.tabIndexValues$;
 
   currentImage = 0;
   imageList: IPhoto[] = [];
@@ -23,6 +25,7 @@ export class WorkCardV3Component implements OnChanges {
   constructor(
     private readonly cdr: ChangeDetectorRef,
     private readonly translateService: MyTranslateService,
+    private readonly tabIndexService: TabIndexService
   ) {
   }
 

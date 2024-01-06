@@ -1,29 +1,42 @@
 <div class="work-card" [ngClass]="{'work-card_reverse': reverse}">
     <ng-container *ngIf="imageList.length > 1 else simpleImage">
-      <app-photo-slider class="work-card__img-slider" [width]="350" [imageList]="imageList"/>
+      <app-photo-slider
+        class="work-card__img-slider"
+        [width]="350"
+        [imageList]="imageList"/>
     </ng-container>
 
     <ng-template #simpleImage>
-      <div class="work-card__image">
-        <app-photo [photoItem]="imageList[0]"/>
+      <div class="work-card__image"
+           aria-hidden="true">
+        <app-photo [photoItem]="imageList[0]" [ariaHidden]="true"/>
       </div>
     </ng-template>
 
   <div class="work-card__info">
-    <h2 class="work-card__title">{{work.NAME | translate}}</h2>
+    <h2 class="work-card__title"
+    >
+      <span class="sr-only">{{'Проект' | translate}}</span>
+      {{work.NAME | translate}}</h2>
     <p class="work-card__description">{{work.DESCRIPTION_SHORT | translate}}</p>
-    <div class="work-card__stack stack-list">
-      <div *ngFor="let skill of work.STACK" class="stack-list__item">
+    <span class="sr-only">{{'Стэк разработки' | translate}}</span>
+    <ul class="work-card__stack stack-list">
+      <li *ngFor="let skill of work.STACK" class="stack-list__item">
         <mat-icon [svgIcon]="skill | lowercase"></mat-icon>
         <span>{{skill}}</span>
-      </div>
-    </div>
+      </li>
+    </ul>
     <div class="work-card__buttons">
-      <a class="work-card__github" *ngIf="work.GITHUB" [href]="work.GITHUB">
+      <a class="work-card__github"
+         [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
+         *ngIf="work.GITHUB"
+         [href]="work.GITHUB">
         <mat-icon [svgIcon]="'social-github'"></mat-icon>
         {{'Github' | translate}}
       </a>
-      <a class="work-card__more" *ngIf="(currentLang$ | async)?.iso2 as lang"
+      <a class="work-card__more"
+         [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
+         *ngIf="(currentLang$ | async)?.iso2 as lang"
          [routerLink]="'/'+(lang === defaultLang ? '' : (lang | lowercase)+'/') + 'works/'+ (work.KEY | lowercase)">
         <span>{{'Read more' | translate}}</span>
         <mat-icon [svgIcon]="'next'"></mat-icon>
