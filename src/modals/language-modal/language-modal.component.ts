@@ -41,10 +41,6 @@ export class LanguageModalComponent {
     this.modalService.closeModal(MODAL_NAMES.LANGUAGE);
   }
 
-  inputSearch(event: any): void {
-    // console.log(event);
-  }
-
   changeLang(lang: string): void {
     if(!this.currentLang || this.currentLang.iso2 === lang || !lang) return;
     this.translateService.changeLang(lang.toUpperCase(), true);
