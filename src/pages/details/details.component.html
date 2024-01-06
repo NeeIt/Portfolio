@@ -1,6 +1,5 @@
 <div class="details-page">
   <app-breadcrumb class="details-page__breadcrumb" [breadcrumbs]="breadcrumbs"/>
-
   <h1 class="details-page__h1">{{'SEO.DETAILS.NAVIGATION' | translate}}</h1>
   <!-- ANIMATED MAIN BLOCK --->
   <div class="details-page__group details-page__group_main">
@@ -12,7 +11,7 @@
          }">
 
       <div class="animated-main-block__photo">
-        <app-photo [photoItem]="myPhoto"/>
+        <app-photo [photoItem]="myPhoto" [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"/>
         <div class="animated-main-block__socials socials" *ngIf="!scrolled" [@mainDataAnimation]="mainDataAnimationState">
           <a *ngFor="let social of socials"
              [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
@@ -39,6 +38,7 @@
             <span>{{('SOCIALS.'+(social[0] | uppercase)) | translate}}</span>
           </a>
           <a *ngIf="(currentLang$ | async)?.iso2 as lang"
+             [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
              [routerLink]="'/'+(lang === defaultLang ? '' : (lang | lowercase)+'/') + 'contact'"
              class="socials__email">
             {{'PAGES.DETAILS.SEND_EMAIL' | translate}}
