@@ -16,7 +16,7 @@
   z-index: 1;
 
   &__bg {
-    background: url('/assets/img/index.png');
+    background: url('/assets/img/me/index.png');
     background-position: center;
     background-size: cover;
     position: absolute;
@@ -29,7 +29,7 @@
     transform: translateY(-50%);
     &::after {
       content: '';
-      background: url('/assets/img/index_over.png');
+      background: url('/assets/img/me/index_over.png');
       background-position: center;
       background-size: cover;
       position: absolute;

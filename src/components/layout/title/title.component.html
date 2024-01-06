@@ -23,7 +23,7 @@
 
 
   <div class="title__item about-title" *ngIf="page === '/'+links[1].path">
-    <img [src]="'/assets/img/'+((currentMode$ | async) === 'light'?'me_light' : 'me_dark') + '.png'"
+    <img [src]="'/assets/img/me/'+((currentMode$ | async) === 'light'?'me_light' : 'me_dark') + '.png'"
          alt="my photo"/>
     <div class="about-title__photo-info about-title__photo-info_age">4 January 2001</div>
     <div class="about-title__photo-info about-title__photo-info_nationality">Russian</div>
