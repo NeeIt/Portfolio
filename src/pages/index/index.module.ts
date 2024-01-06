@@ -5,7 +5,6 @@ import { IndexRoutingModule } from "./index-routing.module";
 import { TranslateAnimationModule } from "@directives/translate-animation/translate-animation.module";
 import { TranslateModule } from "@ngx-translate/core";
 import { IndexPathTextComponent } from './index-path-text/index-path-text.component';
-import { IndexPhotoComponent } from './index-photo/index-photo.component';
 
 
 
@@ -13,7 +12,6 @@ import { IndexPhotoComponent } from './index-photo/index-photo.component';
   declarations: [
     IndexComponent,
     IndexPathTextComponent,
-    IndexPhotoComponent
   ],
     imports: [
         CommonModule,
