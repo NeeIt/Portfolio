@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {PROJECTS} from "@constants/works/works.const";
 import {IPhoto} from "@interfaces/photo.interface";
+import {TabIndexService} from "@services/tab-index.service";
 
 @Component({
   selector: 'app-kfc',
@@ -17,4 +18,8 @@ export class KfcComponent {
   readonly project = PROJECTS['KFC']
   readonly previewList: IPhoto[] | undefined =
     PROJECTS['KFC'].PREVIEWS?.map((src, index) => ({name: 'Preview', src, id: index}))
+
+  readonly tabIndexes$ = this.tabIndexService.tabIndexValues$;
+
+  constructor(private readonly tabIndexService: TabIndexService) {}
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {PROJECTS} from "@constants/works/works.const";
 import {IPhoto} from "@interfaces/photo.interface";
+import {TabIndexService} from "@services/tab-index.service";
 
 @Component({
   selector: 'app-helltv',
@@ -15,19 +16,17 @@ export class HelltvComponent {
   ];
 
   readonly project = PROJECTS['HELLTV']
-  readonly previewList: IPhoto[] | undefined =
-    PROJECTS['HELLTV'].PREVIEWS?.map((src, index) => ({name: 'Preview', src, id: index}))
+  readonly previewList: IPhoto[] =
+    PROJECTS['HELLTV'].PREVIEWS?.map((src, index) => ({name: 'Preview', src, id: index})) || []
 
-  readonly sliderItems = [
-   [
-     '/assets/img/slide1.png',
-    '/assets/img/slide2.png',
-    '/assets/img/slide3.png',
-    '/assets/img/slide4.png'
-   ], [
-      '/assets/img/slide5.png',
-    '/assets/img/slide6.png',
-    '/assets/img/slide7.png'
-    ]
+  readonly sliderItems: string[][] = [
+    PROJECTS['HELLTV']?.PREVIEWS?.length ?
+      PROJECTS['HELLTV'].PREVIEWS.slice(0, Math.ceil(PROJECTS['HELLTV'].PREVIEWS.length / 2)) : [],
+    PROJECTS['HELLTV']?.PREVIEWS?.length && PROJECTS['HELLTV']?.PREVIEWS?.length > 1 ?
+      PROJECTS['HELLTV'].PREVIEWS.slice(Math.ceil(this.previewList.length / 2), PROJECTS['HELLTV'].PREVIEWS.length): []
   ];
+
+  readonly tabIndexes$ = this.tabIndexService.tabIndexValues$;
+
+  constructor(private readonly tabIndexService: TabIndexService) {}
 }

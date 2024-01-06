@@ -1,6 +1,6 @@
 <div class="project">
   <div class="project__main-img">
-    <img src="/assets/img/projects/image.jpg" alt=""/>
+    <img src="/assets/img/projects/portfolio/portfolio.jpg" alt=""/>
   </div>
 
   <div class="project__container">
@@ -16,7 +16,11 @@
           <span>{{skill}}</span>
         </div>
       </div>
-      <a class="project__visit-button" [href]="project.URL" [target]="'_blank'">
+      <a class="project__visit-button"
+         [href]="project.URL"
+         [target]="'_blank'"
+         [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
+      >
         {{'PAGES.PROJECTS.BASE.GITHUB' | translate}}
       </a>
     </div>
@@ -24,6 +28,7 @@
 
   <div class="project__slider-container">
     <app-presentation-slider
+      *ngIf="sliderItems[0].length"
       class="project__slider"
       [items]="sliderItems[0]"/>
   </div>
@@ -102,10 +107,11 @@
         </div>
         <p>{{'PAGES.PROJECTS.PORTFOLIO.INFINITY_MAIN.DESCRIPTION' | translate}}</p>
         <a  *ngIf="(currentLang$ | async)?.iso2 as lang"
+            [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
             [routerLink]="'/'+(lang === defaultLang ? '' : (lang | lowercase))">
           {{'PAGES.PROJECTS.PORTFOLIO.INFINITY_MAIN.TO_MAIN' | translate}}
         </a>
-        <img src="/assets/img/scrolling.gif" alt="">
+        <img src="/assets/img/projects/portfolio/portfolio-demo-1.gif" alt="">
       </div>
       <div class="project__sub-group">
         <div class="project__point point">
@@ -113,9 +119,10 @@
         <h3>{{'PAGES.PROJECTS.PORTFOLIO.ANIMATION_ABOUT.TITLE' | translate}}</h3>
         </div>
         <a *ngIf="(currentLang$ | async)?.iso2 as lang"
+           [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
            [routerLink]="'/'+(lang === defaultLang ? '' : (lang | lowercase) + '/') + 'about/details'"
            >{{'PAGES.PROJECTS.PORTFOLIO.ANIMATION_ABOUT.TO_ABOUT' | translate}}</a>
-        <img src="/assets/img/sticky.gif" alt="">
+        <img src="/assets/img/projects/portfolio/portfolio-demo-2.gif" alt="">
       </div>
       <p>{{'PAGES.PROJECTS.PORTFOLIO.ANIMATIONS.MORE' | translate}}</p>
     </div>
@@ -173,7 +180,13 @@
           <h3>{{'PAGES.PROJECTS.PORTFOLIO.SEO_SITEMAP.TITLE' | translate}}</h3>
         </div>
         <p>{{'PAGES.PROJECTS.PORTFOLIO.SEO_SITEMAP.DESCRIPTION' | translate}}</p>
-        <a [href]="'https://'+environment.hostName+'/sitemap.xml'" target="_blank">{{'PAGES.PROJECTS.PORTFOLIO.SEO_SITEMAP.TO_SITEMAP' | translate}}</a>
+        <a
+          [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
+          [href]="'https://'+environment.hostName+'/sitemap.xml'"
+           target="_blank"
+        >
+          {{'PAGES.PROJECTS.PORTFOLIO.SEO_SITEMAP.TO_SITEMAP' | translate}}
+        </a>
       </div>
       <div class="project__sub-group">
         <div class="project__point point">
@@ -181,7 +194,10 @@
           <h3>{{'PAGES.PROJECTS.PORTFOLIO.SEO_ROBOTS_TXT.TITLE' | translate}}</h3>
         </div>
         <p>{{'PAGES.PROJECTS.PORTFOLIO.SEO_ROBOTS_TXT.DESCRIPTION' | translate}}</p>
-        <a [href]="'https://'+environment.hostName+'/robots.txt'" target="_blank">{{'PAGES.PROJECTS.PORTFOLIO.SEO_ROBOTS_TXT.TO_ROBOTS_TXT' | translate}}</a>
+        <a
+          [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
+          [href]="'https://'+environment.hostName+'/robots.txt'"
+          target="_blank">{{'PAGES.PROJECTS.PORTFOLIO.SEO_ROBOTS_TXT.TO_ROBOTS_TXT' | translate}}</a>
       </div>
       <div class="project__sub-group">
         <div class="project__point point">
@@ -223,6 +239,7 @@
         </div>
         <p>{{'PAGES.PROJECTS.PORTFOLIO.SEO_404.DESCRIPTION' | translate}}</p>
         <a *ngIf="(currentLang$ | async)?.iso2 as lang"
+           [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
            [routerLink]="'/'+(lang === defaultLang ? '' : (lang | lowercase)+'/') + 'not-found'"
         >{{'PAGES.PROJECTS.PORTFOLIO.SEO_404.TO_404' | translate}}</a>
         <app-photo [photoItem]="photoItems['404']"/>
@@ -250,7 +267,11 @@
           <h3>{{'PAGES.PROJECTS.PORTFOLIO.SEO_MANIFEST.TITLE' | translate}}</h3>
         </div>
         <p>{{'PAGES.PROJECTS.PORTFOLIO.SEO_MANIFEST.DESCRIPTION' | translate}}</p>
-        <a [href]="'https://'+environment.hostName+'/manifest.json'" target="_blank">{{'PAGES.PROJECTS.PORTFOLIO.SEO_MANIFEST.TO_MANIFEST' | translate}}</a>
+        <a
+          [href]="'https://'+environment.hostName+'/manifest.json'"
+          target="_blank"
+          [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
+        >{{'PAGES.PROJECTS.PORTFOLIO.SEO_MANIFEST.TO_MANIFEST' | translate}}</a>
       </div>
       <div class="project__sub-group">
         <div class="project__point point">
@@ -264,6 +285,7 @@
   <div class="project__slider-container">
     <app-presentation-slider
       class="project__slider"
+      *ngIf="sliderItems[1].length"
       [reversed]="true"
       [items]="sliderItems[1]"/>
   </div>

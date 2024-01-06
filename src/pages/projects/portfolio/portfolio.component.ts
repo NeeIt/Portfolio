@@ -6,6 +6,7 @@ import {Observable} from "rxjs";
 import {MyTranslateService} from "@services/translate.service";
 import { environment } from "@environments/environment";
 import {IPhoto} from "@interfaces/photo.interface";
+import {TabIndexService} from "@services/tab-index.service";
 
 @Component({
   selector: 'app-portfolio',
@@ -30,76 +31,73 @@ export class PortfolioComponent {
       id: 0,
       name: 'Figma file',
       description: 'an example of my references I used to make my own design',
-      src:'/assets/img/figma.jpg'
+      src:'/assets/img/projects/portfolio/portfolio-figma.jpg'
     },
     theme: {
       id: 1,
       name: 'Light color theme',
-      src:'/assets/img/themes.png'
+      src:'/assets/img/projects/portfolio/portfolio-themes.png'
     },
     ai: {
       id: 2,
       name: 'Modjourney',
-      src: '/assets/img/midjourney.jpg',
+      src: '/assets/img/projects/portfolio/portfolio-midjourney.jpg',
       description: 'One of my midjourney request\'s results'
     },
     postman: {
       id: 3,
       name: 'SSR',
-      src: '/assets/img/postman.png',
+      src: '/assets/img/projects/portfolio/portfolio-postman.png',
       description: 'Result for postman\' resuest'
     },
     langs: {
       id: 4,
       name: 'Language change modal',
       description: 'I\'m going to add more languages for this site',
-      src: '/assets/img/langs.png'
+      src: '/assets/img/projects/portfolio/portfolio-preview-1.png'
     },
     mobile: {
       id: 5,
       name: 'Mobile adaptation of this site',
-      src: '/assets/img/mobilep.png',
+      src: '/assets/img/projects/portfolio/portfolio-mockup.png',
     },
     accessibility: {
       id: 6,
       name: 'Accessibility',
-      src: '/assets/img/accessibility.jpg'
+      src: '/assets/img/projects/portfolio/portfolio-accessibility.jpg'
     },
     sentry: {
       id: 7,
       name: 'Sentry',
-      src: '/assets/img/sentryp.png',
+      src: '/assets/img/projects/portfolio/portfolio-sentry.png',
     },
     gtm: {
       id: 8,
       name: 'Google Tag Manager',
-      src: '/assets/img/gtm.png',
+      src: '/assets/img/projects/portfolio/portfolio-gtm.png',
     },
     404 : {
       id: 9,
       name: '404 page',
-      src: '/assets/img/404.png',
+      src: '/assets/img/projects/portfolio/portfolio-preview-2.png',
       description: 'this page also has parallax animation on desktop'
     }
   };
 
   sliderItems = [
     [
-      '/assets/img/previews/fast.png',
-      '/assets/img/previews/fast2.png',
-      '/assets/img/previews/fast3.png',
-      '/assets/img/previews/fast4.png'
+
     ], [
-      '/assets/img/previews/fast5.png',
-      '/assets/img/previews/fast6.png',
-      '/assets/img/previews/fast7.png',
-      '/assets/img/previews/fast8.png'
+
     ]
   ];
 
+  readonly tabIndexes$ = this.tabIndexService.tabIndexValues$;
+
   constructor(
     private readonly schemaService: SchemaService,
-    private readonly mTranslateService: MyTranslateService
+    private readonly mTranslateService: MyTranslateService,
+    private readonly tabIndexService: TabIndexService
   ) {}
 
   ngOnInit(): void {

@@ -1,7 +1,7 @@
 <div class="project">
 
   <div class="project__main-img">
-    <img src="/assets/img/scloudimg.png" alt=""/>
+    <img src="/assets/img/projects/scloud/scloud-mockup-1.png" alt=""/>
   </div>
 
   <div class="project__container">
@@ -17,7 +17,10 @@
           <span>{{skill}}</span>
         </div>
       </div>
-      <a class="project__visit-button" [href]="project.URL" [target]="'_blank'">
+      <a class="project__visit-button"
+         [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
+         [href]="project.URL"
+         [target]="'_blank'">
         {{'PAGES.PROJECTS.BASE.VISIT' | translate}}
       </a>
     </div>
@@ -30,6 +33,7 @@
   <div class="project__slider-container">
     <app-presentation-slider
       class="project__slider"
+      *ngIf="sliderItems[0].length"
       [items]="sliderItems[0]"/>
   </div>
 
@@ -50,12 +54,12 @@
         <span class="point__mark">2.1. </span>
         <h3>{{'PAGES.PROJECTS.SCLOUD.DESKTOP' | translate}}</h3>
       </div>
-      <img src="/assets/img/scloudfull.png" [alt]="'PAGES.PROJECTS.SCLOUD.FULL' | translate"/>
+      <img src="/assets/img/projects/scloud/scloud-page.png" [alt]="'PAGES.PROJECTS.SCLOUD.FULL' | translate"/>
       <div class="project__point point">
         <span class="point__mark">2.2. </span>
         <h2>{{'PAGES.PROJECTS.SCLOUD.MOBILE' | translate}}</h2>
       </div>
-      <img src="/assets/img/scloudmobile.png" [alt]="'PAGES.PROJECTS.SCLOUD.FULL' | translate"/>
+      <img src="/assets/img/projects/scloud/scloud-mockup-2.png" [alt]="'PAGES.PROJECTS.SCLOUD.FULL' | translate"/>
     </div>
     <div class="project__group">
       <div class="project__point point">
@@ -77,7 +81,7 @@
         <h3>{{'PAGES.PROJECTS.BASE.SENTRY.NAME' | translate}}</h3>
       </div>
       <p>{{'PAGES.PROJECTS.BASE.SENTRY.DESCRIPTION' | translate}}</p>
-      <img src="/assets/img/test6.png" alt="">
+      <img src="/assets/img/other/sentry.png" alt="">
     </div>
   </div>
 
@@ -85,6 +89,7 @@
     <app-presentation-slider
       class="project__slider"
       [reversed]="true"
+      *ngIf="sliderItems[1].length"
       [items]="sliderItems[1]"/>
   </div>
 </div>

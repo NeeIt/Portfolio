@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {PROJECTS} from "@constants/works/works.const";
 import {IPhoto} from "@interfaces/photo.interface";
+import {TabIndexService} from "@services/tab-index.service";
 
 @Component({
   selector: 'app-csgofast',
@@ -15,19 +16,17 @@ export class CsgofastComponent {
   ];
 
   readonly project = PROJECTS['CSGOFAST']
-  readonly previewList: IPhoto[] | undefined =
-    PROJECTS['CSGOFAST'].PREVIEWS?.map((src, index) => ({name: 'Preview', src, id: index}))
-  sliderItems = [
-    [
-      '/assets/img/previews/fast.png',
-      '/assets/img/previews/fast2.png',
-      '/assets/img/previews/fast3.png',
-      '/assets/img/previews/fast4.png'
-    ], [
-      '/assets/img/previews/fast5.png',
-      '/assets/img/previews/fast6.png',
-      '/assets/img/previews/fast7.png',
-      '/assets/img/previews/fast8.png'
-    ]
+  readonly previewList: IPhoto[] =
+    PROJECTS['CSGOFAST'].PREVIEWS?.map((src, index) => ({name: 'Preview', src, id: index})) || []
+
+  readonly sliderItems: string[][] = [
+    PROJECTS['CSGOFAST']?.PREVIEWS?.length ?
+      PROJECTS['CSGOFAST'].PREVIEWS.slice(0, Math.ceil(this.previewList.length / 2)) : [],
+    PROJECTS['CSGOFAST']?.PREVIEWS?.length && PROJECTS['CSGOFAST']?.PREVIEWS?.length > 1 ?
+      PROJECTS['CSGOFAST'].PREVIEWS.slice(Math.ceil(this.previewList.length / 2), PROJECTS['CSGOFAST'].PREVIEWS.length): []
   ];
+
+  readonly tabIndexes$ = this.tabIndexService.tabIndexValues$;
+
+  constructor(private readonly tabIndexService: TabIndexService) {}
 }

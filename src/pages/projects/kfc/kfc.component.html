@@ -1,7 +1,7 @@
 <div class="project">
 
   <div class="project__main-img">
-    <img src="/assets/img/projects/kfc.png" alt=""/>
+    <img src="/assets/img/projects/kfc/kfc.png" alt=""/>
   </div>
 
   <div class="project__container">
@@ -16,7 +16,11 @@
           <span>{{skill}}</span>
         </div>
       </div>
-      <a class="project__visit-button" [href]="project.URL" [target]="'_blank'">
+      <a class="project__visit-button"
+         [href]="project.URL"
+         [target]="'_blank'"
+         [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
+      >
         {{'PAGES.PROJECTS.BASE.VISIT' | translate}}
       </a>
     </div>

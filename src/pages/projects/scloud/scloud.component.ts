@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {PROJECTS} from "@constants/works/works.const";
 import {IPhoto} from "@interfaces/photo.interface";
+import { TabIndexService } from '@services/tab-index.service';
 
 @Component({
   selector: 'app-scloud',
@@ -20,13 +21,15 @@ export class ScloudComponent {
 
   readonly sliderItems = [
     [
-      '/assets/img/previews/scloud.png',
-      '/assets/img/previews/scloud2.png',
-      '/assets/img/previews/scloud3.png',
+      PROJECTS['SCLOUD']?.PREVIEWS?.length ?
+        PROJECTS['SCLOUD'].PREVIEWS : [],
     ], [
-      '/assets/img/previews/scloud.png',
-      '/assets/img/previews/scloud2.png',
-      '/assets/img/previews/scloud3.png',
+      PROJECTS['SCLOUD']?.PREVIEWS?.length ?
+        PROJECTS['SCLOUD'].PREVIEWS : [],
     ]
   ];
+
+  readonly tabIndexes$ = this.tabIndexService.tabIndexValues$;
+
+  constructor(private readonly tabIndexService: TabIndexService) {}
 }
