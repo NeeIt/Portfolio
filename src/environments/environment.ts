@@ -3,7 +3,7 @@ export const environment: any = {
   projectName: 'Vladislav Ushmankin portfolio',
   version: '0.1',
   production: false,
-  serverPort: 4200,
+  serverPort: 4000,
   hostName: 'vladislavushmankin.com',
   backendPath: 'localhost:3000',
 }
