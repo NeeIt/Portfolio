@@ -7,7 +7,7 @@
          *ngFor="let img of imageList; let index = index"
          [ngClass]="{'img-slider__slide_active': currentImage === index}"
          [ngStyle]="{width: 100 / imageList.length + '%'}">
-      <app-photo [photoItem]="img" [photoSet]="imageList"/>
+      <app-photo [photoItem]="img" [photoSet]="imageList" [ariaHidden]="true"/>
     </div>
   </div>
   <button class="img-slider__btn img-slider__btn_next" (click)="nextSlide()" *ngIf="imageList.length > 1">
