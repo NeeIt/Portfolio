@@ -1,4 +1,5 @@
 @import "src/assets/styles/mixins";
+@import "src/assets/styles/constructor-mixins";
 
 :host {
   display: flex;
@@ -206,7 +207,7 @@
 
   &:hover {
     // no need hover effect on mobile.
-    @media (min-width: 1024px) {
+    @include Media('table') {
       span:first-of-type {
         width: 26px;
       }
