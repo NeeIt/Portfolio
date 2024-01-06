@@ -149,7 +149,6 @@ export class AppComponent {
     const outletElement = this._document.querySelector('router-outlet');
     const oldComponentElem = outletElement?.nextElementSibling;
     this.mobileButtonAnimationState = 'hidden';
-    console.log(oldComponentElem);
     if (oldComponentElem) {
       this.renderer.setAttribute(oldComponentElem, 'aria-hidden', 'true');
       const focusableElements = oldComponentElem.querySelectorAll('[tabindex]');
