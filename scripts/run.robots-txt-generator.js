@@ -14,25 +14,6 @@ generateRobotsTxt();
 
 // -----------------------------------------
 
-/**
- * Парсим файл с путями и преобразуем в удобный формат для генерации путей
- */
-function getParsedRoutes() {
-  try {
-    const data = fs.readFileSync(SCRIPT_CONF.SEO_ROUTES_PATH, { encoding: 'utf8' })
-      .match(/LINKS\s?=\s?(\[.*?\]);/ms)[1]
-      .replace(/loadChildren\s?:\s?.*?\),\r\n/g, '')
-      .replace(/data\s?:\s?\{[^}]*?(isSeoPage\s?:\s?(true|false))[^}s]*?\}/g, (match, p1, p2, p3) => {
-        return p2 ? '"isSeoPage":' + p2 : '\"isSeoPage" : false';
-      })
-      .replace(/'/g, '"');
-    return JSON.parse(data).filter(route => !!route.isSeoPage).map(route => '/'+route.path);
-  } catch (err) {
-    console.error('\x1b[31m%s\x1b[0m', "❌ 🚧Can't parse project's routes🚧", err);
-  }
-  return [];
-}
-
 
 async function generateRobotsTxt() {
   const hostName = await getHostName();
