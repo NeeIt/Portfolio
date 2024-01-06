@@ -148,7 +148,7 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, minmax(auto, 1fr));
-    grid-template-rows: repeat(2, minmax(auto, 150px));
+    grid-template-rows: repeat(2, minmax(auto, 100px));
     grid-gap: 8px;
   }
 

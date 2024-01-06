@@ -16,6 +16,12 @@
     }
   }
 
+  .location, .arts {
+    &__imgs {
+      grid-template-rows: repeat(2, minmax(auto, 150px));
+    }
+  }
+
   .animated-main-block {
     padding: 16px 24px;
   }
