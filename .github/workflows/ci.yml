@@ -52,7 +52,7 @@ jobs:
           server: ${{ secrets.DREAMHOST_SERVER }}
           username: ${{ secrets.DREAMHOST_USERNAME }}
           password: ${{ secrets.DREAMHOST_PASSWORD }}
-          local-dir: ./dist/me/browser
+          local-dir: ./dist/me/browser/
           server-dir: /home/${{ secrets.DREAMHOST_USERNAME }}/vladislavushmankin.com/public
 
       - name: Stop SSR Server
