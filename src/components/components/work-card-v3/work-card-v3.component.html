@@ -16,10 +16,10 @@
   <div class="work-card__info">
     <h2 class="work-card__title"
     >
-      <span class="sr-only">{{'Проект' | translate}}</span>
+      <span class="sr-only">{{'PAGES.WORKS.CARD.PROJECT' | translate}}</span>
       {{work.NAME | translate}}</h2>
     <p class="work-card__description">{{work.DESCRIPTION_SHORT | translate}}</p>
-    <span class="sr-only">{{'Стэк разработки' | translate}}</span>
+    <span class="sr-only">{{'PAGES.WORKS.CARD.STACK' | translate}}</span>
     <ul class="work-card__stack stack-list">
       <li *ngFor="let skill of work.STACK" class="stack-list__item">
         <mat-icon [svgIcon]="skill | lowercase"></mat-icon>
@@ -32,13 +32,13 @@
          *ngIf="work.GITHUB"
          [href]="work.GITHUB">
         <mat-icon [svgIcon]="'social-github'"></mat-icon>
-        {{'Github' | translate}}
+        {{'PAGES.WORKS.CARD.GITHUB' | translate}}
       </a>
       <a class="work-card__more"
          [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
          *ngIf="(currentLang$ | async)?.iso2 as lang"
          [routerLink]="'/'+(lang === defaultLang ? '' : (lang | lowercase)+'/') + 'works/'+ (work.KEY | lowercase)">
-        <span>{{'Read more' | translate}}</span>
+        <span>{{'PAGES.WORKS.CARD.MORE' | translate}}</span>
         <mat-icon [svgIcon]="'next'"></mat-icon>
       </a>
     </div>

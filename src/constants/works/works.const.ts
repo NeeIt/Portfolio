@@ -48,7 +48,7 @@ export const PROJECTS: Record<string, IProject> = {
     ROLE: "PROJECTS.PORTFOLIO.ROLE",
     URL: "vladislavushmankin.com",
     WORK_DATE_FROM: "2023-10-01T00:00:00",
-    GITHUB: "link",
+    GITHUB: "https://github.com/NeeIt/Portfolio",
     WORK_DATE_TO: null,
     STACK: ['Angular', 'Typescript', 'Sentry', 'Figma', 'NestJS', 'SSR'],
     SKILLS: [

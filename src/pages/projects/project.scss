@@ -5,6 +5,11 @@
 .project {
   height: 100%;
 
+  &__buttons {
+    display: flex;
+    gap: 16px;
+  }
+
   &__main-img img{
     width: 100%;
   }

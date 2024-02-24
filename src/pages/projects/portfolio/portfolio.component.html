@@ -16,13 +16,22 @@
           <span>{{skill}}</span>
         </div>
       </div>
-      <a class="project__visit-button"
-         [href]="project.URL"
-         [target]="'_blank'"
-         [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
-      >
-        {{'PAGES.PROJECTS.BASE.GITHUB' | translate}}
-      </a>
+      <div class="project__buttons">
+        <a class="project__visit-button"
+           [href]="project.URL"
+           [target]="'_blank'"
+           [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
+        >
+          {{'PAGES.PROJECTS.BASE.VISIT' | translate}}
+        </a>
+        <a class="project__visit-button" *ngIf="project.GITHUB"
+           [href]="project.GITHUB"
+           [target]="'_blank'"
+           [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
+        >
+          {{'PAGES.PROJECTS.BASE.GITHUB' | translate}}
+        </a>
+      </div>
     </div>
   </div>
 

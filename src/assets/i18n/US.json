@@ -97,6 +97,12 @@
         "TITLE": "My Experience",
         "DESCRIPTION": "My professional journey has led me through three leading companies, where I gained extensive frontend development experience and expanded my backend development knowledge. I made a significant contribution to improving performance and SEO, implemented SSR, and developed complex gaming elements."
       },
+      "CARD": {
+        "GITHUB": "Github",
+        "MORE": "Read more",
+        "PROJECT": "Project",
+        "STACK": "development stack"
+      },
       "MY_PROJECTS": "List of My Projects"
     },
     "CONTACTS": {
