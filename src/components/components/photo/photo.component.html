@@ -1,3 +1,3 @@
-<button (click)="openPhotoModal()" class="photo" [tabindex]="tabIndex || 0">
+<button (click)="openPhotoModal()" class="photo" [tabindex]="tabIndex || 0" aria-hidden="true">
   <img [src]="photoItem.src" [alt]="photoItem.name" [attr.aria-hidden]="ariaHidden"/>
 </button>

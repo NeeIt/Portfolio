@@ -53,6 +53,10 @@
         }
       }
     }
+
+    &__copyright {
+      bottom: 16px;
+    }
   }
 }
 
@@ -62,6 +66,10 @@
     width: 100%;
     max-width: none;
     max-height: none;
+
+    &__copyright {
+      bottom: calc(var(--panel-margin-bottom) + 16px);
+    }
   }
 
   .list {

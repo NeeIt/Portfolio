@@ -9,7 +9,7 @@
   font-size: .75rem;
 }
 
-.breadcrumb-item + .breadcrumb-item::before {
+.breadcrumb-item_next {
   content: ">";
   padding: 0 5px;
   color: var(--color-gray);

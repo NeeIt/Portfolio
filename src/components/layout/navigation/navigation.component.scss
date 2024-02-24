@@ -37,9 +37,9 @@
 
   &__copyright {
     position: absolute;
-    bottom: 16px;
-    left: 0;
+    bottom: calc(var(--panel-margin-bottom) + 16px);
     width: 100%;
+    left: 16px;
     text-align: center;
     font-size: .625rem;
     color: var(--color-text-30);

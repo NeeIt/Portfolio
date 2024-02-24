@@ -9,6 +9,7 @@
         </a>
       </ng-container>
       <ng-template #lastBreadcrumb>{{ crumb.title | translate}}</ng-template>
+      <span class="breadcrumb-item_next" *ngIf="!isLast" aria-hidden="true">></span>
     </li>
   </ol>
 </nav>

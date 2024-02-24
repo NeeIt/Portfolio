@@ -4,6 +4,7 @@ svg {
   transform: scale(1.25);
   position: absolute;
   z-index: 1;
+  user-select: none;
 
   &:first-of-type {
     width: 100%;
