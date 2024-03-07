@@ -12,7 +12,7 @@ import { TranslateService } from "@ngx-translate/core";
 export class SchemaService {
   private renderer: Renderer2;
   private routerSubscription!: Subscription;
-  private readonly SCHEMA_ID = 'schema-script';
+  readonly SCHEMA_ID = 'schema-script';
   constructor(
     private rendererFactory: RendererFactory2,
     private translateService: MyTranslateService,
@@ -24,7 +24,7 @@ export class SchemaService {
     this.renderer = rendererFactory.createRenderer(null, null);
   }
 
-  routeChangeSubscribe(): void {
+  public routeChangeSubscribe(): void {
     this.routerSubscription = this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
       map(() => this.activatedRoute),
@@ -39,11 +39,11 @@ export class SchemaService {
     });
   }
 
-  routeChangeUnsubscribe(): void {
+  public routeChangeUnsubscribe(): void {
     this.routerSubscription?.unsubscribe();
   }
 
-  updateSchema(schemaDataKey: string) {
+  public updateSchema(schemaDataKey: string) {
     this.getTranslatedSchemaData(schemaDataKey).pipe(take(1)).subscribe(
       (data) => {
         this.renderSchema(data);
@@ -51,11 +51,11 @@ export class SchemaService {
     );
   }
 
-  private getTranslatedSchemaData(schemaDataKey: string): Observable<any> {
+  public getTranslatedSchemaData(schemaDataKey: string): Observable<any> {
     return this.translateObject(SCHEMA_DATA[schemaDataKey]);
   }
 
-  private translateObject(obj: any): Observable<any> {
+  public translateObject(obj: any): Observable<any> {
     if (typeof obj === 'string') {
       if (obj.trim() === '') {
         return of(obj);
@@ -107,7 +107,7 @@ export class SchemaService {
     return this.getTranslatedSchemaData(schemaDataKey).pipe(take(1));
   }
 
-  private updateSchemaBasedOnRoute(key: string) {
+  public updateSchemaBasedOnRoute(key: string) {
     // Определите логику для выбора схемы
     if (key in SCHEMA_DATA) {
       this.updateSchema(key);
@@ -118,7 +118,7 @@ export class SchemaService {
     }
   }
 
-  private removeSchema() {
+  public removeSchema() {
     let existingScript = this.document.getElementById(this.SCHEMA_ID);
     if (existingScript) {
       this.renderer.removeChild(this.document.head, existingScript);

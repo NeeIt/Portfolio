@@ -111,8 +111,6 @@ export class MyTranslateService {
         this.translateService.use(lang);
         this.setLanguageFont(lang);
       }
-
-
     }
   }
 }

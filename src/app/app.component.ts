@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, Inj
 import {NavigationEnd, Router} from "@angular/router";
 import {slideInAnimation} from "./app.animations";
 import {debounceTime, filter, skip, Subject, Subscription, take, throttleTime} from "rxjs";
-import {LINKS, PAGE_TYPE} from "@constants/base/routes.const";
+import {PAGE_TYPE} from "@constants/base/routes.const";
 import {RoutingService} from "@services/routing.service";
 import {DOCUMENT} from "@angular/common";
 import {LightModeService} from "@services/light-mode.service";
@@ -27,7 +27,7 @@ import {DEFAULT_LANGUAGE} from "@constants/base/language.const";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  private readonly subscriptions = new Subscription();
+  readonly subscriptions = new Subscription();
 
   readonly currentLang$ = this.mTranslate.currentLang$;
   readonly currentMode$ = this.lightModeService.currentMode$;

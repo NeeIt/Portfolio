@@ -8,10 +8,10 @@ import {LAYOUT_TYPES} from "@constants/base/layout-types.const";
 })
 
 export class AdaptiveService {
-  readonly isTable$ = this.breakpointObserver.observe('(min-width: 767px) and (max-width: 1080px)').pipe(map((result: BreakpointState) => result.matches));
-  readonly isDesktop$ = this.breakpointObserver.observe('(min-width: 1080px)').pipe(map((result: BreakpointState) => result.matches));
-  readonly isMobile$ = this.breakpointObserver.observe('(max-width: 767px)').pipe(map((result: BreakpointState) => result.matches));
-  readonly observe$ = this.breakpointObserver.observe(Object.values(LAYOUT_TYPES));
+  public isTable$ = this.breakpointObserver.observe('(min-width: 767px) and (max-width: 1080px)').pipe(map((result: BreakpointState) => result.matches));
+  public isDesktop$ = this.breakpointObserver.observe('(min-width: 1080px)').pipe(map((result: BreakpointState) => result.matches));
+  public isMobile$ = this.breakpointObserver.observe('(max-width: 767px)').pipe(map((result: BreakpointState) => result.matches));
+  public observe$ = this.breakpointObserver.observe(Object.values(LAYOUT_TYPES));
 
   constructor(
     private readonly breakpointObserver: BreakpointObserver,
