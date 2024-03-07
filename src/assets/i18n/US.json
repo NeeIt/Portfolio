@@ -111,7 +111,8 @@
         "NAME": "How should we address you?*",
         "EMAIL": "Email*",
         "MESSAGE": "Your message*",
-        "SUBMIT": "Send"
+        "SUBMIT": "Send",
+        "ERROR": "Sending messages through the form is temporarily not working."
       }
     },
     "NOT_FOUND": {

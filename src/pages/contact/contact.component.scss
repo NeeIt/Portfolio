@@ -11,6 +11,12 @@
   overflow: hidden;
 }
 
+.error {
+  color: red;
+  font-size: .875rem;
+  opacity: .9;
+}
+
 .contact-page {
   padding: calc(var(--panel-margin-top) + 32px) 16px calc(var(--panel-margin-top) + 32px) 16px;
   background: linear-gradient(transparent, var(--color-background-90) 20%, var(--color-background-90) 70%, transparent);
