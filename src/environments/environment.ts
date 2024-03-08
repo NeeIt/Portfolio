@@ -6,4 +6,5 @@ export const environment: any = {
   serverPort: 4000,
   hostName: 'vladislavushmankin.com',
   backendPath: 'localhost:3000',
+  emailJsPath: 'https://api.emailjs.com'
 }

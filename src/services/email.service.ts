@@ -22,8 +22,26 @@ export class EmailService {
 
   sendMessage(emailParams: IEmailParams): void {
     this._sendEmailRequestState.next(RequestStates.PENDING);
-    this.http.post<boolean>(`${environment.backendPath}/api/email/send`, emailParams)
-      .pipe(
+    // this.http.post<boolean>(`${environment.backendPath}/api/email/send`, emailParams)
+    //   .pipe(
+    //     take(1),
+    //     catchError((error: HttpErrorResponse) => {
+    //       this._sendEmailRequestState.next(RequestStates.ERROR);
+    //       return of();
+    //     })).subscribe((response) => {
+    //   this.gtmService.pushEvent(GTM_EVENTS.MESSAGE_SEND, emailParams);
+    //   this._sendEmailRequestState.next(RequestStates.SUCCESS);
+    //       console.log('Email sent successfully:', response);
+    //   });
+
+    const emailJsData = {
+      service_id: 'service_i8hw3it',
+      template_id: 'template_80svo6s',
+      user_id: 'oF3savxa1cUwP74-c',
+      template_params: emailParams
+    }
+
+    this.http.post<boolean>(`${environment.emailJsPath}/api/v1.0/email/send`, emailJsData).pipe(
         take(1),
         catchError((error: HttpErrorResponse) => {
           this._sendEmailRequestState.next(RequestStates.ERROR);
