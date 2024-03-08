@@ -9,6 +9,8 @@
 /works/helltv
 /works/csgofast
 /works/portfolio
+/sub
+/contactsub
 /not-found
 /ru
 /ru/about
@@ -21,6 +23,8 @@
 /ru/works/helltv
 /ru/works/csgofast
 /ru/works/portfolio
+/ru/sub
+/ru/contactsub
 /ru/not-found
 /jp
 /jp/about
@@ -33,6 +37,8 @@
 /jp/works/helltv
 /jp/works/csgofast
 /jp/works/portfolio
+/jp/sub
+/jp/contactsub
 /jp/not-found
 /ua
 /ua/about
@@ -45,4 +51,6 @@
 /ua/works/helltv
 /ua/works/csgofast
 /ua/works/portfolio
+/ua/sub
+/ua/contactsub
 /ua/not-found

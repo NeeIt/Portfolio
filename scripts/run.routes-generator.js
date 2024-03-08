@@ -33,7 +33,8 @@ function getParsedRoutes() {
       result += match[1] === '' ? '/\n' : `/${match[1]}\n`;
     }
 
-    return result.split('\n');
+    return result.split('\n')
+      .concat(['/sub', '/contactsub']); // add sub paths to routes
   } catch (err) {
     console.error('\x1b[31m%s\x1b[0m', "❌ 🚧Can't parse project's routes🚧", err);
   }
