@@ -23,7 +23,7 @@ import {PhotoModule} from "@components/components/photo/photo.module";
         MatIconModule,
         PhotoSliderModule,
         BreadcrumbModule,
-        PhotoModule
+        PhotoModule,
     ]
 })
 export class PortfolioModule { }

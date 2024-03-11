@@ -23,6 +23,8 @@ export class ContactComponent implements OnInit, OnDestroy{
   readonly socials = Object.entries(SOCIAL_TYPES);
   readonly tabIndexes$ = this.tabIndexService.tabIndexValues$;
 
+  public error: string | null = null;
+
   constructor(
     private readonly tabIndexService: TabIndexService,
     private readonly emailService: EmailService,
@@ -51,11 +53,48 @@ export class ContactComponent implements OnInit, OnDestroy{
     }
 
     this.contactForm = this.fb.group({
-      'email': [email, [Validators.required, Validators.email]],
-      'phone': [phone],
-      'name': [name, [Validators.required]],
-      'message': [message, [Validators.required]],
+      'email': [email, [Validators.required, Validators.email, Validators.maxLength(500)]],
+      'phone': [phone, [Validators.maxLength(30)]],
+      'name': [name, [Validators.required, Validators.maxLength(500)]],
+      'message': [message, [Validators.required, Validators.maxLength(2500)]],
     });
+
+    this.contactForm.valueChanges.subscribe(() => this.updateError());
+  }
+
+  updateError(): void {
+    this.error = null; // Reset the error message before checking for new errors
+    const controls = this.contactForm.controls;
+
+    if (controls['email'].touched || controls['email'].dirty) {
+      if (controls['email'].errors?.['required']) {
+        this.error = 'PAGES.CONTACTS.FORM.ERRORS.EMAIL.REQUIRED';
+      } else if (controls['email'].errors?.['email']) {
+        this.error = 'PAGES.CONTACTS.FORM.ERRORS.EMAIL.INVALID';
+      } else if (controls['email'].errors?.['maxlength']) {
+        this.error = 'PAGES.CONTACTS.FORM.ERRORS.EMAIL.MAX';
+      }
+    }
+
+    if (!this.error && (controls['phone'].touched || controls['phone'].dirty) && controls['phone'].errors?.['maxlength']) {
+      this.error = 'PAGES.CONTACTS.FORM.ERRORS.PHONE.MAX';
+    }
+
+    if (!this.error && (controls['name'].touched || controls['name'].dirty)) {
+      if (controls['name'].errors?.['required']) {
+        this.error = 'PAGES.CONTACTS.FORM.ERRORS.NAME.REQUIRED';
+      } else if (controls['name'].errors?.['maxlength']) {
+        this.error = 'PAGES.CONTACTS.FORM.ERRORS.NAME.MAX';
+      }
+    }
+
+    if (!this.error && (controls['message'].touched || controls['message'].dirty)) {
+      if (controls['message'].errors?.['required']) {
+        this.error = 'PAGES.CONTACTS.FORM.ERRORS.MESSAGE.REQUIRED';
+      } else if (controls['message'].errors?.['maxlength']) {
+        this.error = 'PAGES.CONTACTS.FORM.ERRORS.MESSAGE.MAX';
+      }
+    }
   }
 
   onSubmit() {

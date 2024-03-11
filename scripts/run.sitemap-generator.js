@@ -71,8 +71,7 @@ function getDefaultLang() {
   console.log('Parsing language.const.ts...');
   try {
     const data = fs.readFileSync(SCRIPT_CONF.MAIN_LANG_PATH, { encoding: 'utf8' });
-    let lang = data.match(/DEFAULT_LANGUAGE\s?=\s?["'](.*)["'];/)[1];
-    if (lang === 'US') lang = 'EN';
+    let lang = data.match(/DEFAULT_LANGUAGE: string\s?=\s?["'](.*)["'];/)[1];
     return lang.toLowerCase();
   } catch (err) {
     console.error('\x1b[31m%s\x1b[0m', "❌ 🚧Can't read " + SCRIPT_CONF.MAIN_LANG_PATH + ". Default lang will be 'en'🚧", err);
@@ -103,10 +102,10 @@ async function getLanguages() {
   try {
     const data = fs.readFileSync(SCRIPT_CONF.LANG_LIST_PATH, { encoding: 'utf8' });
     const langs = JSON.parse(data.match(/AVAILABLE_LANGUAGES\s?=\s?([\[].*[\]]);/)[1].replace(/'/g, '"'));
-    return langs.map(lang => lang === 'US' ? 'en' : lang.toLowerCase());
+    return langs.map(lang => lang.toLowerCase());
   } catch (err) {
-    console.error('\x1b[31m%s\x1b[0m', "❌ 🚧Can't read " + SCRIPT_CONF.LANG_LIST_PATH + ". Lang list will be ['en', 'ru', 'ua', 'jp']🚧", err);
-    return ['en', 'ru', 'ua', 'jp'];
+    console.error('\x1b[31m%s\x1b[0m', "❌ 🚧Can't read " + SCRIPT_CONF.LANG_LIST_PATH + ". Lang list will be ['en', 'ru', 'uk', 'ja']🚧", err);
+    return ['en', 'ru', 'uk', 'ja'];
   } finally {
     console.log('-------------------------------');
   }

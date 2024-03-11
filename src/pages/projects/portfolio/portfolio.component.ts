@@ -40,7 +40,7 @@ export class PortfolioComponent {
     },
     ai: {
       id: 2,
-      name: 'Modjourney',
+      name: 'Midjourney',
       src: '/assets/img/projects/portfolio/portfolio-midjourney.jpg',
       description: 'One of my midjourney request\'s results'
     },

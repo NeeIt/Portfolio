@@ -21,6 +21,10 @@ export class ModalService {
   ) {
   }
 
+  isAnyModalOpened(): boolean {
+    return !!this.modals.getValue().length
+  }
+
   openModal(name: MODAL_NAMES, payloads?: any): false | IModal {
     const modalConnection = MODALS_CONNECTION.find(modal => modal.name === name);
     if (!modalConnection) return false;

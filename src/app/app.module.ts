@@ -11,11 +11,12 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { translateBrowserLoaderFactory } from "@modules/translate/translate-browser-loader";
 import { TranslateAnimationModule } from "@directives/translate-animation/translate-animation.module";
 import { MatIconModule } from "@angular/material/icon";
-import {Router} from "@angular/router";
+import {Router, UrlSerializer} from "@angular/router";
 import * as Sentry from "@sentry/angular-ivy";
 import {NavigationModule} from "@components/layout/navigation/navigation.module";
 import {NavigationIndicatorComponent} from "@components/layout/navigation-indicator/navigation-indicator.component";
 import {MobileNavigationPanelModule} from "@components/layout/mobile-navigation-panel/mobile-navigation-panel.module";
+import {SlashAppendedUrlSerializer} from "../other/url-serializer";
 
 @NgModule({
   declarations: [
@@ -67,8 +68,9 @@ import {MobileNavigationPanelModule} from "@components/layout/mobile-navigation-
       useFactory: () => () => {},
       deps: [Sentry.TraceService],
       multi: true,
-    }
+    },
     // ----- SENTRY END ------
+    { provide: UrlSerializer, useClass: SlashAppendedUrlSerializer }
   ],
   bootstrap: [AppComponent]
 })

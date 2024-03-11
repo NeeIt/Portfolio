@@ -93,6 +93,7 @@
       "END": "If you're looking for a developer who can make a significant contribution to your team and project, I'd be glad to discuss opportunities for collaboration."
     },
     "WORKS": {
+      "H2": "List of projects I have participated in",
       "MY_EXPERIENCE": {
         "TITLE": "My Experience",
         "DESCRIPTION": "My professional journey has led me through three leading companies, where I gained extensive frontend development experience and expanded my backend development knowledge. I made a significant contribution to improving performance and SEO, implemented SSR, and developed complex gaming elements."
@@ -107,12 +108,30 @@
     },
     "CONTACTS": {
       "FORM": {
+        "H2": "Send me an email!",
         "PHONE": "Your phone number",
         "NAME": "How should we address you?*",
         "EMAIL": "Email*",
         "MESSAGE": "Your message*",
         "SUBMIT": "Send",
-        "ERROR": "Sending messages through the form is temporarily not working."
+        "ERRORS": {
+          "EMAIL": {
+            "REQUIRED": "Email is required.",
+            "INVALID": "Please enter a valid email address.",
+            "MAX": "Email cannot exceed 500 characters."
+          },
+          "NAME": {
+            "REQUIRED": "Name is required.",
+            "MAX": "Name cannot exceed 500 characters."
+          },
+          "PHONE": {
+            "MAX": "Phone number cannot exceed 30 characters."
+          },
+          "MESSAGE": {
+            "REQUIRED": "Message is required.",
+            "MAX": "Message cannot exceed 2500 characters."
+          }
+        }
       }
     },
     "NOT_FOUND": {
@@ -164,7 +183,7 @@
         }
       },
       "SCLOUD": {
-        "UNIT_TESTS": "Unit tests play a significant role in the project, written for every developed section and component, which has repeatedly saved the project from critical errors",
+        "UNIT_TESTS": "Unit tests play a significant role in the project, written to verify that individual modules or code functions behave as expected. These tests have repeatedly saved the project from critical errors",
         "SCREEN": "Page Examples",
         "DESKTOP": "Desktop Page Spread",
         "MOBILE": "Mobile Page Examples"
@@ -283,6 +302,12 @@
         "SEO_OTHER": {
           "TITLE": "Other",
           "DESCRIPTION": "In addition to the above, the site contains many other configurations that help search engines better index this site."
+        },
+        "ACKNOWLEDGEMENTS": {
+          "TITLE": "Acknowledgements",
+          "K00PA": "Special thanks to the seasoned tester K00pa for thorough testing on this site.",
+          "LUPA_NIKO": "Thank you to Lupa Niko for the assistance with creative site content ideas.",
+          "FRIENDS": "Gratitude to friends for their pivotal role in the initial testing phase of the site."
         }
       }
     }
@@ -297,62 +322,62 @@
   "SEO": {
     "404": {
       "TITLE": "Not found | Vladislav Ushmankin",
-      "DESCRIPTION": "I'm frontend developer"
+      "DESCRIPTION": "Page Not Found: You have landed on a non-existent page of Vladislav Ushmankin's portfolio. Perhaps you entered an incorrect address or the page has been moved."
     },
     "HOME": {
       "TITLE": "Frontend developer | Vladislav Ushmankin",
-      "DESCRIPTION": "I'm frontend developer",
+      "DESCRIPTION": "Meet Vladislav Ushmankin, an expert frontend developer. Discover my journey and ways to connect.",
       "NAVIGATION": "HOME"
     },
     "ABOUT": {
       "TITLE": "About me | Vladislav Ushmankin",
-      "DESCRIPTION": "I'm frontend developer",
+      "DESCRIPTION": "Vladislav Ushmankin's journey: from frontend developer to team leader, applying innovation in IT projects.",
       "NAVIGATION": "MORE ABOUT ME"
     },
     "DETAILS": {
-      "TITLE": "About Me | Vladislav Ushmankin",
-      "DESCRIPTION": "I am a frontend developer",
+      "TITLE": "More about Me | Vladislav Ushmankin",
+      "DESCRIPTION": "Discover more about Vladislav Ushmankin, a frontend developer with extensive experience and a passion for travel.",
       "NAVIGATION": "ABOUT ME"
     },
     "WORKS": {
       "TITLE": "My works | Vladislav Ushmankin",
-      "DESCRIPTION": "I'm frontend developer",
+      "DESCRIPTION": "Vladislav Ushmankin's experience: frontend development, SSR implementation, SEO optimization, and game elements creation.",
       "NAVIGATION": "WORKS"
     },
     "WORK_LIST": {
       "TITLE": "Project List | Vladislav Ushmankin",
-      "DESCRIPTION": "I'm frontend developer",
+      "DESCRIPTION": "Explore Vladislav Ushmankin's diverse projects, from websites to IT solutions using Angular, SSR, and SEO.",
       "NAVIGATION": "MY PROJECTS"
     },
     "CONTACT": {
       "TITLE": "Contact me | Vladislav Ushmankin",
-      "DESCRIPTION": "I'm frontend developer",
+      "DESCRIPTION": "Contact form to connect with Vladislav Ushmankin. Leave a message, and he will reach out to you.",
       "NAVIGATION": "CONTACT ME"
     },
     "PROJECT": {
       "KFC": {
         "TITLE": "Project TeamKFC | Vladislav Ushmankin",
-        "DESCRIPTION": "I am a frontend developer",
+        "DESCRIPTION": "Vladislav starts at KFC: contributing to portal development and efficient resource management.",
         "NAVIGATION": "KFC"
       },
       "SCLOUD": {
         "TITLE": "Project Scloud | Vladislav Ushmankin",
-        "DESCRIPTION": "I am a frontend developer",
+        "DESCRIPTION": "Vladislav Ushman's contribution to Scloud.ru development: improving 1C work, implementing new features, and optimizing front-end to back-end interaction.",
         "NAVIGATION": "SCLOUD"
       },
       "HELLTV": {
         "TITLE": "Project Helltv | Vladislav Ushmankin",
-        "DESCRIPTION": "I am a frontend developer",
+        "DESCRIPTION": "Vladislav Ushmankin is the lead developer of HELLTV STORE, a unique service for winning CS:GO/CS2 skins. Discover his role and game modes.",
         "NAVIGATION": "HELLTV.STORE"
       },
       "CSGOFAST": {
         "TITLE": "Project CSGOFast | Vladislav Ushmankin",
-        "DESCRIPTION": "I am a frontend developer",
+        "DESCRIPTION": "Vladislav Ushman's contribution to CSGOFAST: enhanced performance, SEO, and game mode development contributed to the success of the CS:GO gambling site.",
         "NAVIGATION": "CSGOFAST"
       },
       "PORTFOLIO": {
         "TITLE": "Project \"My Portfolio\" | Vladislav Ushmankin",
-        "DESCRIPTION": "I am a frontend developer",
+        "DESCRIPTION": "Explore Vladislav Ushmankin's site from Figma design to adaptability and multilingualism. Modern technology in action.",
         "NAVIGATION": "PORTFOLIO"
       }
     }
@@ -450,6 +475,7 @@
   "PROJECTS": {
     "KFC": {
       "NAME": "KFC - Corporate Portal",
+      "H2": "Detailed description of the KFC project",
       "ROLE": "Junior Frontend Developer",
       "FEATURED": "Participated in bug fixing and section development",
       "ROLE_DESCRIPTION": "In my first project as a programmer at KFC, I joined the team developing the corporate portal. Although my contribution was modest due to limited experience, I made significant strides in professional development. I improved my teamwork skills, mastered the use of the GIT version control system, and learned effective task planning and management according to Agile methodology. My specific contribution included interface development: creating forms, individual sections, fixing bugs, and performing other tasks to improve the user experience in the portal.",
@@ -459,6 +485,7 @@
     },
     "SCLOUD": {
       "NAME": "SCLOUD",
+      "H2": "Detailed description of the SCLOUD project",
       "ROLE": "Junior Frontend Developer",
       "AWARDS": "1. Participated in the global redesign of the entire website; 2. Developed individual pages for user document interaction within SCLOUD.",
       "FEATURED": "1. Involved in the comprehensive redesign of the website; 2. Developed distinct pages for user-document interaction.",
@@ -469,6 +496,7 @@
     },
     "HELLTV": {
       "NAME": "HELLTV STORE",
+      "H2": "Detailed description of the HELLTV STORE project",
       "ROLE": "Middle Frontend Developer. Responsible for optimization, structure, SEO of the project, and for training junior colleagues",
       "AWARDS": "1. Optimized the project to be more user-friendly; 2. Improved SEO, which attracted new users; 3. Set up server-side rendering, positively impacting SEO; 4. Became a mentor for newcomers. 5. Developed several game modes",
       "FEATURED": "Responsible for the overhaul of the site's core, optimization, and SEO",
@@ -479,6 +507,7 @@
     },
     "CSGOFAST": {
       "NAME": "CSGOFAST",
+      "H2": "Detailed description of the CSGOFAST project",
       "ROLE": "Middle Frontend Developer. Responsible for optimization, structure, SEO of the project, and for training junior colleagues",
       "AWARDS": "1. Optimized the project to be more user-friendly; 2. Improved SEO, which attracted new users; 3. Implemented server-side rendering, positively impacting SEO; 4. Became a mentor for newcomers",
       "FEATURED": "Responsible for the overhaul of the site's core, optimization, and SEO",
@@ -489,6 +518,7 @@
     },
     "PORTFOLIO": {
       "NAME": "This Site",
+      "H2": "Detailed description of the site",
       "ROLE": "Lead and Sole Developer/Designer/SEO",
       "AWARDS": "1. Optimized SEO; 2. Multilingualism; 3. Server-side Rendering; 4. Smooth Animations; 5. Beautiful Design",
       "FEATURED": "1. SEO setup: sitemap, schema, SSR, alternates, etc.; 2. Server-side rendering setup; 3. Design creation; 4. Animation creation; 5. Website optimization; 6. Design implementation",

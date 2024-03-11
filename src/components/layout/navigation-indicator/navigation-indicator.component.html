@@ -3,7 +3,7 @@
     <a class="navigator-indicator__dot"
        tabindex="-1"
        aria-hidden="true"
-       *ngIf="(currentLang$ | async)?.iso2 as lang"
+       *ngIf="(currentLang$ | async)?.lang as lang"
        [routerLink]="(lang === defaultLang ? '' : (lang | lowercase)+'/')
               + ((currentLinkData$ | async)?.isSubLink && (isFirst || isLast) ? '/'+link.path+'sub' : '/'+link.path)"
     [routerLinkActive]="'navigator-indicator__dot_active'"

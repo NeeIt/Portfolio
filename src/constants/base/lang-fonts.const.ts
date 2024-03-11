@@ -1,6 +1,6 @@
 export const LANG_FONTS: Record<string, string> = {
-  'US': 'Righteous',
+  'EN': 'Righteous',
   'RU': 'Play',
-  'JP': 'Yusei Magic',
-  'UA': 'Play'
+  'JA': 'Yusei Magic',
+  'UK': 'Play'
 }

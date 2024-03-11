@@ -7,9 +7,10 @@
     <div class="project__group">
       <app-breadcrumb [breadcrumbs]="breadcrumbs"/>
       <h1>{{'PROJECTS.CSGOFAST.NAME' | translate}}</h1>
+      <h2>{{'PROJECTS.CSGOFAST.H2' | translate}}</h2>
       <p>{{'PROJECTS.CSGOFAST.DESCRIPTION_SHORT' | translate}}</p>
       <p>{{'PROJECTS.CSGOFAST.DESCRIPTION' | translate}}</p>
-      <h2>{{'PAGES.PROJECTS.BASE.STACK' | translate}}</h2>
+      <h3>{{'PAGES.PROJECTS.BASE.STACK' | translate}}</h3>
       <div class="work-card__stack stack-list">
         <div *ngFor="let skill of project.STACK" class="stack-list__item">
           <mat-icon [svgIcon]="skill | lowercase"></mat-icon>
@@ -19,12 +20,13 @@
       <a class="project__visit-button"
          [href]="project.URL"
          [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
-         [target]="'_blank'">
+         [target]="'_blank'"
+         rel="noopener noreferrer">
         {{'PAGES.PROJECTS.BASE.VISIT' | translate}}
       </a>
     </div>
     <div class="project__group">
-      <h2>{{'PAGES.PROJECTS.BASE.SCREENSHOTS' | translate}}</h2>
+      <h3>{{'PAGES.PROJECTS.BASE.SCREENSHOTS' | translate}}</h3>
       <app-photo-slider *ngIf="previewList" [imageList]="previewList" class="project__preview-slider"/>
     </div>
   </div>
@@ -41,22 +43,22 @@
     <div class="project__group">
       <div class="project__point point">
         <span class="point__mark">1. </span>
-        <h2>{{'PAGES.PROJECTS.BASE.ROLE' | translate}}</h2>
+        <h3>{{'PAGES.PROJECTS.BASE.ROLE' | translate}}</h3>
       </div>
       <p>{{'PROJECTS.CSGOFAST.ROLE_DESCRIPTION' | translate}}</p>
     </div>
     <div class="project__group">
       <div class="project__point point">
         <span class="point__mark">2. </span>
-        <h2>{{'PAGES.PROJECTS.CSGOFAST.GAME' | translate}}</h2>
+        <h3>{{'PAGES.PROJECTS.CSGOFAST.GAME' | translate}}</h3>
       </div>
       <p>{{'PAGES.PROJECTS.CSGOFAST.RESTRICTION' | translate}}</p>
-      <img src="/assets/img/projects/csgofast/csgofast-page.png" alt=""/>
+      <img src="/assets/img/projects/csgofast/csgofast-page.png" alt="black friday csgofast event. Ushmankin Vladislav"/>
     </div>
     <div class="project__group">
       <div class="project__point point">
         <span class="point__mark">3. </span>
-        <h2>{{'PAGES.PROJECTS.BASE.OTHER_RESPONSIBILITIES' | translate}}</h2>
+        <h3>{{'PAGES.PROJECTS.BASE.OTHER_RESPONSIBILITIES' | translate}}</h3>
       </div>
       <div class="project__point point">
         <span class="point__mark">3.1. </span>
@@ -73,7 +75,7 @@
         <h3>{{'PAGES.PROJECTS.BASE.SENTRY.NAME' | translate}}</h3>
       </div>
       <p>{{'PAGES.PROJECTS.BASE.SENTRY.DESCRIPTION' | translate}}</p>
-      <img src="/assets/img/other/sentry.png" alt="">
+      <img src="/assets/img/other/sentry.png" alt="Sentry screenshot. Vladislav Ushmankin">
     </div>
   </div>
 

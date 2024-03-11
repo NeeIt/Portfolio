@@ -8,6 +8,7 @@ import {COUNTRIES_LIST} from "@constants/base/language.const";
 import {FormBuilder} from "@angular/forms";
 import {MODAL_NAMES} from "@interfaces/modals.interface";
 import {TabIndexService} from "@services/tab-index.service";
+import {ILangData} from "@interfaces/language.interface";
 
 @Component({
   selector: 'app-language-modal',
@@ -21,7 +22,7 @@ export class LanguageModalComponent {
   tabIndexValues$ = this.tabIndexService.tabIndexValues$;
 
   countriesList = COUNTRIES_LIST;
-  currentLang!: ICountryData | undefined;
+  currentLang!: ILangData | undefined;
 
   readonly searchForm = this.fb.group({
     search: [''],
@@ -42,7 +43,7 @@ export class LanguageModalComponent {
   }
 
   changeLang(lang: string): void {
-    if(!this.currentLang || this.currentLang.iso2 === lang || !lang) return;
+    if(!this.currentLang || this.currentLang.lang === lang || !lang) return;
     this.translateService.changeLang(lang.toUpperCase(), true);
     // this.close();
   }

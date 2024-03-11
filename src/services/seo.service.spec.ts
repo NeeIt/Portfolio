@@ -63,7 +63,7 @@ describe('SeoService', () => {
       if (index === 0) {
         expect(el.hreflang).toEqual('x-default');
       } else {
-        expect(['en', 'ru', 'ua', 'jp']).toContain(el.hreflang); // Пример, замените на актуальные значения
+        expect(['en', 'ru', 'uk', 'ja']).toContain(el.hreflang); // Пример, замените на актуальные значения
       }
     });
   });

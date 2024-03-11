@@ -1,7 +1,11 @@
 import {getCountryDataList} from "countries-list";
 
-export const AVAILABLE_LANGUAGES = ['RU', 'US', 'JP', 'UA'];
+export const AVAILABLE_LANGUAGES = ['RU', 'EN', 'JA', 'UK'];
 
-export const COUNTRIES_LIST = getCountryDataList().filter(country => AVAILABLE_LANGUAGES.includes(country.iso2));
+export const AVAILABLE_COUNTRIES = ['RU', 'US', 'JP', 'UA'];
 
-export const DEFAULT_LANGUAGE = 'US';
+export const COUNTRIES_LIST = getCountryDataList().filter(country => {
+  return AVAILABLE_COUNTRIES.includes(country.iso2?.toUpperCase())
+});
+
+export const DEFAULT_LANGUAGE: string = 'EN';

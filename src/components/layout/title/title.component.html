@@ -21,7 +21,6 @@
     </div>
   </h1>
 
-
   <div class="title__item about-title" *ngIf="page === '/'+links[1].path">
     <img [src]="'/assets/img/me/'+((currentMode$ | async) === 'light'?'me_light' : 'me_dark') + '.png'"
          alt="my photo"/>

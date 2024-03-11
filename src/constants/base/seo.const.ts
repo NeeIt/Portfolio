@@ -10,6 +10,6 @@ export const FACEBOOK_DATA = {
 
 export const GOOGLE_DATA = {
   NAME: 'google-site-verification',
-  CONTENT: '',
+  CONTENT: 'VICw0WF9ckLo4GE_f_o5QhSeag6FnbNutodJybuj5uY',
 };
 

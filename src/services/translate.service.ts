@@ -8,6 +8,7 @@ import { NavigationEnd, Router } from "@angular/router";
 import { makeStateKey, TransferState } from "@angular/platform-browser";
 import { LANG_FONTS } from "@constants/base/lang-fonts.const";
 import * as Sentry from "@sentry/angular-ivy";
+import {ILangData} from "@interfaces/language.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -17,13 +18,20 @@ export class MyTranslateService {
 
   private renderer!: Renderer2;
 
-  private readonly _currentLang = new BehaviorSubject<ICountryData | undefined>(
-    COUNTRIES_LIST.find(country => {
-      return country.iso2 === this.transferState.get(this.LANGUAGE_KEY, DEFAULT_LANGUAGE as any)
+  private readonly _currentLang = new BehaviorSubject<ILangData | undefined>(
+    COUNTRIES_LIST
+      .map(country => ({
+        lang: country.languages[0].toUpperCase(),
+        iso2: country.iso2,
+        native: country.native,
+        country: country.name
+      }))
+      .find(country => {
+      return country.lang.toUpperCase() === this.transferState.get(this.LANGUAGE_KEY, DEFAULT_LANGUAGE as any)?.toUpperCase()
     })
   );
   currentLang$ = this._currentLang.asObservable();
-  get currentLang(): ICountryData | undefined {
+  get currentLang(): ILangData | undefined {
     return this._currentLang.getValue();
   }
 
@@ -47,7 +55,7 @@ export class MyTranslateService {
         this.changeLang(MyTranslateService.isAcceptedLanguage(routeLang) ? routeLang.toUpperCase() : DEFAULT_LANGUAGE)
       })
     } else {
-        this.translateService.use(this._currentLang.getValue()?.iso2 || DEFAULT_LANGUAGE);
+      this.translateService.use(this._currentLang.getValue()?.lang || DEFAULT_LANGUAGE);
     }
   }
 
@@ -66,7 +74,7 @@ export class MyTranslateService {
 
   setLocalStorageLang(): void {
     const lang = localStorage.getItem('me-lang');
-    if(lang && lang !== this._currentLang.getValue()?.iso2) {
+    if(lang && lang !== this._currentLang.getValue()?.lang) {
       this.changeLang(lang);
     }
   }
@@ -84,7 +92,19 @@ export class MyTranslateService {
 
   updateHtmlLangAttribute(lang: string): void {
     const rootHtml = this._document.documentElement;
-    this.renderer.setAttribute(rootHtml, 'lang', lang === 'US' ? 'en' : lang.toLowerCase());
+    this.renderer.setAttribute(rootHtml, 'lang', lang.toLowerCase());
+  }
+
+  setCurrentCountry(lang: string): void {
+    const country = COUNTRIES_LIST.find(country => country.languages[0].toLowerCase() === lang.toLowerCase());
+    if(country) {
+      this._currentLang.next({
+        iso2: country.iso2,
+        lang: country.languages[0].toUpperCase(),
+        native: country.native,
+        country: country.name
+      });
+    }
   }
 
   changeLang(lang: string, doSave = false): void {
@@ -95,12 +115,12 @@ export class MyTranslateService {
     if(this.isServer) {
       this.translateService.use(lang);
       this.transferState.set(this.LANGUAGE_KEY, lang.toUpperCase() as any)
-      this._currentLang.next(COUNTRIES_LIST.find(country => country.iso2.toLowerCase() === lang.toLowerCase()));
+      this.setCurrentCountry(lang);
       this.setLanguageFont(lang);
     } else {
       const isDefaultNewLang = lang === DEFAULT_LANGUAGE;
       this.router.navigate([(!isDefaultNewLang ? lang.toLowerCase() : '')+ MyTranslateService.getBaseUrl(this.router.url)])
-      this._currentLang.next(COUNTRIES_LIST.find(country => country.iso2.toLowerCase() === lang.toLowerCase()));
+      this.setCurrentCountry(lang)
       if(doSave) {
         localStorage.setItem('me-lang', lang);
         setTimeout(() => {

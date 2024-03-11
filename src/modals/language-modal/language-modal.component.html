@@ -1,6 +1,5 @@
-  <div class="language-modal modal modal_full">
+<div class="language-modal modal modal_full">
   <div class="language__header modal-header">
-
     <button class="modal-header__back"
             [attr.aria-label]="'ACCESSIBILITY.BUTTONS.BACK' | translate"
             [tabindex]="(tabIndexValues$ | async)?.MODAL_NAVIGATION"
@@ -8,10 +7,10 @@
       <mat-icon [svgIcon]="'back'"/>
     </button>
 
-    <h2 class="modal-header__title"
+    <h3 class="modal-header__title"
         appTranslateAnimation
         [attr.aria-label]="'MODALS.LANGUAGE.TITLE' | translate"
-    >{{'MODALS.LANGUAGE.TITLE' | translate}}</h2>
+    >{{'MODALS.LANGUAGE.TITLE' | translate}}</h3>
 
     <button class="modal-header__close"
             [attr.aria-label]="'ACCESSIBILITY.BUTTONS.CLOSE_MODAL' | translate"
@@ -35,8 +34,8 @@
              *ngFor="let lang of countriesList"
               [attr.aria-label]="lang.native + '/' + lang.name"
               [tabindex]="(tabIndexValues$ | async)?.MODAL_CONTENT"
-              [ngClass]="{'lang-item_selected': (lang.iso2 | lowercase) === (currentLang?.iso2 | lowercase)}"
-             (click)="changeLang(lang.iso2)"
+              [ngClass]="{'lang-item_selected': (lang.languages[0] | lowercase) === (currentLang?.lang | lowercase)}"
+             (click)="changeLang(lang.languages[0])"
         >
           <div class="lang-item__ico"><img src="https://flagcdn.com/w40/{{lang.iso2 | lowercase}}.png" alt="{{lang.name}} flag"/></div>
           <div class="lang-item__name">{{lang.name}} <span class="lang-item__native">({{lang.native}})</span></div>

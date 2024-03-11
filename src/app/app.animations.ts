@@ -78,17 +78,17 @@ export const slideInAnimation =
           left: 0,
           width: '100%'
         })
-      ], { optional: true }), // Добавлен параметр optional: true
+      ], { optional: true }),
       query(':enter', [
         style({ opacity: 0 })
-      ], { optional: true }), // Добавлен параметр optional: true
+      ], { optional: true }),
       sequence([
         query(':leave', [
           animate('300ms ease-in-out', style({ opacity: 0 }))
-        ], { optional: true }), // Добавлен параметр optional: true
+        ], { optional: true }),
         query(':enter', [
           animate('300ms ease-in-out', style({ opacity: 1 }))
-        ], { optional: true }) // Добавлен параметр optional: true
+        ], { optional: true })
       ])
     ])
   ]);

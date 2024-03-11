@@ -25,16 +25,16 @@
     </div>
   </div>
   <div class="about-page__group">
-    <h2 class="glitch delay-2"
+    <h3 class="glitch delay-2"
         [attr.data-glitch]="'PAGES.DETAILS.ACHIEVEMENTS.TITLE'| translate">
       {{'PAGES.DETAILS.ACHIEVEMENTS.TITLE'| translate}}
-    </h2>
-    <p [innerHTML]="'PAGES.DETAILS.ACHIEVEMENTS.DESCRIPTION'| translate"></p>
+    </h3>
+    <p class="about-page__list" [innerHTML]="'PAGES.DETAILS.ACHIEVEMENTS.DESCRIPTION'| translate"></p>
   </div>
   <a
     class="about-page__details-button"
     [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
-    *ngIf="(currentLang$ | async)?.iso2 as lang"
+    *ngIf="(currentLang$ | async)?.lang as lang"
     [routerLink]="'/'+(lang === defaultLang ? '' : (lang | lowercase)+'/') + 'about/details'">
     {{'SEO.DETAILS.NAVIGATION' | translate}}
     <mat-icon [svgIcon]="'next'"></mat-icon>

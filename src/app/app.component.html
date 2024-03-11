@@ -10,7 +10,6 @@
     <div class="app__title-wrapper">
       <app-title class="app__title" [animationState]="(isMobile$ | async) ? 'void' : o?.activatedRouteData?.['animation']"/>
     </div>
-
     <div class="app__pages-wrapper"
          aria-live="polite"
          [@routeAnimations]="o?.activatedRouteData?.['animation']"
@@ -35,7 +34,7 @@
     <header class="panel panel_top header">
       <div></div>
       <a class="header__logo main-color-bg" aria-hidden="true"
-         *ngIf="(currentLang$ | async)?.iso2 as lang"
+         *ngIf="(currentLang$ | async)?.lang as lang"
          [attr.aria-label]="'SEO.HOME.NAVIGATION' | translate"
          [tabIndex]="(tabIndexes$ | async)?.SETTINGS"
          [routerLink]="'/'+(lang === defaultLang ? '' : (lang | lowercase))"
@@ -54,7 +53,7 @@
           [tabIndex]="(tabIndexes$ | async)?.SETTINGS"
           *ngIf="{value: (currentLang$ | async)} as lang"
           (click)="openLanguageModal()">
-          <img src="https://flagcdn.com/w40/{{lang.value?.iso2 | lowercase}}.png" [alt]="lang.value?.name"/>
+          <img src="https://flagcdn.com/w40/{{lang.value?.iso2 | lowercase}}.png" [alt]="lang.value?.country"/>
         </button>
       </div>
     </div>

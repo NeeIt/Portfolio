@@ -76,7 +76,7 @@ export class AppComponent {
     @Inject(DOCUMENT) private _document: Document,
   ) {
     this.iconsService.registerIcons();
-    this.translate.setDefaultLang('US');
+    this.translate.setDefaultLang('EN');
     this.seoService.initSeoData();
     this.schemaService.routeChangeSubscribe();
   }
@@ -164,7 +164,6 @@ export class AppComponent {
     const scrollableElement = this._document.scrollingElement || this._document.documentElement;
     this.isScrollAvailable = scrollableElement.scrollHeight <= scrollableElement.clientHeight;
     this.mobileButtonAnimationState = 'showed';
-
     const outletElement = this._document.querySelector('router-outlet');
     const oldComponentElem = outletElement?.nextElementSibling;
     if (oldComponentElem) {
@@ -220,8 +219,9 @@ export class AppComponent {
 
       this.subscriptions.add(
         this.wheelEvent$.pipe(
-          throttleTime(1000, undefined, {leading: true, trailing: false}),
+          throttleTime(1300, undefined, {leading: true, trailing: false}),
         ).subscribe((isDown: boolean) => {
+          if(this.modalService.isAnyModalOpened()) return;
           this.isShortPage = false;
           this.isScrollAvailable = false;
           if(this.currentLinkIndex !== -1) {

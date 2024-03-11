@@ -23,7 +23,7 @@ import {BreadcrumbModule} from "@components/components/breadcrum/breadcrumb.modu
         MatExpansionModule,
         MatIconModule,
         PhotoSliderModule,
-        BreadcrumbModule
+        BreadcrumbModule,
     ]
 })
 export class HelltvModule { }

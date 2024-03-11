@@ -14,6 +14,10 @@
   gap: 48px;
   justify-content: center;
 
+  &__list {
+    margin-left: 16px;
+  }
+
   &__mobile-img {
     border-radius: 8px;
     overflow: hidden;

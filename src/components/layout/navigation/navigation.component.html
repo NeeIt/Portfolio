@@ -15,18 +15,15 @@
       <span></span>
     </div>
   </button>
-
   <div class="navigation__background"></div>
-
   <ul class="navigation__list list" *ngIf="(isDesktop$ | async) || isOpened" id="navigation-list">
-
     <li *ngFor="let link of links; let isFirst = first, let isLast = last">
       <a role="link"
          class="link"
          [attr.aria-label]="link.data.seoLocale+'.NAVIGATION' | translate"
          (click)="closeNavigation()"
          [tabIndex]="(tabIndexes$ | async)?.NAVIGATION"
-         *ngIf="(currentLang$ | async)?.iso2 as lang"
+         *ngIf="(currentLang$ | async)?.lang as lang"
          [routerLink]="(lang === defaultLang ? '' : (lang | lowercase)+'/')
          + ((currentLinkData$ | async)?.isSubLink && (isFirst || isLast) ? '/'+link.path+'sub' : '/'+link.path)"
          [routerLinkActive]="'link_active'"
@@ -41,7 +38,7 @@
               *ngIf="{value: (currentLang$ | async)} as lang"
               [tabIndex]="(tabIndexes$ | async)?.SETTINGS"
               class="lang-item">
-        <img src="https://flagcdn.com/w20/{{lang.value?.iso2 | lowercase}}.png" alt="{{lang.value?.name}} flag"/>
+        <img src="https://flagcdn.com/w20/{{lang.value?.iso2 | lowercase}}.png" alt="{{lang.value?.country}} flag"/>
         <div class="lang-item__name">
           {{'MODALS.LANGUAGE.TITLE' | translate}}
           <span class="lang-item__native">

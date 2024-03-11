@@ -14,6 +14,9 @@
     padding: 0;
     //grid-template-columns: 60% 40%;
 
+    &__bg {
+      max-height: none;
+    }
 
     &__title {
       font-size: 1.9rem;

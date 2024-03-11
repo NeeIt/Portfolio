@@ -24,10 +24,10 @@ describe('AppComponent', () => {
   let myTranslateService: jasmine.SpyObj<MyTranslateService>;
 
   beforeEach(async () => {
-    const currentLang$ = new BehaviorSubject({ iso2: 'en' });
+    const currentLang$ = new BehaviorSubject({ iso2: 'en', languages: ['en'] });
     myTranslateService = jasmine.createSpyObj('MyTranslateService', [], {
       currentLang$: currentLang$.asObservable(),
-      changeLang: (lang: string) => currentLang$.next({ iso2: lang })
+      changeLang: (lang: string) => currentLang$.next({ iso2: lang, languages: ['en'] })
     });
     const routingServiceMock = {
       currentLinkData$: of({}),
@@ -54,7 +54,7 @@ describe('AppComponent', () => {
         { provide: LightModeService, useValue: lightModeServiceMock},
         { provide: ModalService, useValue: modalServiceMock },
         { provide: TabIndexService, useValue: { tabIndexValues$: of({}) } },
-        { provide: MyTranslateService, useValue: { currentLang$: of({ iso2: 'en' }) } },
+        { provide: MyTranslateService, useValue: { currentLang$: of({ iso2: 'en', languages: ['en'] }) } },
         { provide: AdaptiveService, useValue: { isMobile$: of(false) } },
         { provide: SeoService, useValue: seoServiceSpy },
         { provide: IconsService, useValue: { registerIcons: () => {} } },

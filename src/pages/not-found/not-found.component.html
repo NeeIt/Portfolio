@@ -18,6 +18,6 @@
     />
   </div>
   <mat-icon svgIcon="404"></mat-icon>
-  <a *ngIf="(currentLang$ | async)?.iso2 as lang"
+  <a *ngIf="(currentLang$ | async)?.lang as lang"
      [routerLink]="'/'+(lang === defaultLang ? '' : (lang | lowercase))">{{'PAGES.NOT_FOUND.TO_MAIN' | translate}}</a>
 </div>

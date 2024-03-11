@@ -2,7 +2,7 @@
 
 @include Media('bigMobile') {
   .work-list-page {
-    &__breadcrumb, &__h1 {
+    &__breadcrumb, &__h1, &__h2 {
       padding-left: 48px;
     }
   }
@@ -25,7 +25,7 @@
       padding-left: calc(var(--panel-margin-left) + 96px);
     }
 
-    &__h1 {
+    &__h1, &__h2 {
       padding-left: calc(var(--panel-margin-left) + 16px);
     }
   }
@@ -38,7 +38,7 @@
 
 @include Media('desktop') {
   .work-list-page {
-    &__h1, &__breadcrumb {
+    &__h1, &__breadcrumb, &__h2 {
       padding-left: 32px;
     }
   }

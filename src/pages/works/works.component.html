@@ -1,7 +1,7 @@
 <div class="works-page">
 
   <div class="works-page__mobile-img">
-    <img [src]="'/assets/img/companies/companies.png'" alt=""/>
+    <img [src]="'/assets/img/companies/companies.png'" alt="companies i worked for"/>
   </div>
 
   <div class="works-page__group">
@@ -21,7 +21,7 @@
   <a
     class="works-page__work-list-button"
     [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
-    *ngIf="(currentLang$ | async)?.iso2 as lang"
+    *ngIf="(currentLang$ | async)?.lang as lang"
     [routerLink]="'/'+(lang === defaultLang ? '' : (lang | lowercase)+'/')+'works/list'">
     <span>{{'PAGES.WORKS.MY_PROJECTS' | translate}}</span>
     <mat-icon [svgIcon]="'next'"/>

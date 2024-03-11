@@ -8,8 +8,9 @@
     <div class="project__group">
       <app-breadcrumb [breadcrumbs]="breadcrumbs"/>
       <h1>{{'PROJECTS.KFC.NAME' | translate}}</h1>
+      <h2>{{'PROJECTS.KFC.H2' | translate}}</h2>
       <p>{{'PROJECTS.KFC.DESCRIPTION_SHORT' | translate}}</p>
-      <h2>{{'PAGES.PROJECTS.BASE.STACK' | translate}}</h2>
+      <h3>{{'PAGES.PROJECTS.BASE.STACK' | translate}}</h3>
       <div class="work-card__stack stack-list">
         <div *ngFor="let skill of project.STACK" class="stack-list__item">
           <mat-icon [svgIcon]="skill | lowercase"></mat-icon>
@@ -19,17 +20,18 @@
       <a class="project__visit-button"
          [href]="project.URL"
          [target]="'_blank'"
+         rel="noopener noreferrer"
          [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
       >
         {{'PAGES.PROJECTS.BASE.VISIT' | translate}}
       </a>
     </div>
     <div class="project__group">
-      <h2>{{'PAGES.PROJECTS.BASE.ROLE' | translate}}</h2>
+      <h3>{{'PAGES.PROJECTS.BASE.ROLE' | translate}}</h3>
       <p>{{'PROJECTS.KFC.ROLE_DESCRIPTION' | translate}}</p>
     </div>
     <div class="project__group">
-      <h2>{{'PAGES.PROJECTS.BASE.SCREENSHOTS' | translate}}</h2>
+      <h3>{{'PAGES.PROJECTS.BASE.SCREENSHOTS' | translate}}</h3>
       <p>{{'PAGES.PROJECTS.KFC.RESTRICTION' | translate}}</p>
       <app-photo-slider *ngIf="previewList" [imageList]="previewList" class="project__preview-slider"/>
     </div>

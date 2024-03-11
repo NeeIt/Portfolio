@@ -62,9 +62,10 @@ export class SeoService {
     if (!alternates.length) {
       [DEFAULT_LANGUAGE, ...AVAILABLE_LANGUAGES].forEach((lang, index) => {
         const el = this.doc.createElement('link');
+        const link = 'https://www.' + environment.hostName + (lang === DEFAULT_LANGUAGE ? '' : '/' + lang).toLowerCase() + (alternatesLink !== '/' ? alternatesLink : '');
         el.rel = 'alternate';
-        el.hreflang = lang === 'US'? 'en' : lang.toLowerCase();
-        el.href = 'https://' + environment.hostName + (lang === DEFAULT_LANGUAGE ? '' : '/' + lang).toLowerCase() + (alternatesLink !== '/' ? alternatesLink : '');
+        el.hreflang = lang.toLowerCase();
+        el.href = link.endsWith('/') ? link : `${link}/`;
         if (index === 0) {
           el.hreflang = 'x-default';
         }
@@ -72,12 +73,15 @@ export class SeoService {
       });
     } else {
       alternates.forEach(
-        (el) =>
-          (el.href =
-            'https://' +
+        (el) => {
+          const link = (el.href =
+            'https://www.' +
             environment.hostName +
-            (el.hreflang === 'x-default' || el.hreflang === DEFAULT_LANGUAGE ? '' : '/' + el.hreflang).toLowerCase() +
-            (alternatesLink !== '/' ? alternatesLink : ''))
+            (el.hreflang === 'x-default' || el.hreflang.toUpperCase() === DEFAULT_LANGUAGE.toUpperCase() ? '' : '/' + el.hreflang).toLowerCase() +
+            (alternatesLink !== '/' ? alternatesLink : ''));
+          return link.endsWith('/') ? link : `${link}/`;
+        }
+
       );
     }
   }
@@ -132,10 +136,10 @@ export class SeoService {
 
     const canonical: HTMLLinkElement | null = this.doc.querySelector('link[rel="canonical"]');
     if (canonical) {
-      canonical.href = canonicalUrl;
+      canonical.href = canonicalUrl.replace(/^(https?:\/\/)(?!www\.)([^\/]+)/, "$1www.$2");
     } else {
       const el: HTMLLinkElement = this.doc.createElement('link');
-      el.href = canonicalUrl;
+      el.href = canonicalUrl.replace(/^(https?:\/\/)(?!www\.)([^\/]+)/, "$1www.$2");
       el.rel = 'canonical';
       this.doc.head.appendChild(el);
     }

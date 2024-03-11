@@ -1,5 +1,6 @@
 <div class="contact-page">
   <p class="sr-only">{{'ACCESSIBILITY.CONTACTS.DESCRIPTION' | translate}}</p>
+  <h2>{{'PAGES.CONTACTS.FORM.H2' | translate}}</h2>
   <form [formGroup]="contactForm"
         (ngSubmit)="onSubmit()"
         class="contact-page__form form">
@@ -51,6 +52,7 @@
         <mat-icon svgIcon="loading" class="form__loading"></mat-icon>
       </ng-container>
     </button>
+    <div *ngIf="error" class="form__error">{{error | translate}}</div>
   </form>
 
   <address class="contact-page__email">
@@ -67,6 +69,7 @@
        [tabIndex]="(tabIndexes$ | async)?.MAIN_CONTENT"
        [attr.aria-label]="('ACCESSIBILITY.CONTACTS.'+(social[0] | uppercase)) | translate"
        [href]="social[1]"
+       rel="noopener noreferrer"
        target="_blank"
        class="socials__link">
       <mat-icon [svgIcon]="'social-'+social[0] | lowercase"></mat-icon>

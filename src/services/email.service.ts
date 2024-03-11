@@ -4,8 +4,8 @@ import { RequestStates } from "@interfaces/request-states.interface";
 import { IEmailParams } from "@interfaces/email.interface";
 import { environment } from "@environments/environment";
 import { Injectable } from "@angular/core";
-import {GTM_EVENTS} from "@constants/base/gtm-events.const";
-import {GtmService} from "@services/gtm.service";
+import { GTM_EVENTS } from "@constants/base/gtm-events.const";
+import { GtmService } from "@services/gtm.service";
 
 
 @Injectable({
