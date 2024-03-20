@@ -82,48 +82,49 @@ a, a:visited, a:active {
 }
 
 
-.glitch{
-  position: relative;
-  font-weight: 700;
-  line-height: 1.2;
-  color: currentColor;
-  letter-spacing: 5px;
-  z-index: 1;
-  overflow: hidden;
-
-  &:before, &:after {
-    content: attr(data-glitch);
-    position: absolute;
-    top: 0;
-    width: 100%;
-    color: currentColor;
-    background-color: var(--color-background-glitch, var(--color-background));
-    overflow: hidden;
-    clip: rect(0, 900px, 0, 0);
-  }
-
-  &:before {
-    left: -4px;
-    animation: noise-before 3s infinite linear alternate-reverse;
-  }
-
-  &:after {
-    left: 4px;
-    animation: noise-after 2s infinite linear alternate-reverse;
-  }
-
-  &.delay-1 {
-    &:before, &:after {
-      animation-delay: 1s;
-    }
-  }
-
-  &.delay-2 {
-    &:before, &:after {
-      animation-delay: 2s;
-    }
-  }
-}
+// NOTE: decided don't use this
+//.glitch{
+//  position: relative;
+//  font-weight: 700;
+//  line-height: 1.2;
+//  color: currentColor;
+//  letter-spacing: 5px;
+//  z-index: 1;
+//  overflow: hidden;
+//
+//  &:before, &:after {
+//    content: attr(data-glitch);
+//    position: absolute;
+//    top: 0;
+//    width: 100%;
+//    color: currentColor;
+//    background-color: var(--color-background-glitch, var(--color-background));
+//    overflow: hidden;
+//    clip: rect(0, 900px, 0, 0);
+//  }
+//
+//  &:before {
+//    left: -4px;
+//    animation: noise-before 3s infinite linear alternate-reverse;
+//  }
+//
+//  &:after {
+//    left: 4px;
+//    animation: noise-after 2s infinite linear alternate-reverse;
+//  }
+//
+//  &.delay-1 {
+//    &:before, &:after {
+//      animation-delay: 1s;
+//    }
+//  }
+//
+//  &.delay-2 {
+//    &:before, &:after {
+//      animation-delay: 2s;
+//    }
+//  }
+//}
 
 @keyframes noise-before {
   0% {

@@ -79,9 +79,7 @@
 
   <!-- EXPERIENCE BLOCK --->
   <div class="details-page__group">
-    <h3 class="glitch delay-1"
-        [ngStyle]="{'--color-background-glitch': 'var(--color-background-pale)'}"
-        [attr.data-glitch]="'PAGES.DETAILS.EXPERIENCE.TITLE'| translate">
+    <h3>
       {{'PAGES.DETAILS.EXPERIENCE.TITLE'| translate}}
     </h3>
     <p>{{'PAGES.DETAILS.EXPERIENCE.DATE' | translate}}: {{experienceStartDate | dateAgo : {showMonths: true, showYears: true} }}</p>
