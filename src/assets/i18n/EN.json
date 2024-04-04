@@ -136,7 +136,7 @@
     },
     "NOT_FOUND": {
       "MAIN_TEXT": "404",
-      "TO_MAIN": "На головну"
+      "TO_MAIN": "Go to home"
     },
     "PROJECTS": {
       "BASE": {
