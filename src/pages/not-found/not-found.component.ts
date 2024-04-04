@@ -23,6 +23,8 @@ export class NotFoundComponent implements OnInit {
 
   readonly defaultLang = DEFAULT_LANGUAGE;
 
+  easterEggApplied = false;
+
   paralaxElements = [
     {value:50, size: 20, x:0, y:0, xStart: '39%',  yStart: '13%', img: 'd1.png', z: 1, rotation: 515},
     {value:40, size: 15, x:0, y:0, xStart: '82%',  yStart: '31%', img: 'd2.png', z: 1, rotation: -620},
@@ -51,6 +53,7 @@ export class NotFoundComponent implements OnInit {
 
   setEasterEgg(): void {
     this.paralaxElements = this.paralaxElements.map(el => ({...el, img: 'easter-egg-1.png'}));
+    this.easterEggApplied = true;
     this.cdr.markForCheck();
   }
 
@@ -66,6 +69,14 @@ export class NotFoundComponent implements OnInit {
       }
     })
     this.cdr.markForCheck();
+  }
+
+  @HostListener("document:keydown", ["$event"])
+  keyPress(event: any) {
+    // NOTE: Shift + F
+    if(!this.easterEggApplied && ['KeyF'].includes(event.code) && event.shiftKey) {
+      this.setEasterEgg();
+    }
   }
 
   ngOnInit(): void {
