@@ -26,7 +26,7 @@
     [animationState]="mobileButtonAnimationState"
     *ngIf="!isFullPage && (currentLinkData$ | async)?.nextPage"/>
 
-  <div class="panels" [ngClass]="{ 'panels_bordered': (currentMode$ | async) === 'light'}">
+  <div class="panels">
     <div class="panel panel_right">
       <app-navigation-indicator *ngIf="!isFullPage"/>
     </div>
@@ -69,5 +69,5 @@
 </button>
 
 <app-modals/>
-
-<app-cursor aria-hidden="true"/>
+<!-- Custom cursor -->
+<!--<app-cursor aria-hidden="true"/>-->

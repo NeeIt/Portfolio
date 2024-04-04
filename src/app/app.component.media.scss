@@ -7,12 +7,6 @@
     }
   }
   .panels {
-    &_bordered {
-      .panel {
-        border: 1px solid var(--color-gray);
-      }
-    }
-
     .panel {
       &_left, &_right {
         pointer-events: auto;
