@@ -14,11 +14,6 @@
   height: 0;
   z-index: var(--z-index-navigation);
 
-  &_light:not(.navigation_opened) .burger span{
-    background-color: var(--color-text-reversed);
-    @include ChangeLightMode;
-  }
-
   &_opened {
     height: 100%;
     width: 100%;
