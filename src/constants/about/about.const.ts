@@ -2,7 +2,7 @@ import {IPhoto} from "@interfaces/photo.interface";
 
 export const MY_PHOTO = { id: 1, src: '/assets/img/me/me_2.png', name: 'my-photo'};
 
-export const EXPERIENCE_START_DATE = '2020-05-01';
+export const EXPERIENCE_START_DATE = '2019-08-01';
 
 export const HOBBIES = [
   {
